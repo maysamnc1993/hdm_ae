@@ -1,0 +1,60 @@
+// SVG Icon System
+
+// Base icon class
+.icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+// Icon size utilities
+.icon-xs {
+  width: 0.75em;
+  height: 0.75em;
+}
+
+.icon-sm {
+  width: 1em;
+  height: 1em;
+}
+
+.icon-md {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.icon-lg {
+  width: 2em;
+  height: 2em;
+}
+
+.icon-xl {
+  width: 3em;
+  height: 3em;
+}
+
+// Icon colors
+// .icon-primary {
+//   color: var(--color-primary);
+// }
+
+// .icon-secondary {
+//   color: var(--color-secondary);
+// }
+
+// .icon-accent {
+//   color: var(--color-accent);
+// }
+
+.icon-white {
+  color: white;
+}
+
+.icon-black {
+  color: black;
+} 

@@ -1,0 +1,101 @@
+/* Base form styles */
+input,
+textarea,
+select {
+  @apply rounded-xl p-3.5 text-sm w-full;
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Placeholder styling with RTL support */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  @apply text-[#666363] text-right;
+}
+
+/* Form control styles */
+.form-control {
+  @apply relative flex flex-col w-full;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  @apply border border-gray-300 focus:ring-2 focus:ring-primary-blue focus:outline-none;
+}
+
+/* Select dropdown styling */
+.form-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"%3E%3Cpath fill="%23000" d="M1 1l5 4 5-4z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: left 15px top 50%;
+  background-size: 10px;
+}
+
+/* Input with icon positioning */
+.input-with-icon {
+  @apply relative;
+}
+
+
+.input-with-icon .input-icon {
+  @apply absolute top-1/2 left-3 transform -translate-y-1/2 pointer-events-none text-gray-500;
+}
+
+/* Radio button styling */
+.radio-group {
+  @apply flex flex-row gap-5 mt-5;
+}
+
+.input-radio {
+  @apply flex items-center gap-2;
+}
+
+input[type="radio"] {
+  @apply appearance-none relative cursor-pointer rounded-full
+         border border-gray-300 bg-transparent
+         w-5 h-5
+         transition-colors transition-opacity;
+}
+
+input[type="radio"]::before {
+  content: "";
+  @apply absolute top-1/2 left-1/2
+         -translate-x-1/2 -translate-y-1/2
+         w-2.5 h-2.5 rounded-full
+         bg-white opacity-0
+         transition-opacity;
+}
+
+input[type="radio"]:checked {
+  @apply border-primary-blue bg-primary-blue;
+}
+
+input[type="radio"]:checked::before {
+  @apply opacity-100;
+}
+
+input[type="radio"]:focus {
+  @apply ring-2 ring-primary-blue;
+}
+
+input[type="radio"]:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.dark input[type="radio"] {
+  @apply border-gray-600;
+}
+
+/* Required field indicator */
+.required-field {
+  @apply relative;
+}
+
+.required-field::before {
+  content: "";
+  @apply absolute top-2 left-2 w-2 h-2 rounded-full bg-red-500 z-10;
+}

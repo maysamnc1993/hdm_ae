@@ -1,0 +1,338 @@
+// normalize.scss for Saman Insurance Website
+// Designed to compleme
+
+@use 'fonts';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+$primary-blue: #1e3a8a;
+$secondary-blue: #3b82f6;
+$primary-red: #ef4444;
+$secondary-red: #dc2626;
+
+// Base Styles
+@mixin base-styles {
+  // RTL Setup
+  html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'AnjomanMaxFN', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'AnjomanMaxFN', Tahoma, Arial, sans-serif;
+    @apply text-gray-900 bg-white;
+    line-height: 1.5;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  // Text Selection
+  ::selection {
+    @apply bg-blue-800 text-white;
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    @apply bg-blue-800 text-white;
+    text-shadow: none;
+  }
+}
+
+// Typography
+@mixin typography {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    //margin-bottom: 0.5rem;
+    @apply font-bold text-black;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+ 
+
+  // Other text elements
+  a {
+    @apply bg-transparent text-primary-blue;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &:focus {
+      outline: 3px solid rgba($secondary-blue, 0.5);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      @apply text-primary-blue;
+    }
+  }
+
+  // // Special links like CTAs
+  // .cta-link, .btn-primary {
+  //   @apply text-white bg-red-500 px-4 py-2 rounded-md font-medium inline-block;
+  //   transition: background-color 0.2s ease-in-out;
+
+  //   &:hover {
+  //     @apply bg-red-600 text-white;
+  //     text-decoration: none;
+  //   }
+  // }
+
+  b, strong {
+    @apply font-bold;
+  }
+
+
+  // Blockquotes
+  blockquote {
+    @apply border-r-4 border-gray-200 pr-4 pl-0 my-0 mb-4 italic text-gray-600;
+  }
+}
+
+// Forms
+@mixin form-elements {
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    //@apply bg-blue-800 text-white px-4 py-2 border-0 rounded-md cursor-pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    // &:hover {
+    //   @apply bg-blue-600;
+    // }
+
+    &:focus {
+      outline: 3px solid rgba($secondary-blue, 0.5);
+      outline-offset: 2px;
+    }
+  }
+
+  // Form inputs
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    &:focus {
+      @apply border-blue-500 outline-none;
+      box-shadow: 0 0 0 3px rgba($secondary-blue, 0.3);
+    }
+  }
+
+  ::placeholder {
+    @apply text-black;
+    opacity: 1;
+  }
+
+  // Checkbox and radio
+  [type="checkbox"],
+  [type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 0.5rem;
+  }
+}
+
+// Tables
+@mixin tables {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  th, td {
+    @apply py-3 px-4 border-b border-gray-200 text-right;
+  }
+
+  th {
+    @apply bg-gray-50 font-semibold;
+  }
+}
+
+// Mobile Navigation
+@mixin mobile-navigation {
+  .mobile-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-indigo-800 text-white py-3 shadow-lg z-50;
+  }
+
+  .mobile-nav-item {
+    @apply text-white no-underline text-center text-xs;
+
+    &:hover {
+      @apply text-opacity-90;
+    }
+  }
+
+  .mobile-nav-icon {
+    @apply block mx-auto mb-1;
+  }
+
+  .mobile-nav-circle {
+    @apply relative -top-6 bg-red-500 rounded-full w-14 h-14 flex justify-center items-center shadow-md;
+  }
+}
+
+// Utilities
+@mixin utilities {
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  // Additional helpers that complement Tailwind
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+}
+
+// Print styles
+@mixin print-styles {
+  @media print {
+    *,
+    *::before,
+    *::after {
+      background: transparent !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]::after {
+      content: " (" attr(href) ")";
+    }
+
+    pre {
+      white-space: pre-wrap !important;
+    }
+
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+}
+
+// Apply all mixins
+@include base-styles;
+@include typography;
+@include form-elements;
+@include tables;
+@include mobile-navigation;
+@include utilities;
+@include print-styles;
+
+
+
+/* Override Tailwind */
+svg.icon {
+  @apply fill-none stroke-current;
+}
+
+div{
+  @apply transition-all;
+}

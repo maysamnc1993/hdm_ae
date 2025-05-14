@@ -1,0 +1,107 @@
+@use "./font-icon.scss";
+
+/* SVG Icon Styles */
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: none; /* Prevent unwanted fills */
+  stroke: currentColor; /* Default stroke */
+  stroke-width: inherit; /* Respect SVG’s stroke-width */
+  vertical-align: middle;
+  background: transparent; /* No background */
+}
+
+/* Size variations */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* Specific icon overrides (for icons with unique colors) */
+.icon-arrow-down {
+  stroke: #000;
+}
+.icon-arrow-left {
+  stroke: #ec3237;
+}
+.icon-arrow-square-down {
+  stroke: #3d5b7c;
+}
+.icon-arrow-square-up {
+  stroke: #fff;
+}
+.icon-call-calling {
+  stroke: #ec3237;
+}
+.icon-download {
+  stroke: #264480;
+}
+.icon-frame {
+  stroke: #264480;
+}
+.icon-location {
+  stroke: #ec3237;
+}
+.icon-login {
+  stroke: #264480;
+}
+.icon-people {
+  stroke: #264480;
+}
+.icon-search-normal {
+  stroke: #264480;
+}
+.icon-sms {
+  stroke: #fff;
+}
+
+.icon-red {
+  @apply text-primary-red;
+}
+
+/* Ensure Tailwind doesn’t interfere */
+svg:not(.icon) {
+  background: transparent !important;
+}
+
+/* Parent container fix */
+svg use {
+  fill: none; /* Ensure <use> doesn’t introduce fills */
+  stroke: inherit; /* Inherit stroke from .icon */
+}
+
+.icon-reshot-icon-stick-arrow-right {
+  width: 25px;
+  height: 25px;
+  rotate: 140deg;
+  stroke-width: 2px;
+  opacity: 0.8;
+  color: theme('colors.primary-red');
+}
+
+
+
+.icon-vuesax-linear-call-calling,.icon-location,.icon-vuesax-linear-sms,.icon-directbox-receive{
+  stroke-width: .6px;
+}
+.stroke-width-1{
+  stroke-width: 1px;
+}
+
+.icon-solar_arrow-up-linear{
+  margin-top: 0.25rem;
+  rotate: 2025deg;
+  width: 0.75rem;
+  height: 0.75rem;
+}

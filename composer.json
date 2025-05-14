@@ -1,0 +1,15 @@
+{
+    "name": "jaber/jthem",
+    "autoload": {
+        "psr-4": {
+            "JThem\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dr laravel",
+            "email": "m.hashempour95@gmail.com"
+        }
+    ],
+    "require": {}
+}

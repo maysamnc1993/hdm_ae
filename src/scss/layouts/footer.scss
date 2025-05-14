@@ -1,0 +1,11 @@
+.subs-section {
+  @apply relative;
+  .input{
+    @apply w-full p-4 pr-4 pl-32 text-right rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500;
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+   
+  }
+  .btn-sub{
+    @apply  absolute left-2 top-1/2 transform -translate-y-1/2 ;
+}
+}

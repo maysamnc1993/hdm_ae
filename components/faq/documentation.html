@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Component Documentation - JThem</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #0073aa;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0073aa;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #23282d;
+            margin-top: 25px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        .example {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .parameter-table th, .parameter-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .parameter-table th {
+            background: #f5f5f5;
+        }
+        .tip {
+            background: #e5f5fa;
+            border-left: 4px solid #00a0d2;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #fff8e5;
+            border-left: 4px solid #ffb900;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>JTheme FAQ Component Documentation</h1>
+    
+    <p>
+        The FAQ component is a reusable, modular element for creating and displaying Frequently Asked Questions in WordPress sites built with the JTheme theme. It's fully customizable, responsive, and can be used in multiple places across your site.
+    </p>
+
+    <h2>Quick Start</h2>
+    
+    <p>There are three main ways to use the FAQ component:</p>
+    
+    <ol>
+        <li>Using a shortcode in your content</li>
+        <li>Calling a function in a template file</li>
+        <li>Using the saved FAQ items from the admin area</li>
+    </ol>
+
+    <h3>1. Using Shortcode</h3>
+    
+    <p>The simplest way to use the FAQ component is with a shortcode in your WordPress content:</p>
+    
+    <pre>[jthem_faq title="سوالات متداول" subtitle="پاسخ به سوالات رایج شما"]</pre>
+    
+    <p>This will display all FAQ items that you've created in the admin area.</p>
+    
+    <p>If you want to display specific FAQ items, use the <code>items</code> attribute with comma-separated IDs:</p>
+    
+    <pre>[jthem_faq items="1,2,3" title="سوالات متداول"]</pre>
+    
+    <div class="tip">
+        <strong>Tip:</strong> You can find the ID of each FAQ item in the admin interface at Appearance → سوالات متداول.
+    </div>
+
+    <h3>2. Using Function in Templates</h3>
+    
+    <p>For more control, you can use the PHP function in your template files:</p>
+    
+    <pre>
+&lt;?php
+// Basic usage with items from the FAQ admin
+jthem_faq([
+    'title' => 'سوالات متداول',
+    'subtitle' => 'پاسخ به سوالات رایج شما',
+]);
+?&gt;</pre>
+
+    <p>Or create custom items directly in your code:</p>
+    
+    <pre>
+&lt;?php
+// Custom items defined in code
+$faq_items = [
+    [
+        'question' => 'سوال اول',
+        'answer' => 'پاسخ اول',
+        'is_open' => true // This item will be open by default
+    ],
+    [
+        'question' => 'سوال دوم',
+        'answer' => 'پاسخ دوم',
+    ],
+];
+
+jthem_faq([
+    'title' => 'سوالات متداول',
+    'items' => $faq_items,
+]);
+?&gt;</pre>
+
+    <h2>Admin Interface</h2>
+    
+    <p>
+        The FAQ component comes with a built-in admin interface at <strong>Appearance → سوالات متداول</strong>.
+        Here you can create, edit, and manage all your FAQ items. These items can then be shown on your site using
+        either shortcodes or template functions.
+    </p>
+    
+    <p>The admin interface allows you to:</p>
+    
+    <ul>
+        <li>Create unlimited FAQ items</li>
+        <li>Use a rich text editor for answers (supports formatting, links, etc.)</li>
+        <li>Set which items should be open by default</li>
+        <li>Get the ID of each item to use in shortcodes</li>
+    </ul>
+
+    <h2>Customization Options</h2>
+    
+    <p>The FAQ component is highly customizable. Here are all the parameters you can use:</p>
+    
+    <table class="parameter-table">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>title</code></td>
+                <td>string</td>
+                <td>'سوالات متداول'</td>
+                <td>The title of the FAQ section</td>
+            </tr>
+            <tr>
+                <td><code>subtitle</code></td>
+                <td>string</td>
+                <td>''</td>
+                <td>Optional subtitle for the FAQ section</td>
+            </tr>
+            <tr>
+                <td><code>items</code></td>
+                <td>array</td>
+                <td>[]</td>
+                <td>Array of FAQ items or comma-separated list of IDs in shortcode</td>
+            </tr>
+            <tr>
+                <td><code>container_class</code></td>
+                <td>string</td>
+                <td>'faq-container my-12'</td>
+                <td>CSS classes for the container</td>
+            </tr>
+            <tr>
+                <td><code>accordion_type</code></td>
+                <td>string</td>
+                <td>'single'</td>
+                <td>'single' or 'multiple' (allow multiple panels open)</td>
+            </tr>
+            <tr>
+                <td><code>icon_open</code></td>
+                <td>string</td>
+                <td>'plus'</td>
+                <td>Icon to show when panel is closed. Options: 'plus', 'chevron-down'</td>
+            </tr>
+            <tr>
+                <td><code>icon_close</code></td>
+                <td>string</td>
+                <td>'minus'</td>
+                <td>Icon to show when panel is open. Options: 'minus', 'chevron-up'</td>
+            </tr>
+            <tr>
+                <td><code>custom_id</code></td>
+                <td>string</td>
+                <td>''</td>
+                <td>Custom ID for the FAQ container</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Advanced Example with All Options</h3>
+    
+    <pre>
+&lt;?php
+// Advanced usage with all options
+jthem_faq([
+    'title' => 'راهنمای خرید',
+    'subtitle' => 'همه آنچه برای خرید راحت نیاز دارید',
+    'items' => $faq_items, // Array of FAQ items
+    'container_class' => 'faq-container my-8 max-w-3xl mx-auto bg-gray-100 p-6 rounded-xl',
+    'accordion_type' => 'multiple', // Allow multiple panels to be open at once
+    'icon_open' => 'chevron-down',
+    'icon_close' => 'chevron-up',
+    'custom_id' => 'purchase-guide-faq',
+]);
+?&gt;</pre>
+
+    <h2>FAQ Item Format</h2>
+    
+    <p>Each FAQ item has the following format:</p>
+    
+    <pre>
+[
+    'question' => 'Your question here?',
+    'answer' => 'Your answer here. Can include HTML markup.',
+    'is_open' => true/false // Optional, default is false
+]</pre>
+
+    <h2>Getting FAQ HTML as a String</h2>
+    
+    <p>
+        If you need to get the FAQ HTML as a string (for example, to modify it or use it in a custom location),
+        you can use the <code>jthem_get_faq()</code> function:
+    </p>
+    
+    <pre>
+&lt;?php
+$faq_html = jthem_get_faq([
+    'title' => 'سوالات متداول',
+    'items' => $faq_items,
+]);
+
+// Now you can use $faq_html however you want
+echo $faq_html;
+?&gt;</pre>
+
+    <h2>Styling Guide</h2>
+    
+    <p>
+        The FAQ component uses Tailwind CSS for styling and is fully responsive. If you want to customize the appearance,
+        you can add your own CSS classes or override the default styles.
+    </p>
+    
+    <p>The main CSS classes you can target are:</p>
+    
+    <ul>
+        <li><code>.faq-container</code> - The main container</li>
+        <li><code>.faq-header</code> - The title and subtitle section</li>
+        <li><code>.faq-items</code> - The container for all FAQ items</li>
+        <li><code>.faq-item</code> - Each individual FAQ item</li>
+        <li><code>.faq-question</code> - The question button</li>
+        <li><code>.faq-answer</code> - The answer content</li>
+        <li><code>.faq-icon</code> - The toggle icon</li>
+    </ul>
+    
+    <div class="tip">
+        <strong>Tip:</strong> You can add your own classes to the container using the <code>container_class</code> parameter.
+    </div>
+
+    <h2>Troubleshooting</h2>
+    
+    <div class="warning">
+        <strong>Common Issue:</strong> If the FAQ component isn't displaying correctly, make sure the components loader is included in your theme's <code>functions.php</code> file.
+    </div>
+    
+    <p>Common issues and solutions:</p>
+    
+    <ul>
+        <li><strong>FAQ doesn't appear</strong> - Check that the component is properly loaded in functions.php</li>
+        <li><strong>Styling issues</strong> - Make sure Tailwind CSS is loaded on your page</li>
+        <li><strong>JavaScript not working</strong> - Check for JavaScript errors in the browser console</li>
+        <li><strong>Multiple FAQs on one page</strong> - Each FAQ gets a unique ID, so multiple instances should work fine</li>
+    </ul>
+
+    <h2>Get Help</h2>
+    
+    <p>
+        If you need additional help with the FAQ component, please contact the JTheme theme support team or refer to the full documentation.
+    </p>
+    
+    <hr>
+    
+    <p><small>&copy; JTheme Theme. All rights reserved.</small></p>
+</body>
+</html> 

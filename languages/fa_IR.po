@@ -1,0 +1,120 @@
+# Copyright (C) 2024 JThem
+# This file is distributed under the same license as the JTheme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: JTheme 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jthem\n"
+"POT-Creation-Date: 2024-07-01 12:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2024-07-01 12:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: JThem\n"
+
+#: functions.php:46
+msgid "Primary Menu"
+msgstr "منوی اصلی"
+
+#: functions.php:47
+msgid "Footer Menu"
+msgstr "منوی پاورقی"
+
+#: functions.php:58
+msgid "Sidebar"
+msgstr "نوار کناری"
+
+#: functions.php:60
+msgid "Add widgets here to appear in the sidebar."
+msgstr "ابزارک‌ها را اینجا اضافه کنید تا در نوار کناری نمایش داده شوند."
+
+#: functions.php:68
+msgid "Footer Widget Area"
+msgstr "منطقه ابزارک‌های پاورقی"
+
+#: functions.php:70
+msgid "Add widgets here to appear in the footer."
+msgstr "ابزارک‌ها را اینجا اضافه کنید تا در پاورقی نمایش داده شوند."
+
+#: functions.php:78
+msgid "Language Switcher Area"
+msgstr "منطقه تغییر زبان"
+
+#: functions.php:80
+msgid "Add the language switcher widget here."
+msgstr "ابزارک تغییر زبان را اینجا اضافه کنید."
+
+#: header.php:41
+msgid "Toggle menu"
+msgstr "تغییر منو"
+
+#: header.php:73
+msgid "Dev Mode"
+msgstr "حالت توسعه"
+
+#: single.php:107
+msgid "Tags:"
+msgstr "برچسب‌ها:"
+
+#: single.php:131
+msgid "Previous"
+msgstr "مطلب قبلی"
+
+#: single.php:145
+msgid "Next"
+msgstr "مطلب بعدی"
+
+#: single.php:214
+msgid "Recent Posts"
+msgstr "آخرین مطالب"
+
+#: single.php:213
+msgid "Categories"
+msgstr "دسته‌بندی‌ها"
+
+#: footer.php:6
+msgid "About Us"
+msgstr "درباره ما"
+
+#: footer.php:8
+msgid "JTheme is a modern WordPress theme built with Vite, Tailwind CSS, and TypeScript."
+msgstr "JTheme یک قالب مدرن وردپرس است که با Vite، Tailwind CSS و TypeScript ساخته شده است."
+
+#: footer.php:58
+msgid "Quick Links"
+msgstr "لینک‌های سریع"
+
+#: footer.php:73
+msgid "Contact Us"
+msgstr "تماس با ما"
+
+#: footer.php:76
+msgid "123 Example Street, City, Country"
+msgstr "خیابان نمونه 123، شهر، کشور"
+
+#: footer.php:92
+msgid "Subscribe"
+msgstr "عضویت در خبرنامه"
+
+#: footer.php:95
+msgid "Stay updated with our latest news and features."
+msgstr "با آخرین اخبار و ویژگی‌های ما به‌روز باشید."
+
+#: footer.php:99
+msgid "Your email address"
+msgstr "آدرس ایمیل شما"
+
+#: footer.php:102
+msgid "Subscribe"
+msgstr "عضویت"
+
+#: footer.php:110
+msgid "All rights reserved."
+msgstr "تمامی حقوق محفوظ است."
+
+#: footer.php:113
+msgid "Powered by"
+msgstr "نیرو گرفته از" 

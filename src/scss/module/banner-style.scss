@@ -1,0 +1,18 @@
+.custom-banner-container {
+    @apply rounded-3xl container my-6;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .custom-banner-container {
+        margin-bottom: 15px;
+    }
+}

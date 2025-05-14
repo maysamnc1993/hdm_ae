@@ -1,0 +1,159 @@
+// Tailwind classes (if available)
+.faq-container {
+  @apply mb-12 mt-5;
+
+  .faq-header {
+    @apply text-center mb-10;
+
+    h2 {
+      @apply text-3xl font-bold text-gray-800 mb-3;
+    }
+
+    p {
+      @apply text-gray-600;
+    }
+  }
+
+  .faq-items {
+    @apply space-y-4;
+  }
+
+  .faq-item {
+    @apply bg-white rounded-3xl overflow-hidden transition-colors duration-300;
+    box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.05);
+
+    // Active/Open state styles
+    &:has(button[aria-expanded="true"]) {
+      background-color: #274480 !important;
+
+      .faq-question {
+        color: white !important;
+        background-color: #274480 !important;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        span {
+          color: white !important;
+        }
+      }
+
+      .faq-icon {
+        svg {
+          stroke: white !important;
+        }
+      }
+
+      .faq-answer {
+        color: white !important;
+        background-color: #274480 !important;
+
+        .content {
+          background-color: #274480 !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  .faq-question {
+    @apply w-full gap-2 flex justify-between items-center p-5 text-right text-gray-800 font-medium focus:outline-none hover:bg-gray-50 transition-colors duration-300;
+  }
+
+  .faq-icon {
+    @apply inline-flex items-center justify-center w-6 h-6;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+
+    svg {
+      stroke: currentColor;
+    }
+  }
+
+  .faq-answer {
+    @apply transition-all duration-300 ease-in-out overflow-hidden;
+
+    .content {
+      @apply p-5;
+    }
+  }
+}
+
+// Category Filter Styles
+.faq-category-filter-wrapper {
+  @apply relative mb-8;
+
+  .filter-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .filter-container {
+    @apply flex items-center gap-4;
+  }
+
+  // Custom Dropdown Styles
+  .custom-dropdown-wrapper {
+    @apply relative flex-grow;
+  }
+
+  .custom-dropdown {
+    @apply relative w-full cursor-pointer bg-white rounded-2xl shadow-sm text-right;
+    box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.05);
+    direction: rtl;
+    
+    &.active {
+      .dropdown-options {
+        @apply block;
+      }
+      
+      .selected-option svg {
+        transform: rotate(180deg);
+      }
+    }
+    
+    .selected-option {
+      @apply flex items-center justify-between p-3 text-gray-800 font-medium;
+      
+      svg {
+        @apply ml-2 transition-transform duration-300;
+      }
+    }
+    
+    .dropdown-options {
+      @apply absolute hidden w-full mt-1 bg-white rounded-xl shadow-lg overflow-hidden z-50;
+      box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.05);
+      max-height: 250px;
+      overflow-y: auto;
+      
+      .option {
+        @apply p-3 hover:bg-gray-50 transition-colors duration-200 text-right;
+        
+        &.selected, &:hover {
+          @apply bg-gray-50;
+        }
+        
+        &.selected {
+          @apply font-medium text-blue-600;
+        }
+      }
+    }
+  }
+
+  .filter-button {
+    @apply flex items-center justify-center p-3 bg-primary-blue rounded-xl shadow-sm  transition-colors duration-200;
+    box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.05);
+
+    svg {
+      @apply w-5 h-5 text-white;
+    }
+
+    &:hover {
+      @apply bg-gray-50;
+      svg {
+        @apply w-5 h-5 text-black;
+      }
+    }
+  }
+}
+

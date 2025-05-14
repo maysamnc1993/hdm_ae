@@ -1,0 +1,14 @@
+/* Elementor compatibility styles */
+.elementor-page .site-content {
+    padding: 0;
+    margin: 0;
+}
+
+.elementor-page .entry-content {
+    margin: 0;
+}
+
+/* Fix for Elementor section width */
+.elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 1140px; /* Match your theme's content width */
+}

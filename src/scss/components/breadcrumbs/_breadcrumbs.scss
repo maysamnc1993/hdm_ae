@@ -1,0 +1,17 @@
+// breadcrumbs.scss
+
+.breadcrumb {
+    @apply flex items-center space-x-2 text-black text-sm my-5;
+
+    .separator {
+        @apply mx-1;
+    }
+
+    .breadcrumb-item {
+        @apply inline-flex items-center;
+
+        .current {
+            @apply font-bold text-black;
+        }
+    }
+}

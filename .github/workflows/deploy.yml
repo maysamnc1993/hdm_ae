@@ -1,0 +1,56 @@
+name: Deploy WordPress Theme to cPanel via SSH
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy Theme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Test SSH Connection
+        run: |
+          sshpass -p "zI?YVpW]~[YQ" ssh -p 6985 -o StrictHostKeyChecking=no \
+            staginghdmplus@109.230.196.110 "echo SSH connection successful"
+
+      - name: Deploy Theme and Update Environment
+        run: |
+          sshpass -p "zI?YVpW]~[YQ" ssh -p 6985 -o StrictHostKeyChecking=no \
+            staginghdmplus@109.230.196.110 << 'EOF'
+              cd /home/staginghdmplus/public_html/si24/wp-content/themes/JTheme/
+
+              # Configure Git to use SSH
+              git remote set-url origin git@github.com:Drlaravel/saman.git
+
+              # Ensure SSH key permissions (key already exists on server)
+              chmod 600 ~/.ssh/id_rsa
+              chmod 644 ~/.ssh/known_hosts
+              ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+
+              # Update git repository
+              git fetch origin
+              git reset --hard origin/main
+
+
+              # Install Node.js and npm
+              if ! command -v node &> /dev/null; then
+                curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+                apt-get install -y nodejs
+              fi
+
+              # Install dependencies and build
+              npm install
+              npm run build
+
+              # Set proper permissions
+              chown -R staginghdmplus:staginghdmplus .
+              chmod -R 755 .
+                echo "Deployment completed successfully"
+            EOF

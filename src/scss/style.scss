@@ -1,0 +1,126 @@
+@use 'core/theme';
+@use 'core/iconFont/iconFont';
+@use 'core/buttons/button';
+@use 'core/forms/forms';
+
+@use 'layouts/header';
+@use 'layouts/footer';
+
+// Theme colors
+$primary: #007bff;
+$primary-dark: #0056b3;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Typography
+$font-family-base: 'Vazirmatn', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
+
+// Z-index
+$z-layers: (
+  modal: 1000,
+  overlay: 900,
+  dropdown: 800,
+  header: 700,
+  footer: 600,
+);
+
+@layer base {
+  html[dir="rtl"] {
+    direction: rtl;
+    unicode-bidi: embed;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-all;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+
+
+footer {
+  .footer_useful_links,
+  .footer_quick_access {
+    .menu-item {
+      @apply text-white text-right;
+    }
+    
+    a {
+      @apply text-white hover:text-gray-200 transition-colors;
+      width: max-content;
+      max-width: 185px;
+      text-align: right;
+      display: block;
+    }
+  }
+  
+  li {
+    @apply flex items-center gap-1;
+
+    &::before {
+      content: "";
+      @apply bg-primary-red;
+      width: 5px;
+      height: 5px;
+      display: block;
+      border-radius: 99px;
+    }
+  }
+  
+  .subs-section {
+    @apply flex;
+    
+    .input {
+      @apply flex-grow  border-none p-3 text-right text-sm;
+    }
+    
+    .btn-sub {
+      @apply bg-primary-red text-white rounded-l-md py-2 px-6 text-sm font-bold hover:bg-red-700 transition-colors;
+    }
+  }
+}
+
+
+

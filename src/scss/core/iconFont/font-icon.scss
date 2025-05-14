@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "pg";
+  src: url('../fonts/iconFont/pg-icons/pg.eot?t=1744315536659'); /* IE9*/
+  src: url('../fonts/iconFont/pg-icons/pg.eot?t=1744315536659#iefix') format('embedded-opentype') /* IE6-IE8 */,
+  url('../fonts/iconFont/pg-icons/pg.woff2?t=1744315536659') format('woff2'),
+  url('../fonts/iconFont/pg-icons/pg.woff?t=1744315536659') format('woff'),
+  url('../fonts/iconFont/pg-icons/pg.ttf?t=1744315536659') format('truetype'),
+  url('../fonts/iconFont/pg-icons/pg.svg?t=1744315536659') format('svg');
+}
+
+[class^="pg-"], [class*=" pg-"] {
+  font-family: 'pg' !important;font-size: 1.2rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.pg-android::before { content: "\ea01"; }
+.pg-arrow-left-2::before { content: "\ea02"; }
+.pg-arrow-left::before { content: "\ea03"; }
+.pg-b-star::before { content: "\ea04"; }
+.pg-call-calling::before { content: "\ea05"; }
+.pg-comments::before { content: "\ea06"; }
+.pg-credit-card::before { content: "\ea07"; }
+.pg-currency-irt::before { content: "\ea08"; }
+.pg-demo-icon::before { content: "\ea09"; }
+.pg-download::before { content: "\ea0a"; }
+.pg-edit::before { content: "\ea0b"; }
+.pg-email::before { content: "\ea0c"; }
+.pg-fa-facebook::before { content: "\ea0d"; }
+.pg-fa-instagram::before { content: "\ea0e"; }
+.pg-fa-linkedin::before { content: "\ea0f"; }
+.pg-fa-telegram::before { content: "\ea10"; }
+.pg-fa-twitter::before { content: "\ea11"; }
+.pg-fa-whatsapp::before { content: "\ea12"; }
+.pg-fa-xmark-solid::before { content: "\ea13"; }
+.pg-fa-youtube::before { content: "\ea14"; }
+.pg-heart::before { content: "\ea15"; }
+.pg-home::before { content: "\ea16"; }
+.pg-info::before { content: "\ea17"; }
+.pg-instagram::before { content: "\ea18"; }
+.pg-ios::before { content: "\ea19"; }
+.pg-keyboard::before { content: "\ea1a"; }
+.pg-lamp::before { content: "\ea1b"; }
+.pg-like-2::before { content: "\ea1c"; }
+.pg-like-outline::before { content: "\ea1d"; }
+.pg-location::before { content: "\ea1e"; }
+.pg-macos-os::before { content: "\ea1f"; }
+.pg-mail::before { content: "\ea20"; }
+.pg-mines::before { content: "\ea21"; }
+.pg-o-arrow-down-1::before { content: "\ea22"; }
+.pg-o-arrow-left-2::before { content: "\ea23"; }
+.pg-o-arrow-right-3::before { content: "\ea24"; }
+.pg-o-arrow-up-2::before { content: "\ea25"; }
+.pg-o-star::before { content: "\ea26"; }
+.pg-phone_call::before { content: "\ea27"; }
+.pg-plus::before { content: "\ea28"; }
+.pg-quote::before { content: "\ea29"; }
+.pg-report::before { content: "\ea2a"; }
+.pg-search-normal::before { content: "\ea2b"; }
+.pg-settings::before { content: "\ea2c"; }
+.pg-skype::before { content: "\ea2d"; }
+.pg-spinner::before { content: "\ea2e"; }
+.pg-telegram::before { content: "\ea2f"; }
+.pg-test-icon::before { content: "\ea30"; }
+.pg-user::before { content: "\ea31"; }
+.pg-web::before { content: "\ea32"; }
+.pg-whatsapp::before { content: "\ea33"; }
+.pg-windows-fill::before { content: "\ea34"; }
+
+
+$pg-android: '\ea01';
+$pg-arrow-left-2: '\ea02';
+$pg-arrow-left: '\ea03';
+$pg-b-star: '\ea04';
+$pg-call-calling: '\ea05';
+$pg-comments: '\ea06';
+$pg-credit-card: '\ea07';
+$pg-currency-irt: '\ea08';
+$pg-demo-icon: '\ea09';
+$pg-download: '\ea0a';
+$pg-edit: '\ea0b';
+$pg-email: '\ea0c';
+$pg-fa-facebook: '\ea0d';
+$pg-fa-instagram: '\ea0e';
+$pg-fa-linkedin: '\ea0f';
+$pg-fa-telegram: '\ea10';
+$pg-fa-twitter: '\ea11';
+$pg-fa-whatsapp: '\ea12';
+$pg-fa-xmark-solid: '\ea13';
+$pg-fa-youtube: '\ea14';
+$pg-heart: '\ea15';
+$pg-home: '\ea16';
+$pg-info: '\ea17';
+$pg-instagram: '\ea18';
+$pg-ios: '\ea19';
+$pg-keyboard: '\ea1a';
+$pg-lamp: '\ea1b';
+$pg-like-2: '\ea1c';
+$pg-like-outline: '\ea1d';
+$pg-location: '\ea1e';
+$pg-macos-os: '\ea1f';
+$pg-mail: '\ea20';
+$pg-mines: '\ea21';
+$pg-o-arrow-down-1: '\ea22';
+$pg-o-arrow-left-2: '\ea23';
+$pg-o-arrow-right-3: '\ea24';
+$pg-o-arrow-up-2: '\ea25';
+$pg-o-star: '\ea26';
+$pg-phone_call: '\ea27';
+$pg-plus: '\ea28';
+$pg-quote: '\ea29';
+$pg-report: '\ea2a';
+$pg-search-normal: '\ea2b';
+$pg-settings: '\ea2c';
+$pg-skype: '\ea2d';
+$pg-spinner: '\ea2e';
+$pg-telegram: '\ea2f';
+$pg-test-icon: '\ea30';
+$pg-user: '\ea31';
+$pg-web: '\ea32';
+$pg-whatsapp: '\ea33';
+$pg-windows-fill: '\ea34';
