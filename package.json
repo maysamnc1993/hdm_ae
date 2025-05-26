@@ -42,6 +42,7 @@
     "webfont": "^11.2.26"
   },
   "dependencies": {
+    "gsap": "^3.13.0",
     "jquery": "^3.7.1",
     "svgtofont": "^6.3.2",
     "swiper": "^11.0.5",

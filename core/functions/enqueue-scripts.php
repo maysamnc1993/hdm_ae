@@ -6,6 +6,8 @@ function jthem_scripts()
     // Core assets - loaded on every page
     vite_enqueue_asset('src/js/core/main.js', 'js');
     vite_enqueue_asset('src/js/core/wp-ajax', 'js');
+    // vite_enqueue_asset('src/js/lib/gsap.min.js', 'js');
+    // vite_enqueue_asset('src/js/lib/Draggable.min.js', 'js');
 
     // No need to separately load the swiper module as it's imported in component files
     // vite_enqueue_asset('src/js/module/swiper.js', 'js');
@@ -54,7 +56,7 @@ function jthem_scripts()
         wp_enqueue_script('comment-reply');
     }
 }
-add_action('wp_enqueue_scripts', 'jthem_scripts');
+add_action('wp_enqueue_scripts', 'jthem_scripts',1);
 
 
 

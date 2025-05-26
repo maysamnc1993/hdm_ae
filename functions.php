@@ -131,3 +131,11 @@ require_once THEME_URI. '/core/hooks/rewrite-rule.php';
 
 // ======== gutenberg blocks ======== //
 // require_once THEME_URI. '/blocks/blocks.php';
+
+function allow_svg_uploads( $mimes ) {
+    if ( current_user_can( 'manage_options' ) ) {
+        $mimes['svg'] = 'image/svg+xml';
+    }
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'allow_svg_uploads' );

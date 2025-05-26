@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> dir="rtl">
+<html <?php language_attributes(); ?> dir="ltr">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
