@@ -21,25 +21,24 @@ jobs:
         run: |
           sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
             hdmarketingae@95.216.200.94 << 'EOF'
-      
-              echo "🔧 تنظیم مالکیت روی پوشه قدیمی"
-              chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss || true
-      
-              echo "🧹 حذف پوشه قبلی"
-              rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-      
-              echo "📥 کلون پروژه"
-              git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-      
-              echo "📦 نصب پکیج‌ها"
-              cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-              npm install
-              npm run build
-      
-              echo "🔐 تنظیم نهایی دسترسی‌ها"
-              chown -R hdmarketingae:hdmarketingae .
-              chmod -R 755 .
-      
-              echo "✅ Deployment کامل شد!"
-            EOF
-      
+
+             echo "🔧 تنظیم مالکیت روی پوشه قدیمی"
+            chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss || true
+
+            echo "🧹 حذف پوشه قبلی"
+            rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+
+            echo "📥 کلون پروژه"
+            git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+
+            echo "📦 نصب پکیج‌ها"
+            cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+            npm install
+            npm run build
+
+            echo "🔐 تنظیم نهایی دسترسی‌ها"
+            chown -R hdmarketingae:hdmarketingae .
+            chmod -R 755 .
+
+            echo "✅ Deployment کامل شد!"
+          EOF
