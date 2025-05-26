@@ -1,4 +1,5 @@
 name: Deploy WordPress Theme to cPanel via SSH
+
 on:
   push:
     branches:
@@ -8,6 +9,7 @@ jobs:
   deploy:
     name: Deploy Theme
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -18,39 +20,29 @@ jobs:
       - name: Test SSH Connection
         run: |
           sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
-            hdmarketingae@95.216.200.94 "echo SSH connection successful"
+            hdmarketingae@95.216.200.94 "echo ✅ SSH connection successful"
 
-      - name: Deploy Theme and Update Environment
+      - name: Deploy Theme and Build Assets
         run: |
           sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
             hdmarketingae@95.216.200.94 << 'EOF'
+
+              echo "✅ ورود به مسیر تم وردپرس"
               cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss/
 
-              # Configure Git to use SSH
+              echo "🔁 ست کردن ریموت گیت و گرفتن آخرین تغییرات"
               git remote set-url origin git@github.com:Drlaravel/saman.git
-
-              # Ensure SSH key permissions (key already exists on server)
-              chmod 600 ~/.ssh/id_rsa
-              chmod 644 ~/.ssh/known_hosts
               ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-
-              # Update git repository
               git fetch origin
               git reset --hard origin/main
 
-
-              # Install Node.js and npm
-              if ! command -v node &> /dev/null; then
-                curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-                apt-get install -y nodejs
-              fi
-
-              # Install dependencies and build
+              echo "📦 نصب پکیج‌ها و اجرای build"
               npm install
               npm run build
 
-              # Set proper permissions
+              echo "🔐 ست کردن دسترسی‌ها"
               chown -R hdmarketingae:hdmarketingae .
               chmod -R 755 .
-                echo "Deployment completed successfully"
-            EOF
+
+              echo "🎉 Deployment completed successfully"
+          EOF
