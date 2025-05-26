@@ -138,6 +138,137 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  // Teams
+jQuery(document).ready(function($) {
+
+  let xPos = 0;
+
+  gsap.timeline()
+      .set(dragger, { opacity:0 }) //make the drag layer invisible
+      .set(ring,    { rotationY:180 }) //set initial rotationY so the parallax jump happens off screen
+      // .set(ring,    { rotationX: 45 }) 
+      .set('.img',  { // apply transform rotations to each image
+        rotateY: (i)=> i*-30,
+        transformOrigin: '50% 50% 1000px',
+        z: -1000,
+       //  backgroundImage:(i)=>'url(https://picsum.photos/id/'+(i+32)+'/700/300/)',
+       //  backgroundPosition:(i)=>getBgPos(i),
+        backfaceVisibility:'hidden'
+      })    
+      .from('.img', {
+        duration:1.5,
+        y:200,
+        opacity:0,
+        stagger:0.1,
+        ease:'expo'
+      })
   
+  Draggable.create(dragger, {
+    
+    onDragStart:(e)=>{ 
+      if (e.touches) e.clientX = e.touches[0].clientX;
+      xPos = Math.round(e.clientX);
+    },
+    
+    onDrag:(e)=>{
+      if (e.touches) e.clientX = e.touches[0].clientX;    
+      
+      gsap.to(ring, {
+        rotationY: '-=' +( (Math.round(e.clientX)-xPos)%360 ),
+        onUpdate: ()=>{gsap.set('.img', { backgroundPosition:(i)=>getBgPos(i) }) }
+      });
+      
+      xPos = Math.round(e.clientX);
+    },
+    
+    onDragEnd:()=> {
+      // gsap.to(ring, { rotationY: Math.round(gsap.getProperty(ring,'rotationY')/36)*36 }) // move to nearest photo...at the expense of the inertia effect
+      gsap.set(dragger, {x:0, y:0}) // reset drag layer
+    }
+    
+  })
   
+});
+
+function getBgPos(i){ //returns the background-position string to create parallax movement in each image
+  return ( -gsap.utils.wrap(0,360,gsap.getProperty(ring, 'rotationY')-180-i*18)/360*400 )+'px 0px';
+}
  
+ 
+jQuery(document).ready(function(){
+  jQuery('.faq__item__head').click(function (e) {
+    e.preventDefault();
+    jQuery(this).siblings().slideToggle();
+    jQuery(this).toggleClass('active');
+
+});
+
+
+})
+
+
+
+
+jQuery(document).ready(function(){
+
+
+  jQuery(window).on("scroll", function () {
+    var sectionOffset = jQuery(".section-date").offset().top;
+    var scrollTop = jQuery(window).scrollTop();
+    var distance = scrollTop - sectionOffset;
+  
+    if (distance < 0) return;
+  
+    var maxScroll = 300; // حداکثر فاصله‌ای که تغییر اعمال میشه
+    var progress = Math.min(distance / maxScroll, 0); // عدد بین 0 تا 1
+  
+    var rotateX = 35 * (1 - progress); // از 35 به 0
+  
+    jQuery(".date__wrap").css({
+        "transform": "perspective(1200px) rotateX(" + rotateX + "deg) rotateY(0)"
+    });
+  });
+
+
+const $images = jQuery('.dribImg');
+
+jQuery(window).on('mousemove', function (e) {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const posX = (e.clientX - centerX) / centerX;
+    const posY = (e.clientY - centerY) / centerY;
+
+    $images.each(function (index) {
+        const intensity = (index + 1) * 8;
+        const directionX = index % 2 === 0 ? 1 : -1;
+        const directionY = index % 3 === 0 ? 1 : -1;
+
+        gsap.to(jQuery(this), {
+            x: posX * intensity * directionX,
+            y: posY * intensity * directionY,
+            ease: "none",
+            duration: 0.2,
+        });
+    });
+});
+
+
+setInterval(function () {
+  var $circle = jQuery('<div class="svg-circle"></div>');
+  jQuery('.dev-svg').append($circle);
+
+  $circle.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function () {
+    jQuery(this).remove();
+  });
+}, 5000);
+
+
+setInterval(function () {
+  var $circle = jQuery('<div class="svg-circle2"></div>');
+  $('.dev-svg').append($circle);
+
+  $circle.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function () {
+    jQuery(this).remove();
+  });
+}, 5000);
+})

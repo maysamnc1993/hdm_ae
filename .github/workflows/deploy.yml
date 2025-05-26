@@ -17,14 +17,14 @@ jobs:
 
       - name: Test SSH Connection
         run: |
-          sshpass -p "zI?YVpW]~[YQ" ssh -p 6985 -o StrictHostKeyChecking=no \
-            staginghdmplus@109.230.196.110 "echo SSH connection successful"
+          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
+            hdmarketingae@95.216.200.94 "echo SSH connection successful"
 
       - name: Deploy Theme and Update Environment
         run: |
-          sshpass -p "zI?YVpW]~[YQ" ssh -p 6985 -o StrictHostKeyChecking=no \
-            staginghdmplus@109.230.196.110 << 'EOF'
-              cd /home/staginghdmplus/public_html/si24/wp-content/themes/JTheme/
+          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
+            hdmarketingae@95.216.200.94 << 'EOF'
+              cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss/
 
               # Configure Git to use SSH
               git remote set-url origin git@github.com:Drlaravel/saman.git
@@ -50,7 +50,7 @@ jobs:
               npm run build
 
               # Set proper permissions
-              chown -R staginghdmplus:staginghdmplus .
+              chown -R hdmarketingae:hdmarketingae .
               chmod -R 755 .
                 echo "Deployment completed successfully"
             EOF
