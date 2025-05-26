@@ -1,4 +1,4 @@
-name: Deploy WordPress Theme to cPanel via SSH
+name: Deploy WordPress Theme to cPanel via HTTPS
 
 on:
   push:
@@ -17,32 +17,25 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Test SSH Connection
-        run: |
-          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
-            hdmarketingae@95.216.200.94 "echo ✅ SSH connection successful"
-
-      - name: Deploy Theme and Build Assets
+      - name: Deploy Theme from Public Repo
         run: |
           sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
             hdmarketingae@95.216.200.94 << 'EOF'
 
-              echo "✅ ورود به مسیر تم وردپرس"
-              cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss/
+              echo "🧹 حذف پوشه قبلی تم"
+              rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
-              echo "🔁 ست کردن ریموت گیت و گرفتن آخرین تغییرات"
-              git remote set-url origin git@github.com:maysamnc1993/hdm_ae.git
-              ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-              git fetch origin
-              git reset --hard origin/main
+              echo "📥 کلون کردن ریپوی public"
+              git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
-              echo "📦 نصب پکیج‌ها و اجرای build"
+              echo "📦 نصب و build تم"
+              cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
               npm install
               npm run build
 
-              echo "🔐 ست کردن دسترسی‌ها"
+              echo "🔐 تنظیم دسترسی‌ها"
               chown -R hdmarketingae:hdmarketingae .
               chmod -R 755 .
 
-              echo "🎉 Deployment completed successfully"
+              echo "🎉 Deployment complete!"
           EOF
