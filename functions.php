@@ -96,7 +96,7 @@ require_once THEME_URI . '/inc/header.php';
 // ======== admin functions ======== ////
 
 
-$pg_options = new Options();
+// $pg_options = new Options();
 function fn_options()
 {
     global $pg_options;
