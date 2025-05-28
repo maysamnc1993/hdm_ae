@@ -22,7 +22,9 @@ $dribbble = get_field('dribbble',get_the_ID());
 
 <!-- Section 1 -->
 
-<div class="section-creative" >
+<div class="section-creative" style="background-image:url(<?=$section_1["image"]?>)">
+
+
         <div class="container">
             <div class="creative-wrap">
                 <div class="line-light">
@@ -69,7 +71,7 @@ $dribbble = get_field('dribbble',get_the_ID());
                                     <a href="'.$item["link"].'" class="CTA_Default">
                                         <div class="box_1"></div>
                                         <div class="box_2"></div>
-                                        <span>
+                                        <span style="background-image:url('.wp_get_attachment_image_url(127,'full').')">
                                             
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); color: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); flex-shrink: 0;" focusable="false" color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))"><g color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))" weight="regular"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></g></svg>
                                             <b>'.$item["title"].'</b>
@@ -117,31 +119,6 @@ $dribbble = get_field('dribbble',get_the_ID());
         </div>
     </div>
 
-    <section id="section-marquee">
-        <div class="marquee">
-            <div class="track">
-                <div class="content">
-                    <?php
-                        foreach($portfolio as $item){
-                            echo '
-                                <a href="">
-                                    <h2>'.$item["title"].'</h2>
-                                    <img src="'.$item["image"].'" alt="">
-                                </a>
-                            ';
-                        }
-                  
-                    ?>
-
-                </div>
-
-               
-
-
-            </div>
-        </div>
-    </section>
-
 
 
     <section class="WhyChooseUS" id="WhyChooseUS">
@@ -151,7 +128,7 @@ $dribbble = get_field('dribbble',get_the_ID());
             <div class="Mask">
                 
                 <div class="Text">
-                    <span>WHY CHOOSE US?</span>
+                    <span style="background-image:url(<?=wp_get_attachment_image_url(129,'full')?>)">WHY CHOOSE US?</span>
                 </div>
 
                 <ul class="whyChooseUS-list whyChooseUS-steps">
@@ -188,6 +165,33 @@ $dribbble = get_field('dribbble',get_the_ID());
 
         </div>
     </section>
+
+
+    <section id="section-marquee">
+        <div class="marquee">
+            <div class="track">
+                <div class="content">
+                    <?php
+                        foreach($portfolio as $item){
+                            echo '
+                                <a href="">
+                                    <h2>'.$item["title"].'</h2>
+                                    <img src="'.$item["image"].'" alt="">
+                                </a>
+                            ';
+                        }
+                  
+                    ?>
+
+                </div>
+
+               
+
+
+            </div>
+        </div>
+    </section>
+
 
 
   <section class="Teams">
@@ -369,7 +373,7 @@ $dribbble = get_field('dribbble',get_the_ID());
    
     <!-- <div style="display:inline-block;width:100%;height:100vh"></div> -->
   
-    
+      
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js'></script>
     <script src='https://unpkg.com/gsap@3/dist/Draggable.min.js'></script>
 <?php

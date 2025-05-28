@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
 body {
   overflow-x: clip;
-  background: linear-gradient(135deg, #0a0f1c 0%, #0e1c33 100%);
-  font-family: "Inter", sans-serif;
+  font-family: "Space Grotesk",sans-serif!important;
   font-optical-sizing: auto;
   font-style: normal;
   direction: ltr;
+  background: #00081f !important;
 }
 
 #section-marquee {
@@ -196,21 +198,24 @@ body {
   }
 
   &:nth-child(5) {
-    height: 5rem;
+    height: 6rem;
   }
 
   p {
     font-size: 1.2rem;
     padding: 0 1rem;
     line-height: 1.8;
+    color: #fff;
+    font-weight: 100 !important;
   }
 }
 
 .HDM {
   font-size: 4.5rem;
-  color: rgb(255, 206, 194);
-  font-weight: 600;
+  color: #fff;
+  font-weight: 900;
   padding: 1rem 4rem;
+  width: -moz-max-content;
   width: max-content;
 }
 .line-dot {
@@ -932,11 +937,7 @@ section {
       font-weight: 900;
 
       span {
-        background-image: linear-gradient(
-          340deg,
-          rgb(0, 255, 208) 0%,
-          rgb(0, 34, 255) 100%
-        );
+        background-size: 100%;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -1419,10 +1420,18 @@ section {
     align-items: center;
     justify-content: center;
     background: #00091C;
+      background-image: none;
+      background-size: auto;
     padding: 10px 0;
     position: relative;
     z-index: 9;
     border-radius: 8px;
+    background-size: 100%;
+
+    &:hover{
+      transition: 0.5s;
+      background-size: 200%;
+    }
 
     svg {
       width: 30px !important;
@@ -1811,4 +1820,31 @@ section {
     opacity: 0;
     transform: translateX(225px) scale(0) rotate(-180deg);
   }
+}
+
+
+
+
+.button-copper-meta {
+  background: linear-gradient(145deg, #8B3E10, #C96A1D, #FF944A);
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  box-shadow:
+    inset -3px -3px 8px rgba(255, 255, 255, 0.1),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    0 8px 20px rgba(255, 120, 50, 0.3);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+.button-copper-meta:hover {
+  box-shadow:
+    inset -2px -2px 6px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    0 10px 24px rgba(255, 135, 50, 0.4);
+  transform: scale(1.02);
 }
