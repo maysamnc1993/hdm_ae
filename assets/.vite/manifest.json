@@ -1,0 +1,79 @@
+{
+  "src/fonts/iconFont/pg-icons/pg.eot": {
+    "file": "fonts/pg.eot",
+    "src": "src/fonts/iconFont/pg-icons/pg.eot"
+  },
+  "src/fonts/iconFont/pg-icons/pg.svg": {
+    "file": "images/pg.svg",
+    "src": "src/fonts/iconFont/pg-icons/pg.svg"
+  },
+  "src/fonts/iconFont/pg-icons/pg.ttf": {
+    "file": "fonts/pg.ttf",
+    "src": "src/fonts/iconFont/pg-icons/pg.ttf"
+  },
+  "src/fonts/iconFont/pg-icons/pg.woff": {
+    "file": "fonts/pg.woff",
+    "src": "src/fonts/iconFont/pg-icons/pg.woff"
+  },
+  "src/fonts/iconFont/pg-icons/pg.woff2": {
+    "file": "fonts/pg.woff2",
+    "src": "src/fonts/iconFont/pg-icons/pg.woff2"
+  },
+  "src/js/core/main.js": {
+    "file": "js/core.js",
+    "name": "core",
+    "src": "src/js/core/main.js",
+    "isEntry": true
+  },
+  "src/js/core/wp-ajax.js": {
+    "file": "js/wp-ajax.js",
+    "name": "wp-ajax",
+    "src": "src/js/core/wp-ajax.js",
+    "isEntry": true
+  },
+  "src/js/pages/Draggable.min.js": {
+    "file": "js/pages/Draggable.min.js",
+    "name": "pages/Draggable.min",
+    "src": "src/js/pages/Draggable.min.js",
+    "isEntry": true
+  },
+  "src/js/pages/admin.js": {
+    "file": "js/pages/admin.js",
+    "name": "pages/admin",
+    "src": "src/js/pages/admin.js",
+    "isEntry": true
+  },
+  "src/js/pages/gsap.min.js": {
+    "file": "js/pages/gsap.min.js",
+    "name": "pages/gsap.min",
+    "src": "src/js/pages/gsap.min.js",
+    "isEntry": true
+  },
+  "src/js/pages/wavesurfer.min.js": {
+    "file": "js/pages/wavesurfer.min.js",
+    "name": "pages/wavesurfer.min",
+    "src": "src/js/pages/wavesurfer.min.js",
+    "isEntry": true
+  },
+  "src/js/pages/webdesign.js": {
+    "file": "js/pages/webdesign.js",
+    "name": "pages/webdesign",
+    "src": "src/js/pages/webdesign.js",
+    "isEntry": true
+  },
+  "src/scss/pages/admin.scss": {
+    "file": "css/pages/admin.css.css",
+    "src": "src/scss/pages/admin.scss",
+    "isEntry": true
+  },
+  "src/scss/pages/webdesign.scss": {
+    "file": "css/pages/webdesign.css.css",
+    "src": "src/scss/pages/webdesign.scss",
+    "isEntry": true
+  },
+  "src/scss/style.scss": {
+    "file": "css/style.css",
+    "src": "src/scss/style.scss",
+    "isEntry": true
+  }
+}
