@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    base: mode === "development" ? "/" : "/si24/wp-content/themes/JTheme/assets/",
+    base: mode === "development" ? "/" : "/HDM-AE/wp-content/themes/JTheme/assets/",
 
     build: {
       outDir: "assets",
