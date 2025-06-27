@@ -1,6 +1,5 @@
 <?php
 
-// Template Name: Web Design
 
 theme_scripts('webdesign');
 get_header();
@@ -14,8 +13,6 @@ $testimonial = get_field('testimonial',get_the_ID());
 $faq = get_field('faq',get_the_ID());
 $book_request = get_field('book_request',get_the_ID());
 $dribbble = get_field('dribbble',get_the_ID());
-$csat = get_field('csat',get_the_ID());
-$case_study = get_field('case_study',get_the_ID());
 
 ?>
 
@@ -24,22 +21,48 @@ $case_study = get_field('case_study',get_the_ID());
 
 <!-- Section 1 -->
 
-<div class="section-creative" >
+<div class="section-creative" style="background-image:url(<?=$section_1["image"]?>)">
 
-    <div class="container">
 
-        <div class="box_of_circle_effect">
-            <div class="circle_effect_1"></div>
-            <!-- <div class="circle_effect_2"></div> -->
-        </div>
+        <div class="container">
+            <div class="creative-wrap">
+                <div class="line-light">
+                    <img src="<?=wp_get_attachment_image_url(8,'full')?>" alt="">
+                </div>
+                <div class="content">
 
-        <div class="box_of_text">
-            <div class="content_section">
+                    <div class="line-wrap">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
 
-                <span class="slogan"><?=$section_1['small_title']?></span>
-                <h1><?=$section_1['title']?></h1>
-                <p><?=$section_1['description']?></p>
-                <ul class="ListOfCTA">
+                    <div class="line-wrap">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="line-wrap max-content">
+                        <div class="line"></div>
+                        <div class="line"><?=$section_1['small_title']?></div>
+                        <div class="line HDM">
+                            <div class="line-dot"></div>
+                            <div class="line-dot"></div>
+                            <div class="line-dot"></div>
+                            <div class="line-dot"></div>
+                            <span class="txt"><?=$section_1['title']?></span>
+                        </div>
+                        <div class="line">
+                            <p><?=$section_1['description']?></p>
+                        </div>
+                        <div class="line">
+
+                        <ul class="ListOfCTA">
                         <?php
                             foreach($section_1["cta"] as $item){
                                 echo '
@@ -58,10 +81,31 @@ $case_study = get_field('case_study',get_the_ID());
                             }
                         ?>
                     </ul>
-            </div>
-        </div>
 
-        <div class="dashboard">
+                        </div>
+                    </div>
+
+                    <div class="line-wrap">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="line-wrap">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+
+                    
+
+                </div>
+
+                <div class="dashboard">
                     <div class="dash-img">
                         <img src="<?=$video_section["video_cover"]?>" alt="">
                         <video controls muted playsinline src="<?=$video_section["video_file"]?>" controls playsinline>
@@ -70,15 +114,59 @@ $case_study = get_field('case_study',get_the_ID());
                     </div>
                 </div>
 
+            </div>
+        </div>
     </div>
 
-</div>
 
-<section id="section-marquee">
-        <div class="textBox">
-            <h1>Our Portfolio</h1>
-            <p>Discover a selection of our recent projects that showcase our expertise in design, development, and digital marketing.</p>
+
+    <section class="WhyChooseUS" id="WhyChooseUS">
+
+        <div class="WhyChooseUS-container">
+        
+            <div class="Mask">
+                
+                <div class="Text">
+                    <span style="background-image:url(<?=wp_get_attachment_image_url(129,'full')?>)">WHY CHOOSE US?</span>
+                </div>
+
+                <ul class="whyChooseUS-list whyChooseUS-steps">
+                    
+                    <?php
+                        $i = 0;
+                        foreach($values as $item){
+                            $i++;
+                            echo '
+                            <li id="item_1 step">
+                                <div class="item_head">
+                                    <div class="icon_number">
+                                        <i>'.$i.'</i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-7e73b624-1962-48eb-b0bd-b0ed30511078, rgb(0, 255, 208)); color: var(--token-7e73b624-1962-48eb-b0bd-b0ed30511078, rgb(0, 255, 208)); flex-shrink: 0;" focusable="false" color="var(--token-7e73b624-1962-48eb-b0bd-b0ed30511078, rgb(0, 255, 208))"><g color="var(--token-7e73b624-1962-48eb-b0bd-b0ed30511078, rgb(0, 255, 208))" weight="regular"><path d="M248,128a87.34,87.34,0,0,1-17.6,52.81,8,8,0,1,1-12.8-9.62A71.34,71.34,0,0,0,232,128a72,72,0,0,0-144,0,8,8,0,0,1-16,0,88,88,0,0,1,3.29-23.88C74.2,104,73.1,104,72,104a48,48,0,0,0,0,96H96a8,8,0,0,1,0,16H72A64,64,0,1,1,81.29,88.68,88,88,0,0,1,248,128Zm-69.66,42.34L160,188.69V128a8,8,0,0,0-16,0v60.69l-18.34-18.35a8,8,0,0,0-11.32,11.32l32,32a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"></path></g></svg>
+                                    </div>
+                                    <div class="item_title">
+                                        '.$item["title"].'
+                                    </div>
+                                </div>
+                                <div class="item_body">
+                                    <p>
+                                        '.$item["description"].'
+                                    </p>
+                                </div>
+                                
+                            </li>
+                            ';
+
+                        }
+                    ?>
+                </ul>
+
+            </div>
+
         </div>
+    </section>
+
+
+    <section id="section-marquee">
         <div class="marquee">
             <div class="track">
                 <div class="content">
@@ -101,159 +189,15 @@ $case_study = get_field('case_study',get_the_ID());
 
             </div>
         </div>
-</section>
+    </section>
 
 
-<section class="WhyChooseUS" id="WhyChooseUS">
 
-    <div class="WhyChooseUS-container">
-    
-        <div class="Mask">
-            
-            <div class="Text">
-                <span style="background-image:url(<?=wp_get_attachment_image_url(129,'full')?>)">WHY CHOOSE US?</span>
-            </div>
-
-            <ul class="whyChooseUS-list whyChooseUS-steps">
-                
-                <?php
-                    $i = 0;
-                    foreach($values as $item){
-                        $i++;
-                        echo '
-                        <li id="item_1 step">
-                            <div class="item_head">
-                                <div class="icon_number">
-                                    <i>'.$i.'</i>
-                                    <img src="'.$item["image"].'">
-                                </div>
-                                <div class="item_title">
-                                    '.$item["title"].'
-                                </div>
-                            </div>
-                            <div class="item_body">
-                                <p>
-                                    '.$item["description"].'
-                                </p>
-                            </div>
-                            
-                        </li>
-                        ';
-
-                    }
-                ?>
-            </ul>
-
-        </div>
-
-    </div>
-</section>
-
-
-<secrion class="Satisfied">
-        
-        
-        <div class="container">
-
-            <div class="box_of_csat">
-                <span class="titleCsat" style="background-image:url(<?=$csat["image"]?>)"><?=$csat["title"]?></span>
-                <a href="'.$item["link"].'" class="CTA_Default">
-                    <div class="box_1"></div>
-                    <div class="box_2"></div>
-                    <span style="background-image:url(<?=wp_get_attachment_image_url(127,'full')?>)">
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); color: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); flex-shrink: 0;" focusable="false" color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))"><g color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))" weight="regular"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></g></svg>
-                        <b><?=$csat["text"]?></b>
-                    </span>
-                </a>
-            </div>
-        </div>
-
-</secrion>
-
-
-<section class="caseStudy">
-
-    <div class="container">
-
-        <div class="box_of_data">
-
-            <div class="box_of_image">
-                <img src="http://localhost/HDM-AE/wp-content/uploads/2025/06/jzTMdaQ6X2Js2yDQdPP9o3L3XUA.avif">
-                <div class="shadow_box"></div>
-            </div>
-            <div class="data">
-
-                    <i class="countUp">0</i>
-                    <h2>Successful agency projects</h2>
-                    <span class="title">Brand Identity, Website Design, Product Packaging 6Years of experience in business, improving digital design products for our customers</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<section class="caseStudyItem">
-
-    <div class="container">
-
-            <div class="box_of_caseStudy">
-                    <div class="titleBox">
-                        <span class="badge"><?=$case_study["sub_title"]?></span>
-                        <h2 class="title"><?=$case_study["title"]?></h2>
-                    </div>
-
-                    <?php
-                        $i = 0;
-                        foreach($case_study["case_study_list"] as $item){
-                            $i++;
-
-                            echo '
-                            
-                                <div class="CaseStudyItem c_'.$i.'">
-
-                                                        <div class="Number">
-                                                            <i>'.$i.'</i>
-                                                            <b>Case Study</b>
-                                                        </div>
-                                                        <div class="text">
-
-                                                            <span class="subtitle">'.$item['sub_title'].'</span>
-                                                            <h2 class="title">'.$item['title'].'</h2>
-                                                            <div class="Problem">
-                                                                <p>'.$item['description'].'</p>
-                                                            </div>
-                                                            <a href="#">Read More</a>
-
-                                                        </div>
-
-                                                    </div>
-
-                            ';
-
-                        }
-                    ?>
-
-                    
-            
-
-            </div>
-
-    </div>
-
-</section>
-
-  <div class="Teams-Text">
-        <div class="container">
-
+  <section class="Teams">
+      <div class="Teams-Text">
             <h2><?=$teams["title"]?></h2>   
             <p><?=$teams["description"]?></p>
-
-        </div>
-  </div>
-  <section class="Teams">
+      </div>
       <div class="container_ring">
           <div id="ring">
             <?php
@@ -261,8 +205,8 @@ $case_study = get_field('case_study',get_the_ID());
                     echo '
                         <div class="img" style="background-image: url('.$item["image"].');">
                             <div class="img-text">
-                                <h3>'.$item["full_name"].'</h3>
-                                <p>'.$item["job_position"].'</p>
+                                <h3><?=$item["full_name"]?></h3>
+                                <p><?=$item["job_position"]?></p>
                             </div>
                         </div>
                     ';

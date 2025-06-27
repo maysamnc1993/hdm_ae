@@ -83,6 +83,8 @@ jQuery(document).ready(function () {
 //   });
   
 
+var widthWindow = jQuery(window).width();
+if(widthWindow > 600){
 jQuery(document).ready(function ($) {
     const $steps = $(".whyChooseUS-list li");
     const $container = $(".WhyChooseUS");
@@ -137,6 +139,8 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+
+}
 
   // Teams
 jQuery(document).ready(function($) {
@@ -265,10 +269,104 @@ setInterval(function () {
 
 setInterval(function () {
   var $circle = jQuery('<div class="svg-circle2"></div>');
-  $('.dev-svg').append($circle);
+  jQuery('.dev-svg').append($circle);
 
   $circle.on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function () {
     jQuery(this).remove();
   });
 }, 5000);
 })
+
+
+
+var i = 0;
+setInterval(function(){
+  i++;
+  jQuery(".circle_effect_1").css("transform","rotate("+ i +"deg)");
+  // jQuery(".circle_effect_2").css("transform","rotate(-"+ i +"deg)");
+},10)
+
+jQuery(document).ready(function(){
+  var mouseX, mouseY;
+  var ww = jQuery( window ).width();
+  var wh = jQuery( window ).height();
+  var traX, traY;
+  jQuery(document).mousemove(function(e){
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    traX = ((4 * mouseX) / 570) + 40;
+    traY = ((4 * mouseY) / 570) + 50;
+    jQuery(".titleCsat").css({"background-position": traX + "%" + traY + "%"});
+  });
+});
+
+
+function CountUp(number) {
+  var i = 0;
+  var duration = 1000; // کل مدت انیمیشن (میلی‌ثانیه)
+  var frameRate = 60; // فریم در ثانیه (برای انیمیشن روان)
+  var totalFrames = Math.round((duration / 1000) * frameRate);
+  var increment = number / totalFrames;
+
+  var current = 0;
+  var frame = 0;
+
+  var interval = setInterval(function () {
+    frame++;
+    current += increment;
+
+    if (frame >= totalFrames) {
+      current = number;
+      clearInterval(interval);
+    }
+
+    jQuery(".caseStudy .box_of_data .data .countUp").html("+" + Math.floor(current));
+  }, 1000 / frameRate);
+}
+
+
+
+// Scrolled RIght Default
+var ScrolledRight = 0;
+var caseStudy = Number(jQuery(".caseStudy").offset().top) - 200;
+jQuery(document).scroll(function(e) {
+    var st = jQuery(this).scrollTop();
+    var scrolled = jQuery(this).scrollTop();
+
+    if(st > 100){
+        jQuery("header").addClass("active");
+    }else{
+        jQuery("header").removeClass("active");
+    }
+
+    if(st > caseStudy){
+      jQuery('.caseStudy .box_of_data .box_of_image').addClass("active");
+      setTimeout(function(){
+        jQuery(".caseStudy .box_of_data .data .countUp").addClass("active");
+        jQuery(".caseStudy .box_of_data .data .title").addClass("active");
+        jQuery(".caseStudy .box_of_data .data h2").addClass("active");
+        
+        CountUp(300);
+      },1000);
+    }
+
+
+
+    // Scroll Down
+    if(st > lastScrollTop){
+
+     
+
+    }
+
+    // Scroll Up
+    else{
+
+    }
+    lastScrollTop = st;
+});
+
+
+
+
+
