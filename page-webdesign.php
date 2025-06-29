@@ -397,10 +397,7 @@ $case_study = get_field('case_study',get_the_ID());
         <div class="container">
             <h2><?=$book_request['title']?></h2>
             <div class="date__wrap">
-                <div class="spot">
-                    <span></span>
-                    2 Spots Available
-                </div>
+            
                 <?=do_shortcode('[custom_calendar]')?>
             </div>
         </div>
