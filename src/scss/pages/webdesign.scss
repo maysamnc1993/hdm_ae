@@ -431,7 +431,7 @@ section {
   .date__wrap {
     will-change: transform;
     opacity: 0.5;
-    transform: perspective(1200px) translateY(44px) scale(0.8) rotateX(22deg);
+    // transform: perspective(1200px) translateY(44px) scale(0.8) rotateX(22deg);
 
     img {
       border: 2px solid rgba(17, 60, 105, .2);
@@ -1399,7 +1399,7 @@ section {
 .date__wrap {
   will-change: transform;
   opacity: 0.5;
-  transform: perspective(1200px) translateY(44px) scale(0.8) rotateX(22deg);
+  // transform: perspective(1200px) translateY(44px) scale(0.8) rotateX(22deg);€
 
   img {
     border: 2px solid rgba(17, 60, 105, 0.2);

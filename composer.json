@@ -11,5 +11,7 @@
             "email": "m.hashempour95@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "google/apiclient": "^2.0"
+    }
 }

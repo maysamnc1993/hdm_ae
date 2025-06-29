@@ -401,7 +401,7 @@ $case_study = get_field('case_study',get_the_ID());
                     <span></span>
                     2 Spots Available
                 </div>
-                <img src="http://localhost/HDM-AE/date.avif" alt="">
+                <?=do_shortcode('[custom_calendar]')?>
             </div>
         </div>
     </section>

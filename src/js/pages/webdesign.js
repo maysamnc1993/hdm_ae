@@ -216,22 +216,22 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
 
 
-  jQuery(window).on("scroll", function () {
-    var sectionOffset = jQuery(".section-date").offset().top;
-    var scrollTop = jQuery(window).scrollTop();
-    var distance = scrollTop - sectionOffset;
+  // jQuery(window).on("scroll", function () {
+  //   var sectionOffset = jQuery(".section-date").offset().top;
+  //   var scrollTop = jQuery(window).scrollTop();
+  //   var distance = scrollTop - sectionOffset;
   
-    if (distance < 0) return;
+  //   if (distance < 0) return;
   
-    var maxScroll = 300; // حداکثر فاصله‌ای که تغییر اعمال میشه
-    var progress = Math.min(distance / maxScroll, 0); // عدد بین 0 تا 1
+  //   var maxScroll = 300; // حداکثر فاصله‌ای که تغییر اعمال میشه
+  //   var progress = Math.min(distance / maxScroll, 0); // عدد بین 0 تا 1
   
-    var rotateX = 35 * (1 - progress); // از 35 به 0
+  //   var rotateX = 35 * (1 - progress); // از 35 به 0
   
-    jQuery(".date__wrap").css({
-        "transform": "perspective(1200px) rotateX(" + rotateX + "deg) rotateY(0)"
-    });
-  });
+  //   jQuery(".date__wrap").css({
+  //       "transform": "perspective(1200px) rotateX(" + rotateX + "deg) rotateY(0)"
+  //   });
+  // });
 
 
 const $images = jQuery('.dribImg');
@@ -277,7 +277,7 @@ setInterval(function () {
 }, 5000);
 })
 
-
+var lastScrollTop = 0;
 
 var i = 0;
 setInterval(function(){
@@ -365,7 +365,6 @@ jQuery(document).scroll(function(e) {
     }
     lastScrollTop = st;
 });
-
 
 
 
