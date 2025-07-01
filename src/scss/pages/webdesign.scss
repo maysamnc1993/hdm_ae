@@ -2166,6 +2166,32 @@ header.active .container {
 
 
 
+.whatsappCall {
+  position: fixed;
+  left: 15px;
+  bottom: 14px;
+  background: rgba(8, 68, 61, 0.55);
+  z-index: 999;
+  color: #fff!important;
+  padding: 10px 20px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whatsappCall svg {
+  fill: #fff!important;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px 0 0;
+}
+.whatsappCall svg path {
+  fill: #fff;
+}
+
+
 @media (max-width: 991.98px) {
 
   .line {
