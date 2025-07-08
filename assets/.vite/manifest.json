@@ -49,6 +49,12 @@
     "src": "src/js/pages/gsap.min.js",
     "isEntry": true
   },
+  "src/js/pages/ppc.js": {
+    "file": "js/pages/ppc.js",
+    "name": "pages/ppc",
+    "src": "src/js/pages/ppc.js",
+    "isEntry": true
+  },
   "src/js/pages/wavesurfer.min.js": {
     "file": "js/pages/wavesurfer.min.js",
     "name": "pages/wavesurfer.min",
@@ -64,6 +70,11 @@
   "src/scss/pages/admin.scss": {
     "file": "css/pages/admin.css.css",
     "src": "src/scss/pages/admin.scss",
+    "isEntry": true
+  },
+  "src/scss/pages/ppc.scss": {
+    "file": "css/pages/ppc.css.css",
+    "src": "src/scss/pages/ppc.scss",
     "isEntry": true
   },
   "src/scss/pages/webdesign.scss": {

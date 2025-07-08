@@ -16,6 +16,7 @@ $book_request = get_field('book_request',get_the_ID());
 $dribbble = get_field('dribbble',get_the_ID());
 $csat = get_field('csat',get_the_ID());
 $case_study = get_field('case_study',get_the_ID());
+$top_case_study = get_field('top_case_study',get_the_ID());
 
 ?>
 
@@ -157,7 +158,7 @@ $case_study = get_field('case_study',get_the_ID());
 
             <div class="box_of_csat">
                 <span class="titleCsat" style="background-image:url(<?=$csat["image"]?>)"><?=$csat["title"]?></span>
-                <a href="'.$item["link"].'" class="CTA_Default">
+                <a href="<?=$item["link"]?>" class="CTA_Default">
                     <div class="box_1"></div>
                     <div class="box_2"></div>
                     <span style="background-image:url(<?=wp_get_attachment_image_url(127,'full')?>)">
@@ -179,14 +180,14 @@ $case_study = get_field('case_study',get_the_ID());
         <div class="box_of_data">
 
             <div class="box_of_image">
-                <img src="http://localhost/HDM-AE/wp-content/uploads/2025/06/jzTMdaQ6X2Js2yDQdPP9o3L3XUA.avif">
+                <img src="<?=$top_case_study["image"]?>">
                 <div class="shadow_box"></div>
             </div>
             <div class="data">
 
-                    <i class="countUp">0</i>
-                    <h2>Successful agency projects</h2>
-                    <span class="title">Brand Identity, Website Design, Product Packaging 6Years of experience in business, improving digital design products for our customers</span>
+                    <i class="countUp" data-number="<?=$top_case_study["count"]?>">0</i>
+                    <h2><?=$top_case_study["title"]?></h2>
+                    <span class="title"><?=$top_case_study["text"]?></span>
 
             </div>
 
@@ -393,7 +394,7 @@ $case_study = get_field('case_study',get_the_ID());
         </div>
     </section>
 
-    <section class="section-date">
+    <section class="section-date" id="reqeust_section">
         <div class="container">
             <h2><?=$book_request['title']?></h2>
             <div class="date__wrap">

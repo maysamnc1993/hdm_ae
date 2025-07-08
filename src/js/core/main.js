@@ -100,3 +100,35 @@ document.addEventListener('DOMContentLoaded', function () {
         element.style.cssText = persianToLatin(element.style.cssText);
     });
 });
+
+
+
+
+var ScrolledRight = 0;
+jQuery(document).scroll(function(e) {
+    var st = jQuery(this).scrollTop();
+    var scrolled = jQuery(this).scrollTop();
+
+    if(st > 100){
+        jQuery("header").addClass("active");
+    }else{
+        jQuery("header").removeClass("active");
+    }
+
+
+
+
+    // Scroll Down
+    if(st > lastScrollTop){
+
+     
+
+    }
+
+    // Scroll Up
+    else{
+
+    }
+    lastScrollTop = st;
+});
+

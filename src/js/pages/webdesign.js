@@ -333,11 +333,7 @@ jQuery(document).scroll(function(e) {
     var st = jQuery(this).scrollTop();
     var scrolled = jQuery(this).scrollTop();
 
-    if(st > 100){
-        jQuery("header").addClass("active");
-    }else{
-        jQuery("header").removeClass("active");
-    }
+   
 
     if(st > caseStudy){
       jQuery('.caseStudy .box_of_data .box_of_image').addClass("active");
