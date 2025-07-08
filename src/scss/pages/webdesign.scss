@@ -1828,7 +1828,7 @@ section {
   display: inline-block;
   width: 100%;
   min-height: 500px;
-  background: #000;
+
   padding: 50px 0 0 0;
   margin-bottom: 0;
 }
@@ -1855,7 +1855,7 @@ section {
   height: 100%;
   right: 0;
   top: 0;
-  background: linear-gradient(180deg,var(--token-f114f1e6-e38c-48e5-8f37-0b117b1ed275, rgba(0, 0, 0, 0)) 77%,var(--token-8e9f7de0-9fd7-44d3-bc3e-2dea20c4e4bd, rgb(0, 0, 0)) 100%);
+  background: linear-gradient(180deg,var(--token-f114f1e6-e38c-48e5-8f37-0b117b1ed275, rgba(0, 0, 0, 0)) 77%,var(--token-8e9f7de0-9fd7-44d3-bc3e-2dea20c4e4bd, rgb(0, 8, 31)) 100%);
 }
 .caseStudy .box_of_data .box_of_image.active img {
   opacity: 0.6;
