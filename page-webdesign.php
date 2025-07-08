@@ -86,7 +86,7 @@ $top_case_study = get_field('top_case_study',get_the_ID());
                     <?php
                         foreach($portfolio as $item){
                             echo '
-                                <a href="">
+                                <a href="#">
                                     <h2>'.$item["title"].'</h2>
                                     <img src="'.$item["image"].'" alt="">
                                 </a>

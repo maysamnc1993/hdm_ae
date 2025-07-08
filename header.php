@@ -31,7 +31,7 @@
     <div class="container">
 
         <div class="flex flex-row">
-            <div class="w-2/12"><a href="<?=get_bloginfo('url')?>" class="logo"><img src="<?=wp_get_attachment_image_url(115,'full')?>"></a></div>
+            <div class="w-2/12"><a href="https://hdmarketing.ae" class="logo"><img src="<?=wp_get_attachment_image_url(115,'full')?>"></a></div>
             <div class="w-8/12"><?=wp_nav_menu(array("menu" => 7 , "menu_class" => "mainMenu"))?></div>
             <div class="w-2/12">
                 <a href="#reqeust_section" class="CTA_Default">
