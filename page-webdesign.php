@@ -158,7 +158,7 @@ $top_case_study = get_field('top_case_study',get_the_ID());
 
             <div class="box_of_csat">
                 <span class="titleCsat" style="background-image:url(<?=$csat["image"]?>)"><?=$csat["title"]?></span>
-                <a href="<?=$item["link"]?>" class="CTA_Default">
+                <a href="#reqeust_section" class="CTA_Default">
                     <div class="box_1"></div>
                     <div class="box_2"></div>
                     <span style="background-image:url(<?=wp_get_attachment_image_url(127,'full')?>)">

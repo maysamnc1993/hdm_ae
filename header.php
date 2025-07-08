@@ -34,7 +34,7 @@
             <div class="w-2/12"><a href="<?=get_bloginfo('url')?>" class="logo"><img src="<?=wp_get_attachment_image_url(115,'full')?>"></a></div>
             <div class="w-8/12"><?=wp_nav_menu(array("menu" => 7 , "menu_class" => "mainMenu"))?></div>
             <div class="w-2/12">
-                <a href="'.$item["link"].'" class="CTA_Default">
+                <a href="#reqeust_section" class="CTA_Default">
                     <div class="box_1"></div>
                     <div class="box_2"></div>
                     <span style="background-image:url('.wp_get_attachment_image_url(127,'full').')">
