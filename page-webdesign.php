@@ -65,7 +65,7 @@ $top_case_study = get_field('top_case_study',get_the_ID());
         <div class="dashboard">
                     <div class="dash-img">
                         <img src="<?=$video_section["video_cover"]?>" alt="">
-                        <video controls muted playsinline src="<?=$video_section["video_file"]?>" controls playsinline>
+                        <video loop muted playsinline src="<?=$video_section["video_file"]?>" controls playsinline>
                             <source src="<?=$video_section["video_file"]?>" type="video/mp4">
                         </video>
                     </div>
