@@ -2332,7 +2332,7 @@ header .w-2\/12 {
 }
 header .CTA_Default {
   font-size: 14px;
-  width: 151px;
+  width: 151px!important;
   display: flex;
   margin: 0 !important;
 }
@@ -2353,7 +2353,7 @@ header .w-2\/12:nth-child(3) {
   font-size: 13px !important;
 }
 .box_of_text .content_section h1 {
-  font-size: 46px !important;
+  font-size: 40px !important;
   line-height: 1.2;
 }
 .box_of_text .content_section h1 span b {
@@ -2540,6 +2540,16 @@ header .w-2\/12:nth-child(3) {
 }
 
 @media (max-width: 480px) {
+
+  .CTA_Default {
+    width: 100%!important;
+  }
+  .ListOfCTA li {
+    width: 100%!important;
+  }
+  .section-creative .dashboard {
+    margin: 130px 0 0 0 !important;
+  }
   .WhyChooseUS .WhyChooseUS-container .Text {
     font-size: 22px;
   }
