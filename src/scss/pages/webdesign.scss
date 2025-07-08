@@ -2437,21 +2437,37 @@ header .w-2\/12:nth-child(3) {
   display: none;
 }
 .dashboard {
-  height: 120px !important;
+  height: 130px !important;
   margin: 0;
+}
+.dashboard .dash-img video {
+  width: 100%;
+  right: 0;
+  height: 200px !important;
+}
+.dashboard .dash-img {
+  -webkit-mask: linear-gradient(0deg,rgba(6, 5, 5, 0) 27%,rgba(0,0,0,.80899) 68%,rgb(0,0,0) 100%) add;
+  mask: linear-gradient(0deg,rgba(0,0,0,0) 27%,rgba(0,0,0,.80899) 68%,rgb(0,0,0) 100%) add;
+  transform: translateY(-6rem);
 }
 #section-marquee {
   margin: 0 !important;
   padding: 0 !important;
 }
 
+#section-marquee .textBox {
+  top: 40px;
+}
 
 .Satisfied .box_of_csat {
   width: 100% !important;
 }
 .titleCsat {
-  font-size: 61px;
+  font-size: 35px;
   letter-spacing: 1px;
+}
+.Teams .img .img-text {
+  bottom: 10vh;
 }
 .Satisfied {
   padding: 100px 0 100px;
