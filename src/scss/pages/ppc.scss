@@ -245,3 +245,108 @@
   color: #ffffffcf;
   text-align: center;
 }
+
+
+
+.Values {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+.Values .bg_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  opacity: 0.3;
+}
+.Values .title_box.active {
+  transform: scale(0.8);
+  transition: 0.5s;
+}
+.Values .title_box {
+  width: 40%;
+  margin: 0 auto;
+  position: sticky;
+  margin: 0 auto 150px;
+  height: 50vh;
+  top: 25vh;
+  display: flex;
+  transition: 0.5s;
+}
+.Values .title_box .title {
+  font-size: 32px;
+  line-height: 1.4;
+  margin: 0;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Values .title_box .description {
+  text-align: center;
+  font-size: 16px;
+  margin: 0 0 0 0;
+  line-height: 2.3;
+}
+.section-creative .CTA_Default {
+  width: 300px;
+}
+
+
+.Values .container {
+  position: relative;
+  height: 180vh;
+}
+
+.Values .list_of_values {
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  transform: perspective(1154px) rotateX(18deg) rotateY(0deg);
+  margin: 66px 0 0 0;
+}
+.Values .title_box .CTA_Default {
+  width: 300px;
+}
+.Values .list_of_values li {
+  width: 31.3%;
+  margin: 20px 1%;
+  background: rgba(65, 41, 28, 0.12);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2392156863);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  padding: 41px;
+  border-radius: 12px;
+  border: 1px solid #060E25;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+}
+.Values .list_of_values li:nth-child(2n+1) {
+  transform: rotate(7deg);
+}
+
+.Values .list_of_values li h3 {
+  color: #fff;
+}
+.Values .list_of_values li p {
+  color: #ffffff94;
+  margin: 0;
+}
+
+.Values .list_of_values li.clear_box {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: unset;
+  border: 0;
+}

@@ -1,1 +1,1 @@
-var e=0;setInterval((function(){e++,jQuery(".circle_effect_1").css("transform","rotate("+e+"deg)")}),10);
+var e=0;setInterval((function(){e++,jQuery(".circle_effect_1").css("transform","rotate("+e+"deg)")}),10);var r=jQuery(".Values").offset().top;jQuery(document).scroll((function(e){var t=jQuery(this).scrollTop();jQuery(this).scrollTop(),t>r?jQuery(".Values .title_box").addClass("active"):jQuery(".Values .title_box").removeClass("active")}));

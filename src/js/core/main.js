@@ -115,20 +115,5 @@ jQuery(document).scroll(function(e) {
         jQuery("header").removeClass("active");
     }
 
-
-
-
-    // Scroll Down
-    if(st > lastScrollTop){
-
-     
-
-    }
-
-    // Scroll Up
-    else{
-
-    }
-    lastScrollTop = st;
 });
 
