@@ -1,40 +1,34 @@
+window.addEventListener("load", () => {
+    const el = document.getElementById("home-hero-video");
+    const scrollInfo = document.getElementById("scroll-info");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const el = document.getElementById("home-hero-video");
+    if (!el) {
+        console.error("Element with ID 'home-hero-video' not found!");
+        return;
+    }
 
-  // Ensure initial styles match
-  el.style.transform = "translate(-32vw, 191.86px) rotate(-6deg)";
-  el.style.width = "267.837px";
-  el.style.height = "167.4px";
-  el.style.position = "absolute"; // ensure transform works as expected
+    // Initial styles
+    el.style.setProperty("transform", "translate(-32vw, 191.86px) rotate(-6deg)", "important");
+    el.style.setProperty("width", "267.837px", "important");
+    el.style.setProperty("height", "167.4px", "important");
+    el.style.setProperty("position", "absolute", "important");
 
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const maxScroll = window.innerHeight; // Animation over 1 screen height
-    const progress = Math.min(scrollTop / maxScroll, 1); // Clamp from 0 to 1
+    // Scroll behavior
+    window.addEventListener("scroll", () => {
+        const scrollFactor = scrollY * 0.1;
 
-    // -- Translate X: from -32vw to 0px
-    const x = -32 
-    const translateX = `${x}vw`;
+        const translateX = -32 + scrollFactor;
+        const translateY = 191.86 + scrollFactor;
+        const rotateDeg = -6 + scrollFactor;
+        const width = 267.837 + scrollFactor*10;
+        const height = 167.4 + scrollFactor*10;
 
-    // -- Translate Y: from 191.86px to 100vh
-    const startY = 191.86;
-    const endY = window.innerHeight;
-    const y = startY + (endY - startY) * progress;
+        const transformString = `translate(${translateX}vw, ${translateY}px) rotate(${rotateDeg}deg)`;
 
-    // -- Rotation: from -6deg to 0
-    const rotate = -6 * (1 - progress);
+        el.style.setProperty("transform", transformString, "important");
+        el.style.setProperty("width", `${width}px`, "important");
+        el.style.setProperty("height", `${height}px`, "important");
 
-    // -- Width: from 267.837px to 100vw
-    const width = 267.837 + (window.innerWidth - 267.837) * progress;
-
-    // -- Height: from 167.4px to 100vh
-    const height = 167.4 + (window.innerHeight - 167.4) * progress;
-
-    // Apply styles
-    el.style.transform = `translate(${translateX}, ${y}px) rotate(${rotate}deg)`;
-    el.style.width = `${width}px`;
-    el.style.height = `${height}px`;
-  });
+        console.log("Transform applied:", transformString);
+    });
 });
-
