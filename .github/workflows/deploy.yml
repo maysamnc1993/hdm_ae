@@ -29,7 +29,7 @@ jobs:
             rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
             echo "📥 کلون پروژه"
-            git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+            git clone https://x-access-token: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@github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
             echo "📦 نصب پکیج‌ها"
             cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
