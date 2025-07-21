@@ -7,6 +7,11 @@ body {
   font-style: normal;
   direction: ltr;
   background: #00081f !important;
+
+  margin: 0;
+   height: 200vh; /* Make page scrollable */
+
+
 }
 
 .section-hero {
@@ -37,15 +42,20 @@ body {
 
 .section-hero h1 span{
     position: relative;
+    font-size: 18rem;
+    
 }
 .section-hero h1 span i {
     font-style: normal;
     clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
     color: #b9561b;
 }
+
+
+
 .section-hero h1 span b {
     position: absolute;
-    top: 14px;
+    top: 44px;
     clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
     background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
     background-clip: text;
@@ -54,5 +64,53 @@ body {
     left: 0;
     color: #b9561b;
 }
+
+
+body {
+            margin: 0;
+            height: 500vh; /* Make page scrollable */
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+        }
+        
+#home-hero-video {
+    position: absolute;
+    z-index: 20;
+    background: #ff6b6b;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    transition: none; /* Remove any CSS transitions that might interfere */
+}
+
+.on-top{
+    
+    z-index: 99;
+}
+
+span.video-caption {
+    position: relative;
+    z-index: 99;
+    font-size: 60px;
+    font-weight: 300;
+    display:none;
+}
+/* animations*/
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
 
 
