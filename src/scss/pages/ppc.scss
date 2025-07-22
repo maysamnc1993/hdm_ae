@@ -1,15 +1,10 @@
 .section-creative {
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 0 0 0;
-    overflow: hidden;
-    min-height: 100vh;
-  }
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 250px 0 0;
+  position: relative;
+}
 
   .box_of_circle_effect {
     -webkit-filter: blur(10px);
@@ -349,4 +344,123 @@
   box-shadow: none;
   backdrop-filter: unset;
   border: 0;
+}
+
+
+
+.ListOfValue {
+  display: inline-block;
+  width: 100%;
+  margin: 8px 0 50px 0;
+  transform: perspective(1200px) rotateX(35deg) rotateY(0);
+  background-size: cover;
+  background-position: center;
+  transition: 0.5s;
+  position: sticky;
+  top: 0;
+}
+.ListOfValue.active {
+  position: sticky;
+  top: 0;
+  transition: 0.5s;
+  background-image: unset !important;
+  z-index: 99;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ListOfValue .list_of_values {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+.ListOfValue .list_of_values li {
+  width: 33.3%;
+  margin: 0;
+  height: 194px;
+  background: rgba(65, 41, 28, 0);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #0e1b34;
+}
+.ListOfValue .list_of_values li h3 {
+  font-size: 26px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+}
+.ListOfValue .list_of_values li p {
+  display: none;
+}
+
+.value_section {
+  display: inline-block;
+  width: 100%;
+}
+
+.value_section .title_box {
+  width: 76%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  transition: 0.5s;
+}
+
+.value_section .title_box .title {
+  font-size: 35px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  text-align: center;
+}
+.value_section .title_box .CTA_Default {
+  margin: 10px 0 0 0;
+}
+
+
+.ListOfValue.active .list_of_values li {
+  width: 31.3%;
+  margin: 0 1% 49px;
+  background: rgba(2, 10, 30, 0.81);
+  border: 0;
+  transition: 0.5s;
+  transform: rotate(5deg);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.46);
+}
+.ListOfValue.active .list_of_values li:nth-child(2) {
+  transform: rotate(-5deg);
+}
+.ListOfValue.active .list_of_values li p {
+  display: block;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.ListOfValue .list_of_values li.title_box_section {
+  width: 100% !important;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  transition: 0.5s;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: unset;
+  transition: 0s;
+}
+.ListOfValue.active .list_of_values li.title_box_section {
+  height: auto;
+  overflow: auto;
+  transform: rotate(0);
+}
+.section-creative .container {
+  height: 150vh;
 }
