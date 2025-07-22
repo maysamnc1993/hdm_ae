@@ -32,64 +32,64 @@
     "isEntry": true
   },
   "src/js/pages/Draggable.min.js": {
-    "file": "js/pages/src\\js\\pages\\Draggable.min.js.js",
-    "name": "pages/src\\js\\pages\\Draggable.min.js",
+    "file": "js/pages/Draggable.min.js",
+    "name": "pages/Draggable.min",
     "src": "src/js/pages/Draggable.min.js",
     "isEntry": true
   },
   "src/js/pages/admin.js": {
-    "file": "js/pages/src\\js\\pages\\admin.js.js",
-    "name": "pages/src\\js\\pages\\admin.js",
+    "file": "js/pages/admin.js",
+    "name": "pages/admin",
     "src": "src/js/pages/admin.js",
     "isEntry": true
   },
   "src/js/pages/gsap.min.js": {
-    "file": "js/pages/src\\js\\pages\\gsap.min.js.js",
-    "name": "pages/src\\js\\pages\\gsap.min.js",
+    "file": "js/pages/gsap.min.js",
+    "name": "pages/gsap.min",
     "src": "src/js/pages/gsap.min.js",
     "isEntry": true
   },
   "src/js/pages/metaAds.js": {
-    "file": "js/pages/src\\js\\pages\\metaAds.js.js",
-    "name": "pages/src\\js\\pages\\metaAds.js",
+    "file": "js/pages/metaAds.js",
+    "name": "pages/metaAds",
     "src": "src/js/pages/metaAds.js",
     "isEntry": true
   },
   "src/js/pages/ppc.js": {
-    "file": "js/pages/src\\js\\pages\\ppc.js.js",
-    "name": "pages/src\\js\\pages\\ppc.js",
+    "file": "js/pages/ppc.js",
+    "name": "pages/ppc",
     "src": "src/js/pages/ppc.js",
     "isEntry": true
   },
   "src/js/pages/wavesurfer.min.js": {
-    "file": "js/pages/src\\js\\pages\\wavesurfer.min.js.js",
-    "name": "pages/src\\js\\pages\\wavesurfer.min.js",
+    "file": "js/pages/wavesurfer.min.js",
+    "name": "pages/wavesurfer.min",
     "src": "src/js/pages/wavesurfer.min.js",
     "isEntry": true
   },
   "src/js/pages/webdesign.js": {
-    "file": "js/pages/src\\js\\pages\\webdesign.js.js",
-    "name": "pages/src\\js\\pages\\webdesign.js",
+    "file": "js/pages/webdesign.js",
+    "name": "pages/webdesign",
     "src": "src/js/pages/webdesign.js",
     "isEntry": true
   },
   "src/scss/pages/admin.scss": {
-    "file": "css/pages/src/scss/pages/admin.css.css",
+    "file": "css/pages/admin.css.css",
     "src": "src/scss/pages/admin.scss",
     "isEntry": true
   },
   "src/scss/pages/metaAds.scss": {
-    "file": "css/pages/src/scss/pages/metaAds.css.css",
+    "file": "css/pages/metaAds.css.css",
     "src": "src/scss/pages/metaAds.scss",
     "isEntry": true
   },
   "src/scss/pages/ppc.scss": {
-    "file": "css/pages/src/scss/pages/ppc.css.css",
+    "file": "css/pages/ppc.css.css",
     "src": "src/scss/pages/ppc.scss",
     "isEntry": true
   },
   "src/scss/pages/webdesign.scss": {
-    "file": "css/pages/src/scss/pages/webdesign.css.css",
+    "file": "css/pages/webdesign.css.css",
     "src": "src/scss/pages/webdesign.scss",
     "isEntry": true
   },
