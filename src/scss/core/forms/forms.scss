@@ -21,7 +21,7 @@ select::placeholder {
 .form-input,
 .form-select,
 .form-textarea {
-  @apply border border-gray-300 focus:ring-2 focus:ring-primary-blue focus:outline-none;
+  @apply border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:outline-none;
 }
 
 /* Select dropdown styling */
@@ -71,7 +71,7 @@ input[type="radio"]::before {
 }
 
 input[type="radio"]:checked {
-  @apply border-primary-blue bg-primary-blue;
+  @apply border-brand-primary bg-brand-primary;
 }
 
 input[type="radio"]:checked::before {
@@ -79,7 +79,7 @@ input[type="radio"]:checked::before {
 }
 
 input[type="radio"]:focus {
-  @apply ring-2 ring-primary-blue;
+  @apply ring-2 ring-brand-primary;
 }
 
 input[type="radio"]:disabled {

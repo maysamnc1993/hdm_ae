@@ -67,7 +67,7 @@
 }
 
 .icon-red {
-  @apply text-primary-red;
+  @apply text-brand-primary;
 }
 
 /* Ensure Tailwind doesn’t interfere */
@@ -87,7 +87,7 @@ svg use {
   rotate: 140deg;
   stroke-width: 2px;
   opacity: 0.8;
-  color: theme('colors.primary-red');
+  color: theme('colors.brand.primary');
 }
 
 

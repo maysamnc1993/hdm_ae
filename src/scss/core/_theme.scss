@@ -1,12 +1,11 @@
 // normalize.scss for Saman Insurance Website
 // Designed to compleme
 
-@use 'fonts';
+@use "fonts";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 $primary-blue: #1e3a8a;
 $secondary-blue: #3b82f6;
@@ -19,10 +18,12 @@ $secondary-red: #dc2626;
   html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
-    font-family: 'AnjomanMaxFN', Tahoma, Arial, sans-serif;
+    font-family: "AnjomanMaxFN", Tahoma, Arial, sans-serif;
     direction: rtl;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
   }
+
 
   *,
   *::before,
@@ -30,9 +31,10 @@ $secondary-red: #dc2626;
     box-sizing: inherit;
   }
 
-  body {
+  body {  
+    scroll-snap-type: y mandatory;
     margin: 0;
-    font-family: 'AnjomanMaxFN', Tahoma, Arial, sans-serif;
+    font-family: "AnjomanMaxFN", Tahoma, Arial, sans-serif;
     @apply text-gray-900 bg-white;
     line-height: 1.5;
     font-size: 16px;
@@ -56,7 +58,12 @@ $secondary-red: #dc2626;
 
 // Typography
 @mixin typography {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 0;
     //margin-bottom: 0.5rem;
     @apply font-bold text-black;
@@ -87,11 +94,9 @@ $secondary-red: #dc2626;
     @apply text-base;
   }
 
- 
-
   // Other text elements
   a {
-    @apply bg-transparent text-primary-blue;
+    @apply bg-transparent;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 
@@ -105,9 +110,9 @@ $secondary-red: #dc2626;
       outline-offset: 2px;
     }
 
-    &:active {
-      @apply text-primary-blue;
-    }
+    // &:active {
+    //   @apply ;
+    // }
   }
 
   // // Special links like CTAs
@@ -121,10 +126,10 @@ $secondary-red: #dc2626;
   //   }
   // }
 
-  b, strong {
+  b,
+  strong {
     @apply font-bold;
   }
-
 
   // Blockquotes
   blockquote {
@@ -173,7 +178,9 @@ $secondary-red: #dc2626;
   input[type="number"],
   textarea,
   select {
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition:
+      border-color 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
 
     &:focus {
       @apply border-blue-500 outline-none;
@@ -203,7 +210,8 @@ $secondary-red: #dc2626;
     margin-bottom: 1rem;
   }
 
-  th, td {
+  th,
+  td {
     @apply py-3 px-4 border-b border-gray-200 text-right;
   }
 
@@ -326,13 +334,11 @@ $secondary-red: #dc2626;
 @include utilities;
 @include print-styles;
 
-
-
 /* Override Tailwind */
 svg.icon {
   @apply fill-none stroke-current;
 }
 
-div{
+div {
   @apply transition-all;
 }

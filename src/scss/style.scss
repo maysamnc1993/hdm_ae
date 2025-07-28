@@ -1,12 +1,12 @@
-@use 'core/theme';
-@use 'core/iconFont/iconFont';
-@use 'core/buttons/button';
-@use 'core/forms/forms';
+@use "core/theme";
+@use "core/iconFont/iconFont";
+@use "core/buttons/button";
+@use "core/forms/forms";
 
-@use 'layouts/header';
-@use 'layouts/footer';
+@use "layouts/header";
+@use "layouts/footer";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 
 // Theme colors
 $primary: #007bff;
@@ -20,7 +20,15 @@ $light: #f8f9fa;
 $dark: #343a40;
 
 // Typography
-$font-family-base: 'Vazirmatn', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-base:
+  "Vazirmatn",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
 $font-size-base: 1rem;
 $line-height-base: 1.5;
 
@@ -61,10 +69,12 @@ $z-layers: (
   }
 
   body {
-    @apply bg-gray-50 text-gray-900;
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
+    overflow-x: clip;
+    font-family: "Space Grotesk", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+    direction: ltr;
+    background: #00081f !important;
   }
 
   a {
@@ -78,60 +88,12 @@ $z-layers: (
   }
 }
 
-
-
-
-
-footer {
-  .footer_useful_links,
-  .footer_quick_access {
-    .menu-item {
-      @apply text-white text-right;
-    }
-    
-    a {
-      @apply text-white hover:text-gray-200 transition-colors;
-      width: max-content;
-      max-width: 185px;
-      text-align: right;
-      display: block;
-    }
-  }
-  
-  li {
-    @apply flex items-center gap-1;
-
-    &::before {
-      content: "";
-      @apply bg-primary-red;
-      width: 5px;
-      height: 5px;
-      display: block;
-      border-radius: 99px;
-    }
-  }
-  
-  .subs-section {
-    @apply flex;
-    
-    .input {
-      @apply flex-grow  border-none p-3 text-right text-sm;
-    }
-    
-    .btn-sub {
-      @apply bg-primary-red text-white rounded-l-md py-2 px-6 text-sm font-bold hover:bg-red-700 transition-colors;
-    }
-  }
-}
-
-
-
 .CTA_Default {
   width: 186px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  color: #fff!important;
+  color: #fff !important;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -143,16 +105,16 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #00091C;
-      background-image: none;
-      background-size: auto;
+    background: #00091c;
+    background-image: none;
+    background-size: auto;
     padding: 10px 0;
     position: relative;
     z-index: 9;
     border-radius: 8px;
     background-size: 100%;
 
-    &:hover{
+    &:hover {
       transition: 0.5s;
       background-size: 200%;
     }
@@ -168,7 +130,11 @@ footer {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(20.7% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(
+      20.7% 50% at 50% 100%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     border-radius: 8px;
     opacity: 1;
     z-index: 9;
@@ -178,7 +144,11 @@ footer {
   }
 
   .box_1 {
-    background: radial-gradient(25% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(
+      25% 50% at 50% 100%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     border-radius: 8px;
     filter: blur(15px);
     opacity: 1;
@@ -199,9 +169,14 @@ footer {
       transition: 1s;
     }
   }
+  .bg-lin-btn {
+    background: radial-gradient(
+      circle,
+      rgba(105, 34, 1, 1) 0%,
+      rgba(194, 93, 25, 1) 100%
+    );
+  }
 }
-
-
 
 header {
   position: fixed;
@@ -214,7 +189,6 @@ header {
 body.admin-bar header {
   top: 32px;
 }
-
 
 header .logo {
   width: 130px;
@@ -238,14 +212,12 @@ header .flex {
   align-items: center;
 }
 
-
-
 header.active {
   position: fixed;
   z-index: 999999;
 }
 header.active .container {
-  background: #00081FBD;
+  background: #00081fbd;
   padding: 10px 17px;
   backdrop-filter: blur(10px);
   border-radius: 12px;
@@ -254,13 +226,12 @@ header.active .container {
 
 body {
   overflow-x: clip;
-  font-family: "Space Grotesk",sans-serif!important;
+  font-family: "Space Grotesk", sans-serif !important;
   font-optical-sizing: auto;
   font-style: normal;
   direction: ltr;
   background: #00081f !important;
 }
-
 
 .ListOfCTA {
   float: right;
@@ -281,7 +252,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  color: #fff!important;
+  color: #fff !important;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -293,16 +264,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #00091C;
-      background-image: none;
-      background-size: auto;
+    background: #00091c;
+    background-image: none;
+    background-size: auto;
     padding: 10px 0;
     position: relative;
     z-index: 9;
     border-radius: 8px;
     background-size: 100%;
 
-    &:hover{
+    &:hover {
       transition: 0.5s;
       background-size: 200%;
     }
@@ -318,7 +289,11 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(20.7% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(
+      20.7% 50% at 50% 100%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     border-radius: 8px;
     opacity: 1;
     z-index: 9;
@@ -328,7 +303,11 @@ body {
   }
 
   .box_1 {
-    background: radial-gradient(25% 50% at 50% 100%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(
+      25% 50% at 50% 100%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     border-radius: 8px;
     filter: blur(15px);
     opacity: 1;
@@ -350,8 +329,3 @@ body {
     }
   }
 }
-
-
-
-
-

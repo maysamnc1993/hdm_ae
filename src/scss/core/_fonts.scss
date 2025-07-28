@@ -1,5 +1,238 @@
-// Font Face Declarations for AnjomanMaxFN fonts
-// Use relative paths that match the build output structure
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
-// Regular weight
+/* Font Face Declarations for Inter fonts */
 
+/* Thin (100) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Thin.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Thin Italic (100) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-ThinItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraLight (200) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-ExtraLight.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraLight Italic (200) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-ExtraLightItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light (300) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Light.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light Italic (300) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-LightItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Regular.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic (400) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Italic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Medium.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium Italic (500) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-MediumItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* SemiBold (600) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-SemiBold.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold Italic (600) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-SemiBoldItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Bold.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold Italic (700) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-BoldItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraBold (800) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-ExtraBold.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold Italic (800) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-ExtraBoldItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-Black.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black Italic (900) */
+@font-face {
+  font-family: "Inter";
+  src:
+    url("../fonts/inter/Inter_28pt-BlackItalic.woff2") format("woff2"),
+    url("../fonts/inter/Inter_28pt-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Icon Font (pg) - Unchanged */
+@font-face {
+  font-family: "pg";
+  src:
+    url("../fonts/iconFont/pg-icons/pg.woff2") format("woff2"),
+    url("../fonts/iconFont/pg-icons/pg.woff") format("woff"),
+    url("../fonts/iconFont/pg-icons/pg.ttf") format("truetype");
+  font-display: block;
+}
+
+/* Utility Classes for Font Weights */
+.font-thin {
+  font-weight: 100;
+}
+.font-extralight {
+  font-weight: 200;
+}
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-extrabold {
+  font-weight: 800;
+}
+.font-black {
+  font-weight: 900;
+}

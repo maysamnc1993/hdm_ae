@@ -1,0 +1,109 @@
+@use "../components/faq/faq";
+@use "../components/carts/why-choose-us-styles";
+@use "../components/carts/case-study";
+
+.section-cm {
+  h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .section-cm-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.125rem;
+    text-align: center;
+    max-width: 50%;
+    margin: 27px auto 70px;
+  }
+}
+
+/* CSS Styles */
+.colorful-text-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.animated-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.4;
+  color: rgb(183 183 183);
+  margin: 0;
+  text-align: center;
+}
+
+.animated-text span {
+  display: inline-block;
+  transition: color 0.1s ease;
+}
+
+@media (max-width: 768px) {
+  .animated-text {
+    font-size: 1.8rem;
+  }
+}
+
+.additional-ad-services {
+  .cart-ads {
+    background-color: rgb(19, 19, 21);
+    backdrop-filter: blur(2.55812px);
+    border-radius: 8px;
+    width: 100%;
+    opacity: 1;
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 20px;
+    transform: perspective(1000px); 
+    transition: none;
+    will-change: transform, opacity, filter;
+  }
+  .step-number {
+    color: #fff;
+    font-weight: 900;
+    font-size: 32px;
+  }
+  .dot-step {
+    background-color: #aeaeae;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    opacity: 1;
+    flex: none;
+    height: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 8px;
+    will-change: transform, background-color;
+  }
+  .dot-step.active {
+    background-color: rgb(255, 75, 0);
+  }
+  .title {
+    color: #fff;
+    font-weight: 900;
+    font-size: 24px;
+    min-height: 50px;
+  }
+  .caption {
+    color: #aeaeae;
+    font-weight: 500;
+    font-size: 16px;
+    min-height: 100px;
+  }
+}

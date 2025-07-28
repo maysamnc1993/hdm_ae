@@ -34,4 +34,4 @@ function jthem_load_components() {
 }
 
 // Load all components
-jthem_load_components(); 
+//jthem_load_components(); 

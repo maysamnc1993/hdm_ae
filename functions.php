@@ -44,7 +44,7 @@ JThem\Config\ThemeConfig::init();
 /**
  * RTL Support
  */
-require_once THEME_URI . '/core/functions/rtl-support.php';
+//require_once THEME_URI . '/core/functions/rtl-support.php';
 
 /**
  * Enqueue scripts and styles
@@ -71,6 +71,7 @@ require_once THEME_URI . '/inc/template-tags.php';
 
 
 require_once THEME_URI . '/core/helpers/general-helpers.php';
+require_once THEME_URI . '/core/helpers/acf.php';
 
 /**
  * Load modular components
@@ -103,6 +104,7 @@ function fn_options()
     return $pg_options;
 }
 require_once THEME_URI . '/core/admin/admin-redux.php';
+require_once THEME_URI . '/core/admin/admin-acf.php';
 require_once THEME_URI . '/core/admin/dependencies-check.php';
 require_once THEME_URI . '/core/admin/theme-optoins.php';
 
@@ -128,14 +130,3 @@ require_once THEME_URI. '/core/ajaxs/ajax.php';
 require_once THEME_URI. '/core/hooks/rewrite-rule.php';
 
 
-
-// ======== gutenberg blocks ======== //
-// require_once THEME_URI. '/blocks/blocks.php';
-
-function allow_svg_uploads( $mimes ) {
-    if ( current_user_can( 'manage_options' ) ) {
-        $mimes['svg'] = 'image/svg+xml';
-    }
-    return $mimes;
-}
-add_filter( 'upload_mimes', 'allow_svg_uploads' );

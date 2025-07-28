@@ -1,3 +1,11 @@
+// typical import
+import gsap from "gsap";
+// or get other plugins:
+import Draggable from "gsap/Draggable";
+import ScrollTrigger from "gsap/ScrollTrigger";
+// don't forget to register plugins
+gsap.registerPlugin(ScrollTrigger, Draggable); 
+
 jQuery(document).ready(function () {
     var $dashboard = jQuery(".dashboard video");
     var isPlaying = false;
@@ -139,7 +147,6 @@ jQuery(document).ready(function ($) {
       }
     });
   });
-
 }
 
   // Teams
@@ -199,16 +206,43 @@ function getBgPos(i){ //returns the background-position string to create paralla
 }
  
  
-jQuery(document).ready(function(){
-  jQuery('.faq__item__head').click(function (e) {
+jQuery(document).ready(function ($) {
+  $(".faq__item__body").hide(); 
+
+  $(".faq__item__head").click(function (e) {
     e.preventDefault();
-    jQuery(this).siblings().slideToggle();
-    jQuery(this).toggleClass('active');
 
+    var $trigger = $(this);
+    var $content = $trigger.siblings(".faq__item__body");
+    var isActive = $trigger.hasClass("active");
+
+    
+    
+    $('.faq__item__head.active').not($trigger).removeClass('active').siblings('.faq__item__body').slideUp({
+        duration: 300,
+        easing: 'swing'
+    });
+  
+
+    if (isActive) {
+      
+      $content.slideUp({
+        duration: 300, 
+        easing: 'swing', 
+        complete: function () {
+          $trigger.removeClass("active");
+        },
+      });
+    } else {
+
+      $trigger.addClass("active");
+      $content.slideDown({
+        duration: 300,
+        easing: 'swing',
+      });
+    }
+  });
 });
-
-
-})
 
 
 

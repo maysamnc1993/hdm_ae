@@ -1,0 +1,169 @@
+.caseStudyItem {
+  display: inline-block;
+  width: 100%;
+  padding: 50px 0 0;
+  margin-bottom: 0;
+
+  .box_of_caseStudy {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    .titleBox {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 25px 0;
+      position: sticky;
+      top: 150px;
+    }
+
+    .badge {
+      font-size: 20px;
+      color: #c15b19;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      width: 50%;
+      color: #fff;
+      font-size: 50px;
+      margin: 0 auto;
+      line-height: 1.3;
+    }
+  }
+
+  .CaseStudyItem {
+    display: inline-block;
+    width: 100%;
+    background: #0c172ba8;
+    backdrop-filter: blur(10px);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 0 0 17px 0;
+    position: sticky;
+
+    &.c_1 {
+      top: 350px;
+    }
+
+    &.c_2 {
+      top: 400px;
+    }
+
+    .Number {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-right: 1px solid #212122;
+
+      i {
+        font-size: 56px;
+        color: #bf5917;
+        font-style: normal;
+      }
+
+      b {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 100;
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      .title {
+        font-size: 20px;
+        width: 100%;
+        margin: 9px 0 0 0;
+        color: #fff;
+      }
+
+      .subtitle {
+        color: #ffffff6b;
+        font-size: 14px;
+      }
+
+      .Problem {
+        display: inline-block;
+
+        p {
+          color: #fff;
+          margin: 7px 0 0 0;
+          font-size: 14px;
+          line-height: 1.6;
+        }
+      }
+
+      .read-more {
+        color: #bf5917;
+        font-size: 17px;
+        margin: 9px 0 0 0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #e07b39;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .caseStudyItem {
+    padding: 20px 0 0;
+    min-height: 360px;
+
+    .box_of_caseStudy {
+      .title {
+        width: 100%;
+        font-size: 30px;
+      }
+
+      .CaseStudyItem {
+        display: flex;
+        flex-direction: column;
+        padding: 0 12px;
+
+        &.c_1,
+        &.c_2 {
+          top: 285px;
+        }
+
+        .Number {
+          width: 100%;
+          border-bottom: 1px solid #212122;
+          border-right: 0;
+          padding: 0 0 6px 0;
+        }
+
+        .text {
+          .subtitle {
+            font-size: 13px;
+          }
+
+          .title {
+            font-size: 17px;
+            line-height: 1.3;
+          }
+
+          .Problem p {
+            width: 100%;
+            font-size: 14px;
+            line-height: 1.8;
+          }
+        }
+      }
+    }
+  }
+}
