@@ -648,7 +648,7 @@ function theme_part($name = null, $args = array())
  * @param float  $opacity Opacity.
  * @return string RGB/RGBA color.
  */
-function theme_hex2rgba($color, $opacity = false)
+function hex2rgba($color, $opacity = false)
 {
     $default = 'rgb(0,0,0)';
 
@@ -762,12 +762,20 @@ function display_img($image, $class = '', $alt = '', $attrs = [])
 function inline_display_img($img, $class = '', $alt = '')
 {
     if (theme_is_production()) {
-        echo '<img src="' . THEME_URL . '/assets/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
+        echo '<img src="' . THEME_URI . '/assets/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
     } else {
-        echo '<img src="' . THEME_URL . '/src/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
+        echo '<img src="' . THEME_URI . '/src/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
     }
 }
 
+function inline_url_img($img)
+{
+    if (theme_is_production()) {
+        return  THEME_URL . '/assets/images/' . $img;
+    } else {
+        return  THEME_URL . '/src/images/' . $img;
+    }
+}
 
 
 
@@ -814,7 +822,7 @@ function get_image_path($image_name)
         $base_path = 'src/images/';
     }
 
-    return THEME_URL . "/" . $base_path . $image_name;
+    return THEME_URI . "/" . $base_path . $image_name;
 }
 
 

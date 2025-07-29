@@ -20,5 +20,12 @@ if (function_exists('acf_add_local_field_group')) :
     require_once(THEME_URI . "/core/admin/acf-filds/testimonial-filds.php");
     require_once(THEME_URI . "/core/admin/acf-filds/why-choose-us-filds.php");
     require_once(THEME_URI . "/core/admin/acf-filds/why-app-filds.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/additional-ad-services-filds.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/app-hero-section-filds.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/services-field.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/ads-applications.php");
+
+
+
 endif;
 

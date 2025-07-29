@@ -12,6 +12,10 @@ if (!defined('ABSPATH')) exit;
 if (!defined('THEME_URI')) {
     define('THEME_URI', get_template_directory());
 }
+if (!defined('THEME_URL')) {
+    define('THEME_URL', get_template_directory_uri());
+}
+
 
 // auto loader
 require_once __DIR__ . '/vendor/autoload.php';
