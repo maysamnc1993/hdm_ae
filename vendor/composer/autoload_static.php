@@ -12,6 +12,8 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '1f87db08236948d07391152dccb70f04' => __DIR__ . '/..' . '/google/apiclient-services/autoload.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        '3937806105cc8e221b8fa8db5b70d2f2' => __DIR__ . '/..' . '/wp-cli/mustangostang-spyc/includes/functions.php',
+        'be01b9b16925dcb22165c40b46681ac6' => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib/cli/cli.php',
         'a8d3953fd9959404dd22d3dfcd0a79f0' => __DIR__ . '/..' . '/google/apiclient/src/aliases.php',
     );
 
@@ -19,6 +21,10 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         'p' => 
         array (
             'phpseclib3\\' => 11,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Component\\Finder\\' => 25,
         ),
         'P' => 
         array (
@@ -30,6 +36,7 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         ),
         'M' => 
         array (
+            'Mustangostang\\' => 14,
             'Monolog\\' => 8,
         ),
         'J' => 
@@ -56,6 +63,10 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
@@ -76,6 +87,10 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         'ParagonIE\\ConstantTime\\' => 
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
+        ),
+        'Mustangostang\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wp-cli/mustangostang-spyc/src',
         ),
         'Monolog\\' => 
         array (
@@ -115,6 +130,30 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'c' => 
+        array (
+            'cli' => 
+            array (
+                0 => __DIR__ . '/..' . '/wp-cli/php-cli-tools/lib',
+            ),
+        ),
+        'W' => 
+        array (
+            'WP_CLI\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/wp-cli/wp-cli/php',
+            ),
+        ),
+        'M' => 
+        array (
+            'Mustache' => 
+            array (
+                0 => __DIR__ . '/..' . '/wp-cli/mustache/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Google_AccessToken_Revoke' => __DIR__ . '/..' . '/google/apiclient/src/aliases.php',
@@ -137,6 +176,8 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         'Google_Task_Retryable' => __DIR__ . '/..' . '/google/apiclient/src/aliases.php',
         'Google_Task_Runner' => __DIR__ . '/..' . '/google/apiclient/src/aliases.php',
         'Google_Utils_UriTemplate' => __DIR__ . '/..' . '/google/apiclient/src/aliases.php',
+        'WP_CLI' => __DIR__ . '/..' . '/wp-cli/wp-cli/php/class-wp-cli.php',
+        'WP_CLI_Command' => __DIR__ . '/..' . '/wp-cli/wp-cli/php/class-wp-cli-command.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -144,6 +185,7 @@ class ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitf6f07120384c0dbb89f79da80e3ede00::$classMap;
 
         }, null, ClassLoader::class);

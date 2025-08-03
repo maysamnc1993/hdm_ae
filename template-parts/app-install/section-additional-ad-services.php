@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Component: Additional Ad Services
  * Description: Displays a grid of ad service items with dynamic step numbers and progress dots.
@@ -27,6 +28,11 @@ $grid_class = "grid grid-cols-{$grid_cols} gap-5 py-10";
 ?>
 
 <section class="additional-ad-services container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
+    <div class="flex justify-center items-center my-5 col-span-4 ">
+        <h2 class="text-white text-3xl">
+            <?php echo get_field('additional_ad_services_title',get_the_ID()) ?>
+        </h2>
+    </div>
     <?php
     $step = 1;
     foreach ($ad_services as $item) {

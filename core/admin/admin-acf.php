@@ -23,7 +23,9 @@ if (function_exists('acf_add_local_field_group')) :
     require_once(THEME_URI . "/core/admin/acf-filds/additional-ad-services-filds.php");
     require_once(THEME_URI . "/core/admin/acf-filds/app-hero-section-filds.php");
     require_once(THEME_URI . "/core/admin/acf-filds/services-field.php");
-    require_once(THEME_URI . "/core/admin/acf-filds/ads-applications.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/ads-applications-field.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/seo-stats-section-field.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/seo-process-field.php");
 
 
 

@@ -16,6 +16,24 @@ if (function_exists('acf_add_local_field_group')) :
         'key' => 'group_additional_ad_services_section',
         'title' => 'Additional Ad Services Section',
         'fields' => [
+             [
+                'key' => 'field_additional_ad_services_title',
+                'label' => 'Additional Ad Services Title',
+                'name' => 'additional_ad_services_title',
+                'type' => 'text',
+                'instructions' => 'Enter the title for the Additional Ad Services section.',
+                'required' => 1,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => 'Additional ad Services',
+                'placeholder' => 'Case Study Subtitle',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ],
             [
                 'key' => 'field_additional_ad_services_items',
                 'label' => 'Ad Service Items',

@@ -32,7 +32,7 @@ $fields = [
 
 // Include section-specific template parts
 get_template_part('template-parts/app-install/section', 'hero');
-get_template_part('template-parts/app-install/section', 'why-app', ['why_app' => $fields['why_app']]);
+//get_template_part('template-parts/app-install/section', 'why-app', ['why_app' => $fields['why_app']]);
 get_template_part('template-parts/app-install/section', 'grow-app');
 get_template_part('template-parts/app-install/section', 'ads-application');
 get_template_part('template-parts/global/section', 'case-study-item', ['case_study' => $fields['case_study']]);

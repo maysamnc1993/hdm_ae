@@ -1,7 +1,15 @@
 {
+  "_Draggable.js": {
+    "file": "js/Draggable.js",
+    "name": "Draggable"
+  },
   "_ScrollTrigger.js": {
     "file": "js/ScrollTrigger.js",
     "name": "ScrollTrigger"
+  },
+  "_faq.js": {
+    "file": "js/faq.js",
+    "name": "faq"
   },
   "src/fonts/iconFont/pg-icons/pg.eot": {
     "file": "fonts/pg.eot",
@@ -53,7 +61,9 @@
     "src": "src/js/pages/appInstall.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js"
+      "_faq.js",
+      "_ScrollTrigger.js",
+      "_Draggable.js"
     ]
   },
   "src/js/pages/gsap.min.js": {
@@ -74,6 +84,16 @@
     "src": "src/js/pages/ppc.js",
     "isEntry": true
   },
+  "src/js/pages/seo.js": {
+    "file": "js/pages/seo.js",
+    "name": "pages/seo",
+    "src": "src/js/pages/seo.js",
+    "isEntry": true,
+    "imports": [
+      "_ScrollTrigger.js",
+      "_faq.js"
+    ]
+  },
   "src/js/pages/wavesurfer.min.js": {
     "file": "js/pages/wavesurfer.min.js",
     "name": "pages/wavesurfer.min",
@@ -86,7 +106,8 @@
     "src": "src/js/pages/webdesign.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js"
+      "_ScrollTrigger.js",
+      "_Draggable.js"
     ]
   },
   "src/scss/pages/admin.scss": {
@@ -107,6 +128,11 @@
   "src/scss/pages/ppc.scss": {
     "file": "css/pages/ppc.css.css",
     "src": "src/scss/pages/ppc.scss",
+    "isEntry": true
+  },
+  "src/scss/pages/seo.scss": {
+    "file": "css/pages/seo.css.css",
+    "src": "src/scss/pages/seo.scss",
     "isEntry": true
   },
   "src/scss/pages/webdesign.scss": {
