@@ -87,19 +87,6 @@ jQuery(document).ready(function($) {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const persianToLatin = (str) => {
-        const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        const latinDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-        return str.replace(/[۰-۹]/g, (match) => latinDigits[persianDigits.indexOf(match)]);
-    };
-
-    // تغییر اعداد فارسی به انگلیسی در تمام مقادیر CSS و HTML
-    document.querySelectorAll('*').forEach((element) => {
-        element.innerHTML = persianToLatin(element.innerHTML);
-        element.style.cssText = persianToLatin(element.style.cssText);
-    });
-});
 
 
 

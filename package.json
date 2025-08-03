@@ -42,8 +42,9 @@
     "webfont": "^11.2.26"
   },
   "dependencies": {
-    "gsap": "^3.6.1",
+    "gsap": "^3.13.0",
     "jquery": "^3.7.1",
+    "simplex-noise": "^3.0.1",
     "svgtofont": "^6.3.2",
     "swiper": "^11.0.5",
     "terser": "^5.39.0",
