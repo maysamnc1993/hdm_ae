@@ -1,5 +1,4 @@
-name: Deploy WordPress Theme to cPanel via HTTPS
-
+name: Deploy WordPress Theme to cPanel via SSH
 on:
   push:
     branches:
@@ -9,7 +8,6 @@ jobs:
   deploy:
     name: Deploy Theme
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -17,11 +15,12 @@ jobs:
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy Theme from Public Repo
+      - name: Test SSH Connection
         run: |
-          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
-            hdmarketingae@95.216.200.94 << 'EOF'
+          sshpass -p "zI?YVpW]~[YQ" ssh -T -p 6985 -o StrictHostKeyChecking=no \
+            staginghdmplus@109.230.196.110 "echo SSH connection successful"
 
+<<<<<<< HEAD
              echo "🔧 تنظیم مالکیت روی پوشه قدیمی"
             chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss || true
 
@@ -42,3 +41,21 @@ jobs:
 
             echo "✅ Deployment کامل شد!"
           EOF
+=======
+      - name: Verify Remote Repository
+        run: |
+          sshpass -p "zI?YVpW]~[YQ" ssh -T -p 6985 -o StrictHostKeyChecking=no \
+            staginghdmplus@109.230.196.110 << EOF
+              cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+              if [ -d ".git" ]; then
+                echo "Git repository exists"
+                git remote -v
+                git fetch origin || { echo "Failed to fetch from origin"; exit 1; }
+                git reset --hard origin/main || { echo "Failed to reset to origin/main"; exit 1; }
+                git pull || { echo "Failed to pull latest changes"; exit 1; }
+                echo "Theme deployment to latest commit completed successfully"
+              else
+                echo "Error: Git repository not found in /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss"
+                exit 1
+              fi
+>>>>>>> a6e925dcf39ed4522a5cbe5ee947968f657b516a

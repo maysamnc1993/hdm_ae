@@ -161,3 +161,12 @@ function theme_register_elementor_locations($elementor_theme_manager)
     $elementor_theme_manager->register_location('archive');
 }
 add_action('elementor/theme/register_locations', 'theme_register_elementor_locations');
+
+
+function allow_svg_uploads( $mimes ) {
+    if ( current_user_can( 'manage_options' ) ) {
+        $mimes['svg'] = 'image/svg+xml';
+    }
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'allow_svg_uploads' );

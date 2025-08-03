@@ -27,4 +27,6 @@ return array(
     'Google_Task_Retryable' => $vendorDir . '/google/apiclient/src/aliases.php',
     'Google_Task_Runner' => $vendorDir . '/google/apiclient/src/aliases.php',
     'Google_Utils_UriTemplate' => $vendorDir . '/google/apiclient/src/aliases.php',
+    'WP_CLI' => $vendorDir . '/wp-cli/wp-cli/php/class-wp-cli.php',
+    'WP_CLI_Command' => $vendorDir . '/wp-cli/wp-cli/php/class-wp-cli-command.php',
 );

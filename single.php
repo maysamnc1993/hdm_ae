@@ -56,7 +56,7 @@ theme_part('global/banner');
 
 
                         <!-- Post Engagement -->
-                        <div class="flex flex-wrap justify-between md:justify-start items-center gap-4 border-t md:border-t-0 border-dashed border-primary-blue p-5">
+                        <div class="flex flex-wrap justify-between md:justify-start items-center gap-4 border-t md:border-t-0 border-dashed border-brand-primary p-5">
                             <!-- Share Icon -->
                             <span class="flex items-center gap-1 cursor-pointer share-post" data-post-id="<?php the_ID(); ?>">
                                 <?php svg_icon('share'); ?>

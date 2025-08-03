@@ -346,7 +346,8 @@ function theme_get_related_posts($post_id = null, $number_posts = 3, $taxonomies
  * 
  * @return string HTML breadcrumbs output
  */
-function theme_breadcrumbs() {
+function theme_breadcrumbs()
+{
     if (is_front_page()) return '';
 
     $breadcrumbs = [];
@@ -362,7 +363,7 @@ function theme_breadcrumbs() {
     // Single post/pages
     if (is_singular()) {
         $post = get_queried_object();
-        
+
         // Handle hierarchical post types
         if (is_post_type_hierarchical($post->post_type)) {
             $ancestors = array_reverse(get_post_ancestors($post));
@@ -620,15 +621,15 @@ function theme_part($name = null, $args = array())
         $template_path = $theme_dir . '/template-parts/' . $name . '.php';
 
         // Debug information
-        error_log("Attempting to load template part: " . $template_path);
-        error_log("File exists: " . (file_exists($template_path) ? 'true' : 'false'));
+        // error_log("Attempting to load template part: " . $template_path);
+        // error_log("File exists: " . (file_exists($template_path) ? 'true' : 'false'));
 
         // Check if the template part exists before including it
         if (file_exists($template_path)) {
             require $template_path;
         } else {
             // Handle the case where the template part does not exist
-            error_log("Template part '{$name}' not found in '{$template_path}'.");
+            //error_log("Template part '{$name}' not found in '{$template_path}'.");
             // Try to list directory contents for debugging
             if (is_dir(dirname($template_path))) {
                 error_log("Directory contents of " . dirname($template_path) . ":");
@@ -647,7 +648,7 @@ function theme_part($name = null, $args = array())
  * @param float  $opacity Opacity.
  * @return string RGB/RGBA color.
  */
-function theme_hex2rgba($color, $opacity = false)
+function hex2rgba($color, $opacity = false)
 {
     $default = 'rgb(0,0,0)';
 
@@ -701,7 +702,7 @@ function theme_is_production()
 /**
  * Get HTML for a static theme image.
  *
- * @param string $image   Image filename (e.g., 'logo.png').
+ * @param string $image   Image filename or path (e.g., 'home/category.avif').
  * @param string $class   Additional CSS classes.
  * @param string $alt     Alt text.
  * @param array  $attrs   Additional HTML attributes (e.g., ['id' => 'logo']).
@@ -714,20 +715,19 @@ function theme_get_static_image($image, $class = '', $alt = '', $attrs = [])
     }
 
     // Sanitize inputs
-    $image = sanitize_file_name($image);
     $class = esc_attr(trim($class));
     $alt = esc_attr($alt);
 
     // Determine image path based on environment
-    $base_path = 'src/images';
+    $base_path = 'src/images'; // پایه مسیر تصاویر
     $image_path = trailingslashit(get_template_directory()) . $base_path . '/' . $image;
     $image_url = trailingslashit(get_template_directory_uri()) . $base_path . '/' . $image;
 
+
+
     // Verify image exists
     if (!file_exists($image_path)) {
-        if (WP_DEBUG) {
-            error_log("Theme image not found: $image_path");
-        }
+
         return '';
     }
 
@@ -747,7 +747,10 @@ function theme_get_static_image($image, $class = '', $alt = '', $attrs = [])
         }
     }
 
-    return '<img' . $attr_string . '>';
+    $html = '<img' . $attr_string . '>';
+
+
+    return $html;
 }
 
 function display_img($image, $class = '', $alt = '', $attrs = [])
@@ -758,7 +761,20 @@ function display_img($image, $class = '', $alt = '', $attrs = [])
 
 function inline_display_img($img, $class = '', $alt = '')
 {
-    echo '<img src="' . THEME_URI . '/src/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
+    if (theme_is_production()) {
+        echo '<img src="' . THEME_URI . '/assets/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
+    } else {
+        echo '<img src="' . THEME_URI . '/src/images/' . $img . '" class="' . $class . '" alt="' . $alt . '">';
+    }
+}
+
+function inline_url_img($img)
+{
+    if (theme_is_production()) {
+        return  THEME_URL . '/assets/images/' . $img;
+    } else {
+        return  THEME_URL . '/src/images/' . $img;
+    }
 }
 
 
@@ -797,6 +813,17 @@ function theme_get_media_image($attachment_id, $size = 'full', $class = '', $alt
     return $image;
 }
 
+function get_image_path($image_name)
+{
+
+    if (theme_is_production()) {
+        $base_path = 'assets/images/';
+    } else {
+        $base_path = 'src/images/';
+    }
+
+    return THEME_URI . "/" . $base_path . $image_name;
+}
 
 
 
@@ -983,9 +1010,78 @@ function display_category_icon($term_id = 0, $size = 'thumbnail', $field_id = 'c
  */
 
 
- function display_insurance_category_icon($term_id) {
+function display_insurance_category_icon($term_id)
+{
     $icon_url = get_term_meta($term_id, 'insurance_icon', true);
     if ($icon_url) {
         echo '<img src="' . esc_url($icon_url) . '" alt="Category Icon" class="category-icon" />';
     }
+}
+
+/**
+ * Get the count of liked products for a user with caching
+ *
+ * @param int $user_id
+ * @return int
+ */
+function get_user_liked_products_count($user_id)
+{
+    if (!$user_id) {
+        return 0;
+    }
+
+    // Check cache
+    $cache_key = 'liked_products_count_' . $user_id;
+    $count = get_transient($cache_key);
+
+    if (false === $count) {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'product_likes';
+        $count = (int) $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(*) FROM $table_name WHERE user_id = %d",
+            $user_id
+        ));
+
+        // Cache for 1 hour
+        set_transient($cache_key, $count, HOUR_IN_SECONDS);
+    }
+
+    return $count;
+}
+
+/**
+ * Clear liked products count cache
+ *
+ * @param int $user_id
+ */
+function clear_liked_products_count_cache($user_id)
+{
+    if ($user_id) {
+        $cache_key = 'liked_products_count_' . $user_id;
+        delete_transient($cache_key);
+    }
+}
+
+
+/**
+ * Check if category has an icon
+ *
+ * @param int $term_id Category/term ID
+ * @param string $field_id The meta field ID (default: category_icon)
+ * @return bool
+ */
+function has_category_icon($term_id = 0, $field_id = 'category_icon')
+{
+    if (!$term_id) {
+        if (is_category() || is_tax()) {
+            $term_id = get_queried_object_id();
+        }
+    }
+
+    if (!$term_id) {
+        return false;
+    }
+
+    $icon_id = get_term_meta($term_id, $field_id, true);
+    return !empty($icon_id);
 }

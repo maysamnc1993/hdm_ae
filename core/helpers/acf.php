@@ -708,7 +708,7 @@ function acf_wysiwyg($field_name, $post_id = null, $apply_filters = true)
  * @param int|string $post_id The post ID (optional)
  * @param bool $die Whether to die after output
  */
-function acf_debug($field_name, $post_id = null, $die = true)
+function acf_debuger($field_name, $post_id = null, $die = true)
 {
     $value = acf_get($field_name, $post_id);
 

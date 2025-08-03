@@ -1,2 +1,10 @@
 /node_modules
+/dist
+/build
+
+/vendor/
 .env
+.env.local
+.env.development.local
+.env.test.local
+.DS_Store
