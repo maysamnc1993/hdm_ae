@@ -1,8 +1,4 @@
 {
-  "_Draggable.js": {
-    "file": "js/Draggable.js",
-    "name": "Draggable"
-  },
   "_ScrollTrigger.js": {
     "file": "js/ScrollTrigger.js",
     "name": "ScrollTrigger"
@@ -62,8 +58,7 @@
     "isEntry": true,
     "imports": [
       "_faq.js",
-      "_ScrollTrigger.js",
-      "_Draggable.js"
+      "_ScrollTrigger.js"
     ]
   },
   "src/js/pages/gsap.min.js": {
@@ -106,8 +101,7 @@
     "src": "src/js/pages/webdesign.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js",
-      "_Draggable.js"
+      "_ScrollTrigger.js"
     ]
   },
   "src/scss/pages/admin.scss": {

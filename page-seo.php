@@ -17,10 +17,16 @@ $fields = [
         'title' => get_field('case_study_title', get_the_ID()),
         'case_study_list' => get_field('case_study_list', get_the_ID()) ?: [],
     ],
+    'teams' => [
+        'title' => get_field('teams_title', get_the_ID()),
+        'description' => get_field('teams_description', get_the_ID()),
+        'team_member' => get_field('team_member', get_the_ID()) ?: [],
+    ]
 ];
 
 
 get_template_part('template-parts/seo/section', 'hero', ['section_1' => $fields['section_1']]);
+get_template_part('template-parts/webdesign/section', 'teams', ['teams' => $fields['teams']]);
 get_template_part('template-parts/seo/section', 'stat');
 get_template_part('template-parts/seo/section', 'seo-process');
 get_template_part('template-parts/global/section', 'case-study-item', ['case_study' => $fields['case_study']]);

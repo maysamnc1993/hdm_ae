@@ -2,6 +2,11 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "../components/faq";
 
+// or get other plugins:
+import Draggable from "gsap/Draggable";
+
+// don't forget to register plugins
+gsap.registerPlugin(Draggable);
 gsap.registerPlugin(ScrollTrigger);
 
 jQuery(document).ready(function ($) {
@@ -44,10 +49,10 @@ jQuery(document).ready(function ($) {
   // Scroll-Controlled Stats Controller
   class ScrollControlledStatsController {
     constructor() {
-      this.statSection = document.querySelector('.stat');
-      this.statBg = document.querySelector('.stat-bg');
-      this.statItems = document.querySelectorAll('.stat-item');
-      this.counters = document.querySelectorAll('[data-count]');
+      this.statSection = document.querySelector(".stat");
+      this.statBg = document.querySelector(".stat-bg");
+      this.statItems = document.querySelectorAll(".stat-item");
+      this.counters = document.querySelectorAll("[data-count]");
       this.masterTimeline = null;
       this.currentCounterValues = {};
       this.hasAnimated = false; // Track if animation has run
@@ -56,7 +61,7 @@ jQuery(document).ready(function ($) {
 
     init() {
       if (!this.statSection || !this.statBg || !this.counters.length) {
-        console.error('Stat section, background, or counters not found');
+        console.error("Stat section, background, or counters not found");
         return;
       }
       this.setupInitialStates();
@@ -83,8 +88,8 @@ jQuery(document).ready(function ($) {
 
       // Initialize counters
       this.counters.forEach((counter, index) => {
-        counter.textContent = '0';
-        const rawValue = counter.getAttribute('data-count');
+        counter.textContent = "0";
+        const rawValue = counter.getAttribute("data-count");
         const endValue = parseFloat(rawValue) || 0;
         this.currentCounterValues[index] = {
           current: 0,
@@ -92,7 +97,9 @@ jQuery(document).ready(function ($) {
           animObj: { value: 0 },
           element: counter,
         };
-        console.log(`Counter ${index + 1} initialized with target: ${endValue}`);
+        console.log(
+          `Counter ${index + 1} initialized with target: ${endValue}`
+        );
       });
     }
 
@@ -106,7 +113,7 @@ jQuery(document).ready(function ($) {
           once: true, // Run only once and disable trigger
           onEnter: () => {
             if (!this.hasAnimated) {
-              console.log('Stat section entered viewport, starting animation');
+              console.log("Stat section entered viewport, starting animation");
               this.masterTimeline.play();
               this.hasAnimated = true;
             }
@@ -115,39 +122,53 @@ jQuery(document).ready(function ($) {
       });
 
       // Phase 1: Background zoom
-      this.masterTimeline.to(this.statBg, {
-        scale: 1.2,
-        filter: "brightness(0.8) contrast(1.2) saturate(1.1)",
-        duration: 0.5,
-        ease: "power1.inOut",
-      }, 0.1);
+      this.masterTimeline.to(
+        this.statBg,
+        {
+          scale: 1.2,
+          filter: "brightness(0.8) contrast(1.2) saturate(1.1)",
+          duration: 0.5,
+          ease: "power1.inOut",
+        },
+        0.1
+      );
 
       // Phase 2: Stat items fade in
       this.statItems.forEach((item, index) => {
-        this.masterTimeline.to(item, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.3,
-          ease: "power3.out",
-        }, 0.1 + index * 0.05);
+        this.masterTimeline.to(
+          item,
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power3.out",
+          },
+          0.1 + index * 0.05
+        );
       });
 
       // Phase 3: Counter animations
       this.counters.forEach((counter, index) => {
         const counterData = this.currentCounterValues[index];
-        this.masterTimeline.to(counterData.animObj, {
-          value: counterData.target,
-          duration: 0.8,
-          ease: "power2.out",
-          onUpdate: () => {
-            this.updateCounterDisplay(index, counterData.animObj.value);
+        this.masterTimeline.to(
+          counterData.animObj,
+          {
+            value: counterData.target,
+            duration: 0.8,
+            ease: "power2.out",
+            onUpdate: () => {
+              this.updateCounterDisplay(index, counterData.animObj.value);
+            },
+            onComplete: () => {
+              this.updateCounterDisplay(index, counterData.target);
+              console.log(
+                `Counter ${index + 1} reached target: ${counterData.target}`
+              );
+            },
           },
-          onComplete: () => {
-            this.updateCounterDisplay(index, counterData.target);
-            console.log(`Counter ${index + 1} reached target: ${counterData.target}`);
-          },
-        }, 0.3 + index * 0.05);
+          0.3 + index * 0.05
+        );
       });
     }
 
@@ -159,15 +180,17 @@ jQuery(document).ready(function ($) {
 
       let displayValue;
       if (target >= 1000000) {
-        displayValue = (value / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        displayValue = (value / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
       } else if (target >= 1000) {
-        displayValue = (value / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        displayValue = (value / 1000).toFixed(1).replace(/\.0$/, "") + "K";
       } else {
         displayValue = value.toString();
       }
 
       counter.textContent = displayValue;
-      console.log(`Counter ${index + 1} display: ${displayValue} (value: ${value}, target: ${target})`);
+      console.log(
+        `Counter ${index + 1} display: ${displayValue} (value: ${value}, target: ${target})`
+      );
 
       if (currentValue > 0 && currentValue < target) {
         gsap.to(counter, {
@@ -182,8 +205,8 @@ jQuery(document).ready(function ($) {
 
     setupHoverEffects() {
       this.statItems.forEach((item, index) => {
-        const glassBackground = document.createElement('div');
-        glassBackground.className = 'glass-background';
+        const glassBackground = document.createElement("div");
+        glassBackground.className = "glass-background";
         glassBackground.style.cssText = `
           position: absolute;
           text-align: center;
@@ -200,12 +223,12 @@ jQuery(document).ready(function ($) {
           pointer-events: none;
           z-index: -1;
         `;
-        
-        item.style.position = 'relative';
+
+        item.style.position = "relative";
         item.appendChild(glassBackground);
 
         const hoverTl = gsap.timeline({ paused: true });
-        
+
         hoverTl.to(glassBackground, {
           opacity: 1,
           scale: 1.05,
@@ -213,25 +236,31 @@ jQuery(document).ready(function ($) {
           ease: "power2.out",
         });
 
-        hoverTl.to(item, {
-          y: -8,
-          duration: 0.4,
-          ease: "power2.out",
-        }, 0);
-
-        const numberEl = item.querySelector('[data-count]');
-        if (numberEl) {
-          hoverTl.to(numberEl, {
-            scale: 1.05,
+        hoverTl.to(
+          item,
+          {
+            y: -8,
             duration: 0.4,
             ease: "power2.out",
-          }, 0);
+          },
+          0
+        );
+
+        const numberEl = item.querySelector("[data-count]");
+        if (numberEl) {
+          hoverTl.to(
+            numberEl,
+            {
+              scale: 1.05,
+              duration: 0.4,
+              ease: "power2.out",
+            },
+            0
+          );
         }
 
-
-
-        item.addEventListener('mouseenter', () => hoverTl.play());
-        item.addEventListener('mouseleave', () => hoverTl.reverse());
+        item.addEventListener("mouseenter", () => hoverTl.play());
+        item.addEventListener("mouseleave", () => hoverTl.reverse());
       });
     }
 
@@ -247,13 +276,13 @@ jQuery(document).ready(function ($) {
     }
 
     pause() {
-      ScrollTrigger.getAll().forEach(trigger => trigger.disable());
-      console.log('Scroll control paused');
+      ScrollTrigger.getAll().forEach((trigger) => trigger.disable());
+      console.log("Scroll control paused");
     }
 
     resume() {
-      ScrollTrigger.getAll().forEach(trigger => trigger.enable());
-      console.log('Scroll control resumed');
+      ScrollTrigger.getAll().forEach((trigger) => trigger.enable());
+      console.log("Scroll control resumed");
     }
   }
 
@@ -272,17 +301,80 @@ jQuery(document).ready(function ($) {
   });
 
   let resizeTimeout;
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
       ScrollTrigger.refresh();
-      console.log('ScrollTrigger refreshed');
+      console.log("ScrollTrigger refreshed");
     }, 300);
   });
 
-  window.addEventListener('beforeunload', () => {
+  window.addEventListener("beforeunload", () => {
     ScrollTrigger.killAll();
     gsap.killTweensOf("*");
-    console.log('Cleaned up ScrollTrigger and tweens');
+    console.log("Cleaned up ScrollTrigger and tweens");
   });
 });
+
+//-====================================
+// team js
+jQuery(document).ready(function ($) {
+  let xPos = 0;
+
+  gsap
+    .timeline()
+    .set(dragger, { opacity: 0 }) //make the drag layer invisible
+    .set(ring, { rotationY: 180 }) //set initial rotationY so the parallax jump happens off screen
+    .set(".img", {
+      // apply transform rotations to each image
+      rotateY: (i) => i * -30,
+      transformOrigin: "50% 50% 1000px",
+      z: -1000,
+      backfaceVisibility: "hidden",
+    })
+    .from(".img", {
+      duration: 1.5,
+      y: 200,
+      opacity: 0,
+      stagger: 0.1,
+      ease: "expo",
+    });
+
+  Draggable.create(dragger, {
+    onDragStart: (e) => {
+      if (e.touches) e.clientX = e.touches[0].clientX;
+      xPos = Math.round(e.clientX);
+    },
+
+    onDrag: (e) => {
+      if (e.touches) e.clientX = e.touches[0].clientX;
+
+      gsap.to(ring, {
+        rotationY: "-=" + ((Math.round(e.clientX) - xPos) % 360),
+        onUpdate: () => {
+          gsap.set(".img", { backgroundPosition: (i) => getBgPos(i) });
+        },
+      });
+
+      xPos = Math.round(e.clientX);
+    },
+
+    onDragEnd: () => {
+      gsap.set(dragger, { x: 0, y: 0 }); // reset drag layer
+    },
+  });
+});
+
+function getBgPos(i) {
+  return (
+    (-gsap.utils.wrap(
+      0,
+      360,
+      gsap.getProperty(ring, "rotationY") - 180 - i * 18
+    ) /
+      360) *
+      400 +
+    "px 0px"
+  );
+}
+//-====================================

@@ -354,3 +354,153 @@
     font-size: 28px;
   }
 }
+
+//=========================================
+// team section
+
+.Teams {
+  display: inline-block;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  div {
+    position: absolute;
+  }
+
+  .Teams-Text {
+    float: right;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    margin: 1px 0 0 0;
+
+    h2 {
+      font-size: 45px;
+      color: #fff;
+      font-weight: 900;
+    }
+    p {
+      width: 50%;
+      margin: 23px auto 0;
+      color: #ffffffa6;
+      font-size: 19px;
+    }
+  }
+
+  .img {
+    background-size: cover;
+    background-position: center !important;
+    will-change: transform;
+  }
+
+  .container_ring {
+    perspective: 2000px;
+    width: 500px;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#ring {
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+#dragger,
+#ring,
+.img,
+.vignette {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+.vignette {
+  width: 1400px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 1) 12%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 1) 88%
+  );
+}
+
+.Teams-Text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 130px 0 -20vh 0;
+}
+
+.Teams-Text h2 {
+  font-size: 50px;
+  color: #fff;
+}
+
+.Teams-Text p {
+  width: 60%;
+  margin: 23px auto 0;
+  color: rgba(255, 255, 255, 0.7803921569);
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.Teams .img .img-text {
+  position: absolute;
+  width: 100%;
+  bottom: 2vh;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Teams .img .img-text h3 {
+  background: #bd57157a;
+  width: auto;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 30px !important;
+  line-height: 45px;
+  padding: 5px 32px;
+  backdrop-filter: blur(10px);
+  font-weight: 100;
+}
+
+.Teams .img .img-text p {
+  font-size: 24px;
+  margin: 3px 0 14px 0;
+}
+
+@media (max-width: 768px) {
+  .Teams-Text {
+    margin: 0;
+  }
+  .Teams-Text h2 {
+    font-size: 25px;
+    width: 100%;
+  }
+  .Teams-Text p {
+    width: 100%;
+    margin: 6px 0 0 0;
+    font-size: 15px;
+  }
+  .Teams {
+    min-height: 50vh;
+  }
+  .Teams .img .img-text {
+    bottom: 10vh;
+  }
+}
+//=========================================
