@@ -175,7 +175,7 @@ if (function_exists('acf_add_local_field_group')) {
         'description' => 'Fields for the Meta Ads Video section on specific page templates or slugs.',
     ));
 
-    // Existing Field Group: Meta Ads Business Model
+    // Updated Field Group: Meta Ads Business Model
     acf_add_local_field_group(array(
         'key' => 'group_meta_ads_business_model',
         'title' => 'Meta Ads Business Model',
@@ -233,18 +233,18 @@ if (function_exists('acf_add_local_field_group')) {
                 'min_height' => 600,
                 'max_size' => 5,
             ),
-            // Column 3: Repeater for Content Items
+            // Column 3: Fixed Content Items
             array(
                 'key' => 'field_column_3_items',
                 'label' => 'Column 3 Content Items',
                 'name' => 'column_3_items',
                 'type' => 'repeater',
-                'instructions' => 'Add content items for Column 3. Each item includes a title and description.',
+                'instructions' => 'Enter exactly two content items for Column 3. Each item includes a title and description.',
                 'required' => 1,
-                'min' => 1,
+                'min' => 2,
                 'max' => 2,
                 'layout' => 'block',
-                'button_label' => 'Add Content Item',
+                'button_label' => '', // Empty to hide "Add Content Item" button
                 'sub_fields' => array(
                     array(
                         'key' => 'field_column_3_item_title',
@@ -399,7 +399,7 @@ if (function_exists('acf_add_local_field_group')) {
         'description' => 'Fields for the Meta Ads Business Model section on specific page templates or slugs.',
     ));
 
-    // New Field Group: Meta Ads Scrolling Cards
+    // Existing Field Group: Meta Ads Scrolling Cards
     acf_add_local_field_group(array(
         'key' => 'group_meta_ads_scrolling_cards',
         'title' => 'Meta Ads Scrolling Cards',

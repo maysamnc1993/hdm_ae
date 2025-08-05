@@ -266,6 +266,27 @@ span.video-caption {
       .column-6 { top: calc(400vh + 40px); }
       .column-7 { top: calc(500vh + 50px); }
     }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .sticky-section {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px;
+      }
+      .column-1, .column-2, .hidden-column {
+        width: 100%;
+        flex: none;
+      }
+      .hidden-column {
+        right: 0;
+      }
+      .column-3 { top: calc(100vh + 10px); }
+      .column-4 { top: calc(200vh + 20px); }
+      .column-5 { top: calc(300vh + 30px); }
+      .column-6 { top: calc(400vh + 40px); }
+      .column-7 { top: calc(500vh + 50px); }
+    }
   
 
 #section4 {

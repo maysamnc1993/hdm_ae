@@ -69,7 +69,7 @@ $container_height = $card_count * 100; // 100vh per card
     <div class="sticky-section" id="stickySection">
         <div class="column-1" role="region" aria-label="Main content">
             <h2><?php echo esc_html(get_field('column_1_title') ?: 'Amazing Design'); ?></h2>
-            <p><?php echo esc_html(get_field('column_1_description') ?: 'This is an incredible section that demonstrates smooth scroll-triggered animations...'); ?></p>
+            <p><?php echo esc_html(get_field('column_1_description') ?: 'This is an incredible section that demonstrates smooth scroll-triggered animations. Watch as the content transforms seamlessly as you scroll down the page. The text scales and fades while new content slides into view.'); ?></p>
         </div>
         <div class="column-2" role="region" aria-label="Image content">
             <div class="image-wrapper">
@@ -81,8 +81,8 @@ $container_height = $card_count * 100; // 100vh per card
             <div class="content-wrapper">
                 <?php
                 $column_3_items = get_field('column_3_items') ?: [
-                    ['item_title' => 'Step 1: Discovery', 'item_description' => 'This is the first hidden column that slides up to replace the image...'],
-                    ['item_title' => 'Step 2: Planning', 'item_description' => 'With discoveries in hand, we now plan the next steps...']
+                    ['item_title' => 'Step 1: Discovery', 'item_description' => 'This is the first hidden column that slides up to replace the image. We begin our journey with discovery and exploration of new possibilities.'],
+                    ['item_title' => 'Step 2: Planning', 'item_description' => 'With discoveries in hand, we now plan the next steps to bring our vision to life.']
                 ];
                 $index = 1;
                 foreach ($column_3_items as $item) :
@@ -103,19 +103,19 @@ $container_height = $card_count * 100; // 100vh per card
         <div class="column-5 hidden-column" role="region" aria-hidden="true">
             <div>
                 <h2><?php echo esc_html(get_field('column_5_title') ?: 'Step 3: Discovery'); ?></h2>
-                <p><?php echo esc_html(get_field('column_5_description') ?: 'Now we move into the development phase...'); ?></p>
+                <p><?php echo esc_html(get_field('column_5_description') ?: 'Now we move into the development phase where ideas become reality. This is where the magic happens!'); ?></p>
             </div>
         </div>
         <div class="column-6 hidden-column" role="region" aria-hidden="true">
             <div>
                 <h2><?php echo esc_html(get_field('column_6_title') ?: 'Step 4: Discovery'); ?></h2>
-                <p><?php echo esc_html(get_field('column_6_description') ?: 'Quality assurance and testing...'); ?></p>
+                <p><?php echo esc_html(get_field('column_6_description') ?: 'Quality assurance and testing ensure everything works perfectly. We refine and polish our creation.'); ?></p>
             </div>
         </div>
         <div class="column-7 hidden-column" role="region" aria-hidden="true">
             <div>
                 <h3><?php echo esc_html(get_field('column_7_title') ?: 'Step 5: Launch'); ?></h3>
-                <p><?php echo esc_html(get_field('column_7_description') ?: 'Finally, we launch and celebrate...'); ?></p>
+                <p><?php echo esc_html(get_field('column_7_description') ?: 'Finally, we launch and celebrate! The journey is complete, but new adventures await ahead.'); ?></p>
             </div>
         </div>
     </div>
