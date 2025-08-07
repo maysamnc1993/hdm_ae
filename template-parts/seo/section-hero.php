@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Template Part: Creative Section
- * Description: Displays the hero section with text, CTAs, and Instagram images with GSAP slide-out animation.
+ * Template Part: SEO Hero Section
+ * Description: Displays the hero section for the SEO page with text, CTAs, and images from ACF fields.
  *
  * @param array $args {
- *     @type array $section_1    ACF field data for section 1.
+ *     @type array $hero ACF field data for the hero section.
  * }
  */
 
@@ -13,14 +13,30 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-$section_1 = $args['section_1'] ?? [
-    'title' => "Mastering <span class='text-brand-primary relative'><i>Social Media</i><b>Social Media</b></span> Success",
-    'description' => "Master social media with simple strategies to grow your brand, stay on trend, and achieve success online."
+// Initialize data, preferring $args if provided, otherwise fall back to get_field
+$hero = $args['hero'] ?? [
+    'title' => get_field('seo_hero_title', get_the_ID()) ?: 'Mastering SEO Success',
+    'description' => get_field('seo_hero_description', get_the_ID()) ?: 'Boost your online presence with proven SEO strategies to rank higher and attract more traffic.',
+    'image_1' => ($image = get_field('seo_hero_image_1', get_the_ID())) ? $image['url'] : '',
+    'image_2' => ($image = get_field('seo_hero_image_2', get_the_ID())) ? $image['url'] : '',
+    'image_3' => ($image = get_field('seo_hero_image_3', get_the_ID())) ? $image['url'] : '',
+    'cta_text_1' => get_field('seo_hero_cta_text_1', get_the_ID()) ?: 'Get Started',
+    'cta_link_1' => get_field('seo_hero_cta_link_1', get_the_ID()) ?: '#',
+    'cta_text_2' => get_field('seo_hero_cta_text_2', get_the_ID()) ?: 'Learn More',
+    'cta_link_2' => get_field('seo_hero_cta_link_2', get_the_ID()) ?: '#',
 ];
 
+// Check if the section should be displayed (require title and at least one image)
+if (empty($hero['title']) || (empty($hero['image_1']) && empty($hero['image_2']) && empty($hero['image_3']))) {
+    return; // Exit early if critical fields are empty
+}
+
 // Function to render CTA button
-function render_cta_button($text, $image_id = 127, $link = '#')
+function render_cta_button($text, $link, $image_id = 127)
 {
+    if (empty($text) || empty($link)) {
+        return; // Skip if CTA text or link is empty
+    }
     $image_url = esc_url(wp_get_attachment_image_url($image_id, 'full'));
 ?>
     <li>
@@ -41,7 +57,7 @@ function render_cta_button($text, $image_id = 127, $link = '#')
 }
 ?>
 
-<section class="section-creative">
+<section class="section-hero">
     <div class="container mx-auto px-4">
         <div class="box_of_circle_effect relative">
             <div class="circle_effect_1"></div>
@@ -50,14 +66,13 @@ function render_cta_button($text, $image_id = 127, $link = '#')
         <div class="box_of_text">
             <div class="content_section">
                 <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-white uppercase text-center mb-4">
-                    Mastering <br> <span class='text-brand-primary relative'><i>Social Media</i><b>Social Media</b></span>
-                    <br> Success
+                    <?php echo wp_kses_post($hero['title']); ?>
                 </h1>
-                <p class="text-base text-white font-light text-center leading-relaxed mb-8"><?php echo esc_html($section_1['description']); ?></p>
+                <p class="text-base text-white font-light text-center leading-relaxed mb-8"><?php echo wp_kses_post($hero['description']); ?></p>
                 <ul class="ListOfCTA flex justify-center gap-4">
                     <?php
-                    render_cta_button('Contact Us');
-                    render_cta_button('Work With Us');
+                    render_cta_button($hero['cta_text_1'], $hero['cta_link_1']);
+                    render_cta_button($hero['cta_text_2'], $hero['cta_link_2']);
                     ?>
                 </ul>
             </div>
@@ -66,18 +81,15 @@ function render_cta_button($text, $image_id = 127, $link = '#')
         <div class="flex my-25 justify-center image-container">
             <?php
             $images = [
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-left'],
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-center'],
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-right']
+                ['url' => $hero['image_1'], 'class' => 'hero-img image-left', 'alt' => 'SEO Hero image 1'],
+                ['url' => $hero['image_2'], 'class' => 'hero-img image-center', 'alt' => 'SEO Hero image 2'],
+                ['url' => $hero['image_3'], 'class' => 'hero-img image-right', 'alt' => 'SEO Hero image 3'],
             ];
             foreach ($images as $index => $image) {
-                // Assuming display_img is a custom function; if not, replace with direct img tag
-                if (function_exists('display_img')) {
-                    display_img($image['path'], $image['class'], "Instagram image " . ($index + 1));
-                } else {
+                if (!empty($image['url'])) {
             ?>
                     <div class="<?php echo esc_attr($image['class']); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $image['path']); ?>" alt="Instagram image <?php echo esc_attr($index + 1); ?>" loading="lazy">
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" loading="lazy">
                     </div>
             <?php
                 }
@@ -86,7 +98,3 @@ function render_cta_button($text, $image_id = 127, $link = '#')
         </div>
     </div>
 </section>
-
-<script>
-
-</script>

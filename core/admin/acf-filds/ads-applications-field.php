@@ -1,5 +1,4 @@
 <?php
-// Ensure ACF is active
 if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group([
@@ -10,11 +9,13 @@ if (function_exists('acf_add_local_field_group')) :
                 'key' => 'field_ads_background_image',
                 'label' => 'Background Image',
                 'name' => 'ads_background_image',
-                'type' => 'file',
-                'return_format' => 'url', // Return the file URL
-                'mime_types' => 'svg,png,jpg,jpeg', // Allow SVG, PNG, JPG
+                'type' => 'image', // Changed from 'file' to 'image'
+                'return_format' => 'url', // Return the image URL
+                'preview_size' => 'medium',
+                'library' => 'all',
+                'mime_types' => 'jpg,jpeg,png,svg,webp',
                 'required' => 0,
-                'default_value' => 'svg/bg-app-ads.svg', // Default to provided SVG
+                'default_value' => '', // Remove default SVG, handle in template
             ),
             array(
                 'key' => 'field_ads_about_me',
@@ -48,7 +49,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'type' => 'repeater',
                 'required' => 1,
                 'min' => 1,
-                'max' => 4, // Limit to 4 cards to match grid-cols-4
+                'max' => 4,
                 'layout' => 'block',
                 'button_label' => 'Add Card',
                 'sub_fields' => array(
@@ -85,7 +86,7 @@ if (function_exists('acf_add_local_field_group')) :
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-app.php', // Adjust to your template
+                    'value' => 'page-app.php',
                 ),
             ),
         ),
