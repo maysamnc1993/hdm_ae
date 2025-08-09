@@ -9,19 +9,295 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 // don't forget to register plugins
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
-//  hero section start
+
+// jQuery(document).ready(function ($) {
+//   const $body = $("body");
+//   const $images = $(".hero-section .hero-images img.theme-image");
+//   const $image1 = $(".hero-section .hero-images img.theme-image.hero-image-1");
+//   const $image2 = $(".hero-section .hero-images img.theme-image.hero-image-2");
+//   const $image3 = $(".hero-section .hero-images img.theme-image.hero-image-3");
+//   const $content = $(".hero-section .hero-content");
+
+//   // === 1. Ensure we're at the very top on page load ===
+//   window.scrollTo(0, 0);
+
+//   // === 2. Set hero section to full viewport height ===
+//   $(".hero-section").css({
+//     position: "relative",
+//     width: "100%",
+//     height: "100vh",
+//     overflow: "hidden",
+//   });
+
+//   // === 3. Disable body scroll during animation ===
+//   $body.css("overflow", "hidden");
+
+//   // === 4. Force reflow to apply CSS before measuring ===
+//   void $image3[0].offsetHeight; // Triggers layout sync for third image
+
+//   // === 5. Capture starting position/size of third image AFTER CSS applied ===
+//   const rect = $image3[0].getBoundingClientRect();
+//   const initialState = {
+//     width: rect.width,
+//     height: rect.height,
+//     x: rect.left,
+//     y: rect.top,
+//     borderRadius: $image3.css("border-radius"),
+//   };
+
+//   // === 6. Apply absolute positioning to third image ===
+//   gsap.set($image3, {
+//     position: "absolute",
+//     top: 0,
+//     left: 0,
+//     x: initialState.x,
+//     y: initialState.y,
+//     width: initialState.width,
+//     height: initialState.height,
+//     borderRadius: initialState.borderRadius,
+//     opacity: 0,
+//     zIndex: 5,
+//     willChange: "transform, width, height, opacity",
+//   });
+
+//   // === 7. Set initial state for all images and content ===
+//   gsap.set($images, { opacity: 0 });
+//   gsap.set($content, { opacity: 0, y: 50 });
+
+//   // === 8. Create timeline for sequential animations ===
+//   const tl = gsap.timeline({
+//     onComplete: () => {
+//       $body.css("overflow", ""); // Re-enable scrolling
+//       $image3.css({
+//         position: "",
+//         top: "",
+//         left: "",
+//         x: "",
+//         y: "",
+//         willChange: "",
+//       });
+//     },
+//   });
+
+//   // === 9. Sequential appearance of images ===
+//   tl.to($image1, {
+//     opacity: 1,
+//     duration: 0.5,
+//     ease: "power2.out",
+//   })
+//     .to(
+//       $image2,
+//       {
+//         opacity: 1,
+//         duration: 0.5,
+//         ease: "power2.out",
+//       },
+//       "+=0.3"
+//     )
+//     .to(
+//       $image3,
+//       {
+//         opacity: 1,
+//         duration: 0.5,
+//         ease: "power2.out",
+//       },
+//       "+=0.3"
+//     );
+
+//   // === 10. Fade out first two images ===
+//   tl.to(
+//     [$image1, $image2],
+//     {
+//       opacity: 0,
+//       duration: 0.5,
+//       ease: "power2.in",
+//     },
+//     "+=0.5"
+//   );
+
+//   // === 11. Expand third image to full screen ===
+//   tl.to(
+//     $image3,
+//     {
+//       x: 0,
+//       y: 0,
+//       width: "100vw",
+//       height: "100vh",
+//       borderRadius: 0,
+//       ease: "power4.inOut",
+//       duration: 1.4,
+//       onStart: () => {
+//         $image3.addClass("full-width").css("z-index", 10);
+//       },
+//     },
+//     "+=0.2"
+//   );
+
+//   // === 12. Reveal content after expansion ===
+//   tl.to(
+//     $content,
+//     {
+//       opacity: 1,
+//       y: 0,
+//       duration: 1.0,
+//       ease: "power2.out",
+//     },
+//     "-=0.4"
+//   );
+// });
+// //  hero section end
+
+
+// jQuery(document).ready(function ($) {
+//   const $body = $("body");
+//   const $images = $(".hero-section .hero-images img.theme-image");
+//   const $image1 = $(".hero-section .hero-images img.theme-image.hero-image-1");
+//   const $image2 = $(".hero-section .hero-images img.theme-image.hero-image-2");
+//   const $image3 = $(".hero-section .hero-images img.theme-image.hero-image-3");
+//   const $content = $(".hero-section .hero-content");
+
+//   // Scroll to top
+//   window.scrollTo(0, 0);
+
+//   $(".hero-section").css({
+//     position: "relative",
+//     width: "100%",
+//     height: "100vh",
+//     overflow: "hidden",
+//   });
+
+//   $body.css("overflow", "hidden");
+
+//   // Force reflow for image2
+//   void $image2[0].offsetHeight;
+
+//   // Initial state from image2
+//   const rect = $image2[0].getBoundingClientRect();
+//   const initialState = {
+//     width: rect.width,
+//     height: rect.height,
+//     x: rect.left,
+//     y: rect.top,
+//     borderRadius: $image2.css("border-radius"),
+//   };
+
+//   // Set absolute positioning on image2
+//   gsap.set($image2, {
+//     position: "absolute",
+//     top: 0,
+//     left: 0,
+//     x: initialState.x,
+//     y: initialState.y,
+//     width: initialState.width,
+//     height: initialState.height,
+//     borderRadius: initialState.borderRadius,
+//     opacity: 0,
+//     zIndex: 5,
+//     willChange: "transform, width, height, opacity",
+//   });
+
+//   gsap.set($images, { opacity: 0 });
+//   gsap.set($content, { opacity: 0, y: 50 });
+
+// // === تغییر onComplete: حفظ position: absolute بعد از انیمیشن ===
+//   const tl = gsap.timeline({
+//     onComplete: () => {
+//       $body.css("overflow", "");
+//       $image2.css({
+//         x: "",
+//         y: "",
+//         willChange: "",
+//         transform: "", // حذف ترنسفورم برای جلوگیری از جابجایی
+//         position: "absolute",
+//         top: 0,
+//         left: 0,
+//         width: "100vw",
+//         height: "100vh",
+//         zIndex: 10,
+//       });
+//     },
+//   });
+
+
+//   tl.to($image1, {
+//     opacity: 1,
+//     duration: 0.5,
+//     ease: "power2.out",
+//   })
+//     .to(
+//       $image2,
+//       {
+//         opacity: 1,
+//         duration: 0.5,
+//         ease: "power2.out",
+//       },
+//       "+=0.3"
+//     )
+//     .to(
+//       $image3,
+//       {
+//         opacity: 1,
+//         duration: 0.5,
+//         ease: "power2.out",
+//       },
+//       "+=0.3"
+//     );
+
+//   tl.to(
+//     [$image1, $image3], // fade out image1 and image3 instead of image1 + image2
+//     {
+//       opacity: 0,
+//       duration: 0.5,
+//       ease: "power2.in",
+//     },
+//     "+=0.5"
+//   );
+
+//   tl.to(
+//     $image2,
+//     {
+//       x: 0,
+//       y: 0,
+//       width: "100vw",
+//       height: "100vh",
+//       position: "absolute",
+//       top: 0,
+//       left: 0,
+//       borderRadius: 0,
+//       ease: "power4.inOut",
+//       duration: 1.4,
+//       onStart: () => {
+//         $image2.addClass("full-width").css("z-index", 10);
+//       },
+//     },
+//     "+=0.2"
+//   );
+
+//   tl.to(
+//     $content,
+//     {
+//       opacity: 1,
+//       y: 0,
+//       duration: 1.0,
+//       ease: "power2.out",
+//     },
+//     "-=0.4"
+//   );
+// });
+
 jQuery(document).ready(function ($) {
   const $body = $("body");
   const $images = $(".hero-section .hero-images img.theme-image");
-  const $image1 = $(".hero-section .hero-images img.theme-image.hero-image-1");
-  const $image2 = $(".hero-section .hero-images img.theme-image.hero-image-2");
-  const $image3 = $(".hero-section .hero-images img.theme-image.hero-image-3");
-  const $content = $(".hero-section .hero-content");
+  const $image1 = $(".hero-image-1");
+  const $image2 = $(".hero-image-2");
+  const $image3 = $(".hero-image-3");
+  const $content = $(".hero-content");
+  const $overlay = $(".image-overlay");
 
-  // === 1. Ensure we're at the very top on page load ===
+  // Scroll to top
   window.scrollTo(0, 0);
 
-  // === 2. Set hero section to full viewport height ===
+  // Set hero section
   $(".hero-section").css({
     position: "relative",
     width: "100%",
@@ -29,24 +305,23 @@ jQuery(document).ready(function ($) {
     overflow: "hidden",
   });
 
-  // === 3. Disable body scroll during animation ===
+  // Disable scroll
   $body.css("overflow", "hidden");
 
-  // === 4. Force reflow to apply CSS before measuring ===
-  void $image3[0].offsetHeight; // Triggers layout sync for third image
+  // Force reflow for image2
+  void $image2[0].offsetHeight;
 
-  // === 5. Capture starting position/size of third image AFTER CSS applied ===
-  const rect = $image3[0].getBoundingClientRect();
+  const rect = $image2[0].getBoundingClientRect();
   const initialState = {
     width: rect.width,
     height: rect.height,
     x: rect.left,
     y: rect.top,
-    borderRadius: $image3.css("border-radius"),
+    borderRadius: $image2.css("border-radius"),
   };
 
-  // === 6. Apply absolute positioning to third image ===
-  gsap.set($image3, {
+  // Set image2 for animation
+  gsap.set($image2, {
     position: "absolute",
     top: 0,
     left: 0,
@@ -56,30 +331,32 @@ jQuery(document).ready(function ($) {
     height: initialState.height,
     borderRadius: initialState.borderRadius,
     opacity: 0,
-    zIndex: 5,
-    willChange: "transform, width, height, opacity",
+    zIndex: 10,
+    willChange: "transform, width, height, opacity, filter",
   });
 
-  // === 7. Set initial state for all images and content ===
+  // Set initial state for all
   gsap.set($images, { opacity: 0 });
   gsap.set($content, { opacity: 0, y: 50 });
+  gsap.set($overlay, { opacity: 0 });
 
-  // === 8. Create timeline for sequential animations ===
   const tl = gsap.timeline({
     onComplete: () => {
-      $body.css("overflow", ""); // Re-enable scrolling
-      $image3.css({
-        position: "",
-        top: "",
-        left: "",
-        x: "",
-        y: "",
+      $body.css("overflow", "");
+      $image2.css({
+        transform: "",
         willChange: "",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 10,
+        filter: "blur(3px) brightness(1) contrast(1)",
       });
     },
   });
 
-  // === 9. Sequential appearance of images ===
   tl.to($image1, {
     opacity: 1,
     duration: 0.5,
@@ -102,50 +379,62 @@ jQuery(document).ready(function ($) {
         ease: "power2.out",
       },
       "+=0.3"
-    );
-
-  // === 10. Fade out first two images ===
-  tl.to(
-    [$image1, $image2],
-    {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.in",
-    },
-    "+=0.5"
-  );
-
-  // === 11. Expand third image to full screen ===
-  tl.to(
-    $image3,
-    {
-      x: 0,
-      y: 0,
-      width: "100vw",
-      height: "100vh",
-      borderRadius: 0,
-      ease: "power4.inOut",
-      duration: 1.4,
-      onStart: () => {
-        $image3.addClass("full-width").css("z-index", 10);
+    )
+    .to(
+      [$image1, $image3],
+      {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.in",
       },
-    },
-    "+=0.2"
-  );
-
-  // === 12. Reveal content after expansion ===
-  tl.to(
-    $content,
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1.0,
-      ease: "power2.out",
-    },
-    "-=0.4"
-  );
+      "+=0.5"
+    )
+    .to(
+      $image2,
+      {
+        x: 0,
+        y: 0,
+        width: "100vw",
+        height: "100vh",
+        borderRadius: 0,
+        ease: "power4.inOut",
+        duration: 1.4,
+        onStart: () => {
+          $image2.addClass("full-width").css("z-index", 10);
+        },
+      },
+      "+=0.2"
+    )
+    .to(
+      $image2,
+      {
+        filter: "blur(3px) brightness(1) contrast(1)",
+        duration: 0.5,
+        ease: "power1.out",
+      },
+      "-=1"
+    )
+    .to(
+      $overlay,
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power1.out",
+      },
+      "-=0.8"
+    )
+    .to(
+      $content,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.0,
+        ease: "power2.out",
+      },
+      "-=0.4"
+    );
 });
-//  hero section end
+
 
 //=================================
 
@@ -171,7 +460,7 @@ jQuery(document).ready(function ($) {
   const $letters = $(".colorful-text-section .letter");
   const totalLetters = $letters.length;
   const $animatedText = $(".colorful-text-section .animated-text");
-  const textColor = $animatedText.data("text-color") || "#ff3c3c";
+  const textColor = $animatedText.data("text-color") || "#252D44";
 
   // Create timeline for scroll-triggered animation
   const tl = gsap.timeline({

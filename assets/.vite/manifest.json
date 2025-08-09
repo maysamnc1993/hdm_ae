@@ -1,4 +1,8 @@
 {
+  "_Draggable.js": {
+    "file": "js/Draggable.js",
+    "name": "Draggable"
+  },
   "_ScrollTrigger.js": {
     "file": "js/ScrollTrigger.js",
     "name": "ScrollTrigger"
@@ -58,7 +62,8 @@
     "isEntry": true,
     "imports": [
       "_faq.js",
-      "_ScrollTrigger.js"
+      "_ScrollTrigger.js",
+      "_Draggable.js"
     ]
   },
   "src/js/pages/gsap.min.js": {
@@ -71,7 +76,10 @@
     "file": "js/pages/metaAds.js",
     "name": "pages/metaAds",
     "src": "src/js/pages/metaAds.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_ScrollTrigger.js"
+    ]
   },
   "src/js/pages/ppc.js": {
     "file": "js/pages/ppc.js",
@@ -86,7 +94,8 @@
     "isEntry": true,
     "imports": [
       "_ScrollTrigger.js",
-      "_faq.js"
+      "_faq.js",
+      "_Draggable.js"
     ]
   },
   "src/js/pages/wavesurfer.min.js": {
@@ -101,7 +110,8 @@
     "src": "src/js/pages/webdesign.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js"
+      "_ScrollTrigger.js",
+      "_Draggable.js"
     ]
   },
   "src/scss/pages/admin.scss": {

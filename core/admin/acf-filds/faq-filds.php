@@ -23,7 +23,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'faq_title',
                 'type' => 'text',
                 'instructions' => 'Enter the main title for the FAQ section.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -82,7 +82,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'faq_list',
                 'type' => 'repeater',
                 'instructions' => 'Add FAQ items with questions and answers.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -100,7 +100,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'question',
                         'type' => 'text',
                         'instructions' => 'Enter the FAQ question.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -118,7 +118,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'answer',
                         'type' => 'wysiwyg',
                         'instructions' => 'Enter the answer to the FAQ question.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',

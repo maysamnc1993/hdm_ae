@@ -41,7 +41,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'case_study_title',
                 'type' => 'text',
                 'instructions' => 'Enter the main title for the Case Study section.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -59,7 +59,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'case_study_list',
                 'type' => 'repeater',
                 'instructions' => 'Add case study items with subtitle, title, and description.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -95,7 +95,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'title',
                         'type' => 'text',
                         'instructions' => 'Enter the title for this case study item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -113,7 +113,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'description',
                         'type' => 'textarea',
                         'instructions' => 'Enter the description for this case study item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',

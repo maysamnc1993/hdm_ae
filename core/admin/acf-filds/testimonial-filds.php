@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'testimonial_title',
                 'type' => 'text',
                 'instructions' => 'Enter the title for the Testimonial section.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -58,7 +58,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'testimonial_list',
                 'type' => 'repeater',
                 'instructions' => 'Add testimonial items with image, name, message, and job position.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -99,7 +99,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'full_name',
                         'type' => 'text',
                         'instructions' => 'Enter the full name of the client.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -117,7 +117,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'message',
                         'type' => 'textarea',
                         'instructions' => 'Enter the testimonial message.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -152,11 +152,11 @@ if (function_exists('acf_add_local_field_group')) :
         ],
         'location' => [
             [
-                // [
-                //     'param' => 'page_template',
-                //     'operator' => '==',
-                //     'value' => 'page-app.php',
-                // ],
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-app.php',
+                ],
             ],
         ],
         'menu_order' => 0,

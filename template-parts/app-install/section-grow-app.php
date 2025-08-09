@@ -29,13 +29,13 @@ $services = $args['services'] ?? [
                                     echo '--hover-text-color: ' . esc_attr($services['hover_text_color']) . '; --border-color: ' . esc_attr($services['border_color']) . ';';
                                     ?>">
     <!-- Header Section -->
-    <div class="container flex justify-between items-center py-5 mx-auto px-4">
+    <!-- <div class="container flex justify-between items-center py-5 mx-auto px-4">
         <span class="font-bold"><?php echo esc_html($services['header_brand']); ?></span>
         <span class="flex items-center gap-1 font-bold">
             <div class="corner-radius"></div>
             <?php echo esc_html($services['header_title']); ?>
         </span>
-    </div>
+    </div> -->
 
     <!-- Main Content Section -->
     <div class="container flex-col-reverse md:flex-row flex items-start justify-center px-4 sm:px-6 lg:px-8 md:py-20 my-12 md:my-20 gap-6 md:gap-12 mx-auto">

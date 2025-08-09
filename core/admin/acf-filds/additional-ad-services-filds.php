@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'additional_ad_services_title',
                 'type' => 'text',
                 'instructions' => 'Enter the title for the Additional Ad Services section.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -40,7 +40,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'ad_service_items',
                 'type' => 'repeater',
                 'instructions' => 'Add ad service items with image, title, caption, and link.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -58,7 +58,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'image',
                         'type' => 'image',
                         'instructions' => 'Upload or select an image for the ad service item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -81,7 +81,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'title',
                         'type' => 'text',
                         'instructions' => 'Enter the title for the ad service item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -99,7 +99,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'caption',
                         'type' => 'textarea',
                         'instructions' => 'Enter the caption for the ad service item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',

@@ -27,7 +27,7 @@ $grid_cols = min($count, 4); // Max 4 columns
 $grid_class = "grid grid-cols-{$grid_cols} gap-5 py-10";
 ?>
 
-<section class="additional-ad-services container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
+<section class="additional-ad-services container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
     <div class="flex justify-center items-center my-5 col-span-4 ">
         <h2 class="text-white text-3xl">
             <?php echo get_field('additional_ad_services_title',get_the_ID()) ?>
@@ -45,16 +45,16 @@ $grid_class = "grid grid-cols-{$grid_cols} gap-5 py-10";
             continue;
         }
         // Generate dot steps (4 dots, with $step determining active dots)
-        $dot_count = min($step, 4); // Ensure max 4 dots
+        $dot_count = min($step, 3); // Ensure max 4 dots
         $dots_html = '';
-        for ($i = 1; $i <= 4; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
             $dots_html .= '<div class="dot-step' . ($i <= $dot_count ? ' active' : '') . '"></div>';
         }
     ?>
         <a href="<?php echo esc_url($link['url'] ?? '#'); ?>" class="cart-ads">
-            <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
+            <div class="thumb" style="background-image:url(<?=$image?>)"></div>
             <div class="flex justify-between items-center w-full">
-                <span class="step-number"><?php echo esc_html($step); ?></span>
+                
                 <span class="flex items-center justify-center gap-1">
                     <?php echo $dots_html; ?>
                 </span>

@@ -41,7 +41,7 @@ if (empty($faq_list) || !is_array($faq_list)) {
                 <?php endif; ?>
 
                 <?php if (!empty($faq_description)) : ?>
-                    <p class="sec-faq-desc"><?php echo $faq_description; ?></p>
+                    <p class="sec-faq-desc"><?php echo wp_strip_all_tags($faq_description); ?></p>
                 <?php endif; ?>
 
                 <?php if (!empty($faq_image_url)) : ?>

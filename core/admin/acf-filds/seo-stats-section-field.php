@@ -21,7 +21,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'label' => 'Stat Items',
                 'name' => 'stat_items',
                 'type' => 'repeater',
-                'required' => 1,
+                'required' => 0,
                 'min' => 1,
                 'max' => 5, // Match current number of items
                 'layout' => 'block',
@@ -32,7 +32,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'label' => 'Stat Title',
                         'name' => 'stat_title',
                         'type' => 'text',
-                        'required' => 1,
+                        'required' => 0,
                         'default_value' => '',
                     ),
                     array(
@@ -40,7 +40,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'label' => 'Stat Count',
                         'name' => 'stat_count',
                         'type' => 'number',
-                        'required' => 1,
+                        'required' => 0,
                         'default_value' => 0,
                         'min' => 0,
                     ),

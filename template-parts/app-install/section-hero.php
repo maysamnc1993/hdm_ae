@@ -11,6 +11,7 @@ $hero_cta_link = get_field('hero_cta_link');
 
 <section class="hero-section">
     <div class="hero-images">
+    
         <?php
         if ($hero_image_1) {
             echo '<img src="' . esc_url($hero_image_1['url']) . '" class="theme-image hero-image-1" alt="' . esc_attr($hero_image_1['alt']) . '">';
@@ -18,6 +19,7 @@ $hero_cta_link = get_field('hero_cta_link');
             display_img("install-app/hero-1.avif", "hero-image-1", "Hero Image 1");
         }
         if ($hero_image_2) {
+            
             echo '<img src="' . esc_url($hero_image_2['url']) . '" class="theme-image hero-image-2" alt="' . esc_attr($hero_image_2['alt']) . '">';
         } else {
             display_img("install-app/hero-2.avif", "hero-image-2", "Hero Image 2");
@@ -28,9 +30,10 @@ $hero_cta_link = get_field('hero_cta_link');
             display_img("install-app/hero-3.avif", "hero-image-3", "Hero Image 3");
         }
         ?>
+        <div class="image-overlay"></div> 
     </div>
     <div class="hero-content">
-        <h1><?php echo esc_html($hero_title ?: 'Unleash Your Potential'); ?></h1>
+        <h1 class="Default_Title"><?=$hero_title ?></h1>
         <p><?php echo wp_kses_post($hero_description ?: 'Join our innovative platform to explore cutting-edge solutions designed to inspire and empower you.'); ?></p>
         <?php
         if ($hero_cta_text && $hero_cta_link): ?>

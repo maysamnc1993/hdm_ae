@@ -37,7 +37,7 @@ if (empty($testimonial_list) || !is_array($testimonial_list)) {
             <h2><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
         <?php if (!empty($description)) : ?>
-            <p class="section-cm-desc"><?php echo esc_html($description); ?></p>
+            <p class="section-cm-desc"><?php echo $description; ?></p>
         <?php endif; ?>
 
         <div class="cm-wrap">
@@ -66,7 +66,7 @@ if (empty($testimonial_list) || !is_array($testimonial_list)) {
                                 <i class="fa-solid fa-star"></i>
                             </div>
                         </div>
-                        <p><?php echo esc_html($message); ?></p>
+                        <p><?php echo $message; ?></p>
                         <?php if (!empty($job_position)) : ?>
                             <span><?php echo esc_html($job_position); ?></span>
                         <?php endif; ?>
@@ -100,7 +100,7 @@ if (empty($testimonial_list) || !is_array($testimonial_list)) {
                                 <i class="fa-solid fa-star"></i>
                             </div>
                         </div>
-                        <p><?php echo esc_html($message); ?></p>
+                        <p><?php echo $message; ?></p>
                         <?php if (!empty($job_position)) : ?>
                             <span><?php echo esc_html($job_position); ?></span>
                         <?php endif; ?>

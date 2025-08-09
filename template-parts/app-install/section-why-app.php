@@ -35,8 +35,7 @@ if (empty($text)) {
 
 <section class="colorful-text-section my-4" style="background-color: <?php echo esc_attr($section_color); ?>;">
     <div class="container">
-        <h2 class="animated-text" data-text-color="<?php echo esc_attr($text_color); ?>">
-           <?php echo $text ?>
-        </h2>
+        
+        <h2 class="animated-text" data-text-color="<?php echo esc_attr($text_color); ?>"><?php echo $text ?></h2>
     </div>
 </section>

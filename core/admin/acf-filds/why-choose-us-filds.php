@@ -46,7 +46,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'values',
                 'type' => 'repeater',
                 'instructions' => 'Add value items with image, title, and description.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
@@ -87,7 +87,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'title',
                         'type' => 'text',
                         'instructions' => 'Enter the title for the value item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',
@@ -105,7 +105,7 @@ if (function_exists('acf_add_local_field_group')) :
                         'name' => 'description',
                         'type' => 'textarea',
                         'instructions' => 'Enter the description for the value item.',
-                        'required' => 1,
+                        'required' => 0,
                         'wrapper' => [
                             'width' => '',
                             'class' => '',

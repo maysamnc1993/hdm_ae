@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'jaber/jthem',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'a9b804980759296515593890f464a8f03283ca7f',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -74,9 +74,9 @@
             'dev_requirement' => false,
         ),
         'jaber/jthem' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'a9b804980759296515593890f464a8f03283ca7f',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -22,7 +22,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'name' => 'why_app_text',
                 'type' => 'textarea',
                 'instructions' => 'Enter the text content for the Why App section. This will be animated letter by letter.',
-                'required' => 1,
+                'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
