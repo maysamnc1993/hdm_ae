@@ -48,6 +48,10 @@ module.exports = {
 
       // Colors (Semantic Naming)
       colors: {
+        dark: "#060C14",
+        light: "#E7E5D4",
+        border: "#DCDBD0",
+        borderLight: "#BFBEB5",
         brand: {
           primary: "#c15b19", // Main brand color (orange)
           secondary: "#bf5917",
