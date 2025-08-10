@@ -30,6 +30,10 @@ if (function_exists('acf_add_local_field_group')) :
     require_once(THEME_URI . "/core/admin/acf-filds/acf-teams-section-fild.php");
 
 
+    // archive blog
+    require_once(THEME_URI . "/core/admin/acf-filds/archvie-blog-fileds.php");
+
+
 
 endif;
 

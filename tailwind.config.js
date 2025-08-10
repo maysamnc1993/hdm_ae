@@ -48,6 +48,7 @@ module.exports = {
 
       // Colors (Semantic Naming)
       colors: {
+        primary: "#c15b19", // Main brand color (orange)
         dark: "#060C14",
         light: "#E7E5D4",
         border: "#DCDBD0",
@@ -269,5 +270,16 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
+    require("tailwind-bootstrap-grid")({
+      gridGutters: {
+        0: 0,
+        1: ".5rem",
+        2: "1rem",
+        3: "1.5rem",
+        4: "2rem",
+        5: "2.75rem",
+        6: "3.25rem",
+      },
+    }),
   ],
 };
