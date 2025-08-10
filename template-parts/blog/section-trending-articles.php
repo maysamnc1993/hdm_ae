@@ -122,7 +122,7 @@ $trending_posts_query = new WP_Query($args);
                                                     </svg>
                                                     <?php echo get_the_date('M j, Y'); ?>
                                                 </span>
-                                                <h3 class="text-2xl text-dark leading-relaxed mb-4 line-link">
+                                                <h3 class="text-2xl text-white leading-relaxed mb-4 line-link">
                                                     <a class="link-stretched line-link-el" aria-label="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                                                         <?php the_title(); ?>
                                                     </a>
@@ -200,7 +200,7 @@ $trending_posts_query = new WP_Query($args);
                                                 </svg>
                                                 <?php echo get_the_date('M j, Y'); ?>
                                             </span>
-                                            <h3 class="text-2xl text-dark leading-relaxed mb-4 line-link">
+                                            <h3 class="text-2xl text-white leading-relaxed mb-4 line-link">
                                                 <a class="link-stretched line-link-el" aria-label="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                                                     <?php the_title(); ?>
                                                 </a>

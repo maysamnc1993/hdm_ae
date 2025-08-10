@@ -1,3 +1,11 @@
+main{
+    color:  white !important;
+}
+#post-content{
+    h1,h2,h3,h4,h5,h6{
+        color:  white !important;
+    } 
+}
 .postBg {
   background:
     linear-gradient(
@@ -21,8 +29,6 @@
 .link-stretched::after {
   @apply absolute top-0 right-0 bottom-0 left-0 z-[1] content-[""];
 }
-
-
 
 // @layer {
 //   .content {
@@ -65,7 +71,7 @@
 //     a:not(.no-underline) {
 //       @apply bg-gradient-to-l from-dark/75 to-dark/75 has-transition
 //       bg-no-repeat [background-position:0_97%] [background-size:0%_1px]
-//       hover:[background-size:100%_1px] hover:text-dark underline underline-offset-2 
+//       hover:[background-size:100%_1px] hover:text-dark underline underline-offset-2
 //       decoration-[#b4b6b9] hover:decoration-transparent;
 //     }
 
@@ -173,7 +179,7 @@
 .has-line-link-white {
   .line-link-el {
     text-decoration: none;
-    background-image: linear-gradient(#060c14, #060c14);
+    background-image: linear-gradient(#ffffff, #ffffff);
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: 0% 1px;
@@ -188,6 +194,9 @@
     background-size: 0% 1px;
     background-position: 100% 100%;
   }
+}
+.line-link-el:hover {
+ @apply text-brand-primary;
 }
 .has-line-link-white .line-link-el {
   background-image: linear-gradient(#ffffff, #ffffff);
@@ -227,4 +236,7 @@
   &::after {
     @apply absolute content-[''] w-[calc(100%_-_70px)] h-[100px] bg-border rounded-b-xl left-0 bottom-0 -z-10;
   }
+}
+.heading{
+    @apply text-white;
 }
