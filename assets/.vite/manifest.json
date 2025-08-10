@@ -31,6 +31,10 @@
     "file": "fonts/pg.woff2",
     "src": "src/fonts/iconFont/pg-icons/pg.woff2"
   },
+  "src/images/blog/home-2-banner.webp": {
+    "file": "home-2-banner.webp",
+    "src": "src/images/blog/home-2-banner.webp"
+  },
   "src/js/core/main.js": {
     "file": "js/core.js",
     "name": "core",
@@ -66,6 +70,12 @@
       "_Draggable.js"
     ]
   },
+  "src/js/pages/blog.js": {
+    "file": "js/pages/blog.js",
+    "name": "pages/blog",
+    "src": "src/js/pages/blog.js",
+    "isEntry": true
+  },
   "src/js/pages/gsap.min.js": {
     "file": "js/pages/gsap.min.js",
     "name": "pages/gsap.min",
@@ -98,6 +108,12 @@
       "_Draggable.js"
     ]
   },
+  "src/js/pages/single-blog.js": {
+    "file": "js/pages/single-blog.js",
+    "name": "pages/single-blog",
+    "src": "src/js/pages/single-blog.js",
+    "isEntry": true
+  },
   "src/js/pages/wavesurfer.min.js": {
     "file": "js/pages/wavesurfer.min.js",
     "name": "pages/wavesurfer.min",
@@ -124,6 +140,11 @@
     "src": "src/scss/pages/appInstall.scss",
     "isEntry": true
   },
+  "src/scss/pages/blog.scss": {
+    "file": "css/pages/blog.css.css",
+    "src": "src/scss/pages/blog.scss",
+    "isEntry": true
+  },
   "src/scss/pages/metaAds.scss": {
     "file": "css/pages/metaAds.css.css",
     "src": "src/scss/pages/metaAds.scss",
@@ -137,6 +158,11 @@
   "src/scss/pages/seo.scss": {
     "file": "css/pages/seo.css.css",
     "src": "src/scss/pages/seo.scss",
+    "isEntry": true
+  },
+  "src/scss/pages/single-blog.scss": {
+    "file": "css/pages/single-blog.css.css",
+    "src": "src/scss/pages/single-blog.scss",
     "isEntry": true
   },
   "src/scss/pages/webdesign.scss": {
