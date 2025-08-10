@@ -90,6 +90,12 @@
       "_index.js"
     ]
   },
+  "src/js/pages/blog.js": {
+    "file": "js/pages/blog.js",
+    "name": "pages/blog",
+    "src": "src/js/pages/blog.js",
+    "isEntry": true
+  },
   "src/js/pages/gsap.min.js": {
     "file": "js/pages/gsap.min.js",
     "name": "pages/gsap.min",
@@ -161,11 +167,6 @@
   "src/scss/pages/blog.scss": {
     "file": "css/pages/blog.css.css",
     "src": "src/scss/pages/blog.scss",
-    "isEntry": true
-  },
-  "src/scss/pages/googleAds.scss": {
-    "file": "css/pages/googleAds.css.css",
-    "src": "src/scss/pages/googleAds.scss",
     "isEntry": true
   },
   "src/scss/pages/metaAds.scss": {
