@@ -23,7 +23,7 @@ if (function_exists('have_rows') && have_rows('seo_process_cubes')):
             <p class="text-white text-2xl"><?php echo esc_html(get_field('section_title_bottom')); ?></p>
         <?php endif; ?>
     </div>
-
+    <div class="Cube_items">
     <?php
     $index = 1; // Counter for --index CSS variable
     while (have_rows('seo_process_cubes')) : the_row();
@@ -34,13 +34,14 @@ if (function_exists('have_rows') && have_rows('seo_process_cubes')):
     ?>
         <div class="cube-container" style="--index: <?php echo $index; ?>;">
             <div class="cube">
-                <div class="face front">
+                <div class="face front" style="background-image:url(<?php echo esc_url($cube_front_image); ?>)">
                     <div class="text-container">
                         <p class="title"><?php echo esc_html($cube_title); ?></p>
                         <p class="description"><?php echo esc_html($cube_description); ?></p>
                     </div>
                     <figure class="max-w-56">
-                        <img src="<?php echo esc_url($cube_front_image); ?>" class="w-full h-full" alt="<?php echo esc_attr($cube_title); ?>" loading="lazy">
+                        <span class="count"><?=$index?></span>
+                        <!-- <img src="" class="w-full h-full" alt="<?php echo esc_attr($cube_title); ?>" loading="lazy"> -->
                     </figure>
                 </div>
                 <div class="face top">
@@ -52,6 +53,7 @@ if (function_exists('have_rows') && have_rows('seo_process_cubes')):
         $index++;
     endwhile;
     ?>
+    </div>
 </section>
 <?php
 endif; // End of repeater check

@@ -49,7 +49,7 @@ if (function_exists('acf_add_local_field_group')) :
                 'type' => 'repeater',
                 'required' => 0,
                 'min' => 1,
-                'max' => 4,
+                'max' => 20,
                 'layout' => 'block',
                 'button_label' => 'Add Card',
                 'sub_fields' => array(
@@ -87,6 +87,13 @@ if (function_exists('acf_add_local_field_group')) :
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'page-app.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-seo.php',
                 ),
             ),
         ),
