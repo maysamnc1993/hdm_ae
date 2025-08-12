@@ -360,10 +360,10 @@ body {
 
 
 header .mobile_menu{
-  display: none;
+  display: none!important;
 }
 .MobileNavMenu{
-  display: none;
+  display: none!important;
 }
 
 @media (max-width: 768px) {
@@ -410,7 +410,7 @@ header .mobile_menu svg path {
   display: none;
 }
 .MobileNavMenu.active{
-  display: block;
+  display: block!important;
 }
 .MobileNavMenu .menu-main-menu-container {
   width: 100%;
