@@ -33,16 +33,43 @@ $fields = [
         'description' => get_field('teams_description', get_the_ID()) ?: '',
         'team_member' => get_field('team_member', get_the_ID()) ?: [],
     ],
+    'why_app' => [
+        'title' => get_field('why_app_title', get_the_ID()) ?: '',
+        'text' => get_field('why_app_text', get_the_ID()) ?: '',
+        'text_color' => get_field('why_app_text_color', get_the_ID()) ?: '',
+        'section_color' => get_field('why_app_section_color', get_the_ID()) ?: '',
+        'class' => 'seo_page'
+    ],
+    'ads_applications' => [
+        'background_image' => ($image = get_field('ads_background_image', get_the_ID())) ? $image : get_template_directory_uri() . '/svg/bg-app-ads.svg',
+        'about_me' => get_field('ads_about_me', get_the_ID()) ?: 'Our App Install Ads Services',
+        'main_title' => get_field('ads_main_title', get_the_ID()) ?: 'An Imaginative Brain Behind the Displays',
+        'main_description' => get_field('ads_main_description', get_the_ID()) ?: 'Designing websites that feel as good as they look.',
+        'cards' => get_field('ads_cards', get_the_ID()) ?: [],
+    ],
+    'services' => [
+        'header_brand' => get_field('services_header_brand', get_the_ID()) ?: 'hdm marketing',
+        'header_title' => get_field('services_header_title', get_the_ID()) ?: 'services',
+        'text_color' => get_field('services_text_color', get_the_ID()) ?: '#1F2937',
+        'background_color' => get_field('services_background_color', get_the_ID()) ?: '#FFFFFF',
+        'hover_text_color' => get_field('services_hover_text_color', get_the_ID()) ?: '#1F2937',
+        'border_color' => get_field('services_border_color', get_the_ID()) ?: '#F9452D',
+        'items' => get_field('services', get_the_ID()) ?: [],
+    ],
 ];
 
 // Include section-specific template parts with visibility checks
 if (!empty($fields['hero']['title'])) {
     get_template_part('template-parts/seo/section', 'hero', ['hero' => $fields['hero']]);
 }
-if (!empty($fields['teams']['title']) || !empty($fields['teams']['team_member'])) {
-    get_template_part('template-parts/webdesign/section', 'teams', ['teams' => $fields['teams']]);
-}
 get_template_part('template-parts/seo/section', 'stat');
+
+get_template_part('template-parts/app-install/section', 'why-app', ['why_app' => $fields['why_app']]);
+get_template_part('template-parts/webdesign/section', 'teams', ['teams' => $fields['teams']]);
+get_template_part('template-parts/app-install/section', 'ads-application', ['ads_applications' => $fields['ads_applications']]);
+
+get_template_part('template-parts/app-install/section', 'grow-app', ['services' => $fields['services']]);
+
 get_template_part('template-parts/seo/section', 'seo-process');
 if (!empty($fields['case_study']['title']) || !empty($fields['case_study']['case_study_list'])) {
     get_template_part('template-parts/global/section', 'case-study-item', ['case_study' => $fields['case_study']]);

@@ -17,6 +17,24 @@ if (function_exists('acf_add_local_field_group')) :
         'title' => 'Why App Section',
         'fields' => [
             [
+                'key' => 'field_why_app_title',
+                'label' => 'Why App title',
+                'name' => 'why_app_title',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => 'Enter your text here',
+                'maxlength' => '',
+                'rows' => 4,
+                'new_lines' => 'wpautop',
+            ],
+            [
                 'key' => 'field_why_app_text',
                 'label' => 'Why App Text',
                 'name' => 'why_app_text',
@@ -74,6 +92,15 @@ if (function_exists('acf_add_local_field_group')) :
                     'operator' => '==',
                     'value' => 'page-app.php',
                 ],
+           
+            ],
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-seo.php',
+                ],
+           
             ],
         ],
         'menu_order' => 0,
