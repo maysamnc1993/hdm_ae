@@ -47,6 +47,7 @@
     "simplex-noise": "^3.0.1",
     "svgtofont": "^6.3.2",
     "swiper": "^11.0.5",
+    "tailwind-bootstrap-grid": "^5.1.0",
     "terser": "^5.39.0",
     "typed.js": "^2.1.0",
     "vite-plugin-static-copy": "^2.3.1"

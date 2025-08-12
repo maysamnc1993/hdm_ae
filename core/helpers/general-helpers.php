@@ -1085,3 +1085,74 @@ function has_category_icon($term_id = 0, $field_id = 'category_icon')
     $icon_id = get_term_meta($term_id, $field_id, true);
     return !empty($icon_id);
 }
+
+function reading_time()
+{
+    $content = get_post_field('post_content', get_the_ID());
+    $word_count = str_word_count(strip_tags($content));
+    $reading_time = ceil($word_count / 200); // Assuming 200 words per minute
+    return $reading_time . ' MIN TO READ';
+}
+
+function track_post_views()
+{
+    if (is_single() && !is_admin()) {
+        $post_id = get_the_ID();
+        $views = get_post_meta($post_id, '_post_views', true);
+        $views = $views ? intval($views) + 1 : 1;
+        update_post_meta($post_id, '_post_views', $views);
+        // Calculate trending score (e.g., views + comments * 2)
+        $comments = get_comments_number($post_id);
+        $score = $views + ($comments * 2);
+        update_post_meta($post_id, '_trending_score', $score);
+    }
+}
+add_action('wp', 'track_post_views');
+
+
+/**
+ * Generate a Table of Contents for the current post based on its headings.
+ *
+ * @return array Contains the TOC HTML and modified post content with heading IDs.
+ */
+function generate_post_toc()
+{
+    $post_content = get_the_content();
+    $toc = [];
+    $modified_content = $post_content;
+
+    // Regex to match <h2> and <h3> tags
+    preg_match_all('/<h([2-3])>(.*?)<\/h\1>/i', $post_content, $matches, PREG_SET_ORDER);
+
+    if (empty($matches)) {
+        return ['toc' => '', 'content' => $post_content];
+    }
+
+    $toc_items = '';
+    $index = 1;
+
+    foreach ($matches as $match) {
+        $level = $match[1]; // Heading level (2 or 3)
+        $title = wp_strip_all_tags($match[2]); // Heading text
+        $id = 'section-' . sanitize_title($title) . '-' . $index; // Unique ID
+
+        // Replace the original heading with one containing the ID
+        $original_heading = $match[0];
+        $new_heading = "<h$level id=\"$id\">$title</h$level>";
+        $modified_content = str_replace($original_heading, $new_heading, $modified_content);
+
+        // Generate TOC item with toc-link class
+        $class = $level == 3 ? 'ml-4' : ''; // Indent <h3> items
+        $toc_items .= '<li class="text-white mb-3 last:mb-0 text-[15px] group hover:text-primary ' . esc_attr($class) . '"><a href="#' . esc_attr($id) . '" class="has-line-link has-line-link-secondary text-white toc-link"><span class="line-link-el group-hover:text-primary">' . esc_html($title) . '</span></a></li>';
+
+        $index++;
+    }
+
+    // Wrap TOC items in ordered list
+    $toc_html = '<ol class="list-decimal pl-9 lg:pl-4 lg:mt-4 p-5 lg:p-0 !pt-0 hidden lg:block toc-nav">' . $toc_items . '</ol>';
+
+    return [
+        'toc' => $toc_html,
+        'content' => $modified_content
+    ];
+}

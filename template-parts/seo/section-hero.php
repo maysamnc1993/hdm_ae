@@ -59,6 +59,8 @@ function render_cta_button($text, $image_id = 127, $link = '#')
                     <?php
                     render_cta_button('Contact Us');
                     render_cta_button('Work With Us');
+                    render_cta_button('Contact Us');
+                    render_cta_button('Work With Us');
                     ?>
                 </ul>
             </div>
