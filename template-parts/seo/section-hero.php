@@ -13,11 +13,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-$section_1 = $args['section_1'] ?? [
-    'title' => "Mastering <span class='text-brand-primary relative'><i>Social Media</i><b>Social Media</b></span> Success",
-    'description' => "Master social media with simple strategies to grow your brand, stay on trend, and achieve success online."
-];
-
+$hero = $args['hero'] ?? [];
 // Function to render CTA button
 function render_cta_button($text, $image_id = 127, $link = '#')
 {
@@ -47,15 +43,22 @@ function render_cta_button($text, $image_id = 127, $link = '#')
             <div class="circle_effect_1"></div>
         </div>
 
+        
+
         <div class="box_of_text">
             <div class="content_section">
-                <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-white uppercase text-center mb-4">
-                    Mastering <br> <span class='text-brand-primary relative'><i>Social Media</i><b>Social Media</b></span>
-                    <br> Success
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-white uppercase text-center mb-4 Default_Title SeoTitle">
+                    <?=$hero["title"]?>
                 </h1>
-                <p class="text-base text-white font-light text-center leading-relaxed mb-8"><?php echo esc_html($section_1['description']); ?></p>
+                <div class="text-base text-white font-light text-center leading-relaxed mb-8 SEO_Description"><?php echo $hero['description']; ?></div>
+
+
+        
+
                 <ul class="ListOfCTA flex justify-center gap-4">
                     <?php
+                    render_cta_button('Contact Us');
+                    render_cta_button('Work With Us');
                     render_cta_button('Contact Us');
                     render_cta_button('Work With Us');
                     ?>
@@ -63,24 +66,22 @@ function render_cta_button($text, $image_id = 127, $link = '#')
             </div>
         </div>
 
+
+
         <div class="flex my-25 justify-center image-container">
             <?php
             $images = [
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-left'],
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-center'],
-                ['path' => 'seo/insta-1.avif', 'class' => 'instagram-img image-right']
+                ['path' => $hero["image_1"], 'class' => 'instagram-img image-left'],
+                ['path' => $hero["image_2"], 'class' => 'instagram-img image-center'],
+                ['path' => $hero["image_3"], 'class' => 'instagram-img image-right']
             ];
             foreach ($images as $index => $image) {
-                // Assuming display_img is a custom function; if not, replace with direct img tag
-                if (function_exists('display_img')) {
-                    display_img($image['path'], $image['class'], "Instagram image " . ($index + 1));
-                } else {
             ?>
                     <div class="<?php echo esc_attr($image['class']); ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $image['path']); ?>" alt="Instagram image <?php echo esc_attr($index + 1); ?>" loading="lazy">
+                        <img src="<?php echo  $image['path']; ?>" alt="<?php echo esc_attr($index + 1); ?>" loading="lazy">
                     </div>
             <?php
-                }
+               
             }
             ?>
         </div>

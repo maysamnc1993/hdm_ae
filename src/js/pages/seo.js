@@ -2,6 +2,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "../components/faq";
 
+
+
 // or get other plugins:
 import Draggable from "gsap/Draggable";
 
@@ -9,7 +11,64 @@ import Draggable from "gsap/Draggable";
 gsap.registerPlugin(Draggable);
 gsap.registerPlugin(ScrollTrigger);
 
+
+// don't forget to register plugins
+gsap.registerPlugin(ScrollTrigger, Draggable);
+
 jQuery(document).ready(function ($) {
+
+  // why-app start
+jQuery(document).ready(function ($) {
+  // Split text into individual letters
+  $(".colorful-text-section .animated-text").each(function () {
+    const text = $(this).text();
+    const letters = text.split("");
+    let html = "";
+
+    letters.forEach((letter, index) => {
+      if (letter === " ") {
+        html += '<span class="space">&nbsp;</span>';
+      } else {
+        html += `<span class="letter" data-index="${index}">${letter}</span>`;
+      }
+    });
+
+    $(this).html(html);
+  });
+
+  const $letters = $(".colorful-text-section .letter");
+  const totalLetters = $letters.length;
+  const $animatedText = $(".colorful-text-section .animated-text");
+  const textColor = $animatedText.data("text-color") || "#252D44";
+
+  // Create timeline for scroll-triggered animation
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".colorful-text-section",
+      start: "top center",
+      end: "center center",
+      scrub: true,
+      markers: false,
+    },
+  });
+
+  // Animate each letter with staggered timing
+  $letters.each(function (index) {
+    tl.to(
+      $(this),
+      {
+        color: textColor,
+        duration: 0.1,
+        ease: "none",
+      },
+      index * 0.01
+    );
+  });
+});
+// why-app end
+
+
+
   // Image container animations (unchanged)
   const $imageContainer = $(".image-container");
   if ($imageContainer.length) {
@@ -215,10 +274,6 @@ jQuery(document).ready(function ($) {
           top: 0px;
           bottom: 0px;
           width: 100%;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border-radius: 15px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
           opacity: 0;
           pointer-events: none;
           z-index: -1;
@@ -378,3 +433,259 @@ function getBgPos(i) {
   );
 }
 //-====================================
+
+
+
+
+jQuery(document).ready(function ($) {
+  class ServicesSection {
+    constructor() {
+      this.$titles = $(".titles .title");
+      this.$contentItems = $(".content .content-item");
+      this.activeTitleId = "1";
+      this.isAnimating = false;
+      this.animationTimeout = null;
+      this.currentTimeline = null;
+      this.pendingAnimation = null;
+
+      this.init();
+    }
+
+    init() {
+      this.setupIntersectionObserver();
+      this.bindEvents();
+    }
+
+    setupIntersectionObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.initializeSection();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe($(".grow-app")[0]);
+    }
+
+    initializeSection() {
+      // Animate section entrance
+      gsap.to(".grow-app", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Stagger animate titles
+      gsap.to(this.$titles, {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        delay: 0.3,
+        onComplete: () => {
+          this.$titles.addClass("animate-in");
+        },
+      });
+
+      // Initialize first content item
+      setTimeout(() => {
+        this.showContentItem("1", true);
+      }, 800);
+    }
+
+    showContentItem(titleId, isInitial = false) {
+      // If there's a pending animation, execute it immediately
+      if (this.pendingAnimation && this.pendingAnimation !== titleId) {
+        this.executePendingAnimation();
+      }
+
+      // If same item or animating to same item, return
+      if (titleId === this.activeTitleId && !isInitial) return;
+
+      // If currently animating, queue this animation
+      if (this.isAnimating && !isInitial) {
+        this.pendingAnimation = titleId;
+        return;
+      }
+
+      this.executeAnimation(titleId, isInitial);
+    }
+
+    executeAnimation(titleId, isInitial = false) {
+      this.isAnimating = true;
+      this.activeTitleId = titleId;
+      this.pendingAnimation = null;
+
+      const $targetItem = this.$contentItems.filter(
+        `[data-title="${titleId}"]`
+      );
+      const $currentActiveItem = this.$contentItems.filter(".active");
+      const $targetTitle = this.$titles.filter(`[data-title="${titleId}"]`);
+
+      // Kill any existing timeline
+      if (this.currentTimeline) {
+        this.currentTimeline.kill();
+      }
+
+      // Update active states
+      this.$titles.removeClass("active");
+      $targetTitle.addClass("active");
+
+      // Create new animation timeline
+      this.currentTimeline = gsap.timeline({
+        onComplete: () => {
+          this.isAnimating = false;
+          this.currentTimeline = null;
+
+          // Execute pending animation if exists
+          if (this.pendingAnimation) {
+            const nextAnimation = this.pendingAnimation;
+            this.pendingAnimation = null;
+            setTimeout(() => {
+              this.executeAnimation(nextAnimation);
+            }, 50);
+          }
+        },
+      });
+
+      if ($currentActiveItem.length && !isInitial) {
+        // Animate out current item
+        this.currentTimeline.to($currentActiveItem, {
+          opacity: 0,
+          y: -20,
+          scale: 0.95,
+          duration: 0.25,
+          ease: "power2.in",
+          onComplete: () => {
+            $currentActiveItem.removeClass("active");
+          },
+        });
+      }
+
+      // Animate in new item
+      this.currentTimeline
+        .set($targetItem, {
+          opacity: 0,
+          y: 30,
+          scale: 0.95,
+        })
+        .add(() => {
+          $targetItem.addClass("active");
+        })
+        .to(
+          $targetItem,
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: "power3.out",
+          },
+          isInitial ? 0 : 0.1
+        );
+
+      // Add subtle image animation
+      this.currentTimeline.fromTo(
+        $targetItem.find("img"),
+        {
+          scale: 1.08,
+          opacity: 0.8,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        },
+        isInitial ? 0.15 : 0.25
+      );
+
+      // Animate text content
+      this.currentTimeline.fromTo(
+        $targetItem.find("h3, p"),
+        {
+          opacity: 0,
+          y: 15,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.08,
+          ease: "power2.out",
+        },
+        isInitial ? 0.3 : 0.35
+      );
+    }
+
+    executePendingAnimation() {
+      if (this.currentTimeline) {
+        // Fast-forward current animation
+        this.currentTimeline.progress(1);
+      }
+    }
+
+    debouncedHover(titleId) {
+      clearTimeout(this.animationTimeout);
+      this.animationTimeout = setTimeout(() => {
+        this.showContentItem(titleId);
+      }, 80);
+    }
+
+    bindEvents() {
+      // Hover handler with debouncing
+      this.$titles.on("mouseenter", (e) => {
+        const titleId = $(e.currentTarget).data("title");
+        if (titleId !== this.activeTitleId) {
+          this.debouncedHover(titleId);
+        }
+      });
+
+      // Click handler for mobile and immediate response
+      this.$titles.on("click", (e) => {
+        e.preventDefault();
+        const titleId = $(e.currentTarget).data("title");
+
+        // Clear any pending hover
+        clearTimeout(this.animationTimeout);
+
+        if (titleId !== this.activeTitleId) {
+          this.showContentItem(titleId);
+        }
+
+        // Optional: Scroll to section on mobile
+        if (window.innerWidth <= 768) {
+          $("html, body").animate(
+            {
+              scrollTop: $(".content").offset().top - 100,
+            },
+            300
+          );
+        }
+      });
+
+      // Optional: Add keyboard navigation
+      this.$titles.on("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          $(e.currentTarget).trigger("click");
+        }
+      });
+
+      // Mouse leave handler to clear pending animations
+      $(".titles").on("mouseleave", () => {
+        clearTimeout(this.animationTimeout);
+      });
+    }
+  }
+
+  // Initialize the services section
+  new ServicesSection();
+});

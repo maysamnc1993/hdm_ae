@@ -21,7 +21,8 @@ $why_app = $args['why_app'] ?? [];
 if (empty($why_app) || !is_array($why_app)) {
     return; // Exit early if no data
 }
-
+$class = $why_app['class'] ?? '';
+$title = $why_app['title'] ?? '';
 $text = $why_app['text'] ?? '';
 $text_color = $why_app['text_color'] ?? '#efefef';
 $section_color = $why_app['section_color'] ?? '#e0e0e0';
@@ -33,9 +34,13 @@ if (empty($text)) {
 
 ?>
 
-<section class="colorful-text-section my-4" style="background-color: <?php echo esc_attr($section_color); ?>;">
+<section class="colorful-text-section my-4 <?=$class?>" style="background-color: <?php echo esc_attr($section_color); ?>;">
     <div class="container">
-        
+        <?php
+            if($title == ''){}else{
+                echo '<span class="title_text_animated Default_Title">'.$title.'</span>';
+            }
+        ?>
         <h2 class="animated-text" data-text-color="<?php echo esc_attr($text_color); ?>"><?php echo $text ?></h2>
     </div>
 </section>

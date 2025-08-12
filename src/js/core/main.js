@@ -104,3 +104,16 @@ jQuery(document).scroll(function(e) {
 
 });
 
+
+jQuery(document).ready(function(){
+
+    jQuery("header .mobile_menu").click(function(){
+        jQuery(".MobileNavMenu").addClass("active");
+    })
+    jQuery(".MobileNavMenu .close_menu").click(function(){
+        jQuery(".MobileNavMenu").removeClass("active");
+    })
+    
+
+})
+

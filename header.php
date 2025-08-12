@@ -35,6 +35,7 @@
             <div class="w-2/12"><a href="https://hdmarketing.ae" class="logo"><img src="<?=wp_get_attachment_image_url(115,'full')?>"></a></div>
             <div class="w-8/12"><?=wp_nav_menu(array("menu" => 7 , "menu_class" => "mainMenu"))?></div>
             <div class="w-2/12">
+                <div class="mobile_menu"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M128 102.4c0-14.138 11.462-25.6 25.6-25.6h332.8c14.138 0 25.6 11.462 25.6 25.6S500.538 128 486.4 128H153.6c-14.138 0-25.6-11.463-25.6-25.6zm358.4 128H25.6C11.462 230.4 0 241.863 0 256c0 14.138 11.462 25.6 25.6 25.6h460.8c14.138 0 25.6-11.462 25.6-25.6 0-14.137-11.462-25.6-25.6-25.6zm0 153.6H256c-14.137 0-25.6 11.462-25.6 25.6 0 14.137 11.463 25.6 25.6 25.6h230.4c14.138 0 25.6-11.463 25.6-25.6 0-14.138-11.462-25.6-25.6-25.6z" fill="#000000" opacity="1" data-original="#000000" class=""></path></g></svg></div>
                 <a href="#reqeust_section" class="CTA_Default">
                     <div class="box_1"></div>
                     <div class="box_2"></div>
@@ -50,3 +51,11 @@
     </div>
 
 </header>
+
+
+<div class="MobileNavMenu">
+
+    <div class="close_menu"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M4.59 59.41a2 2 0 0 0 2.83 0L32 34.83l24.59 24.58a2 2 0 0 0 2.83-2.83L34.83 32 59.41 7.41a2 2 0 0 0-2.83-2.83L32 29.17 7.41 4.59a2 2 0 0 0-2.82 2.82L29.17 32 4.59 56.59a2 2 0 0 0 0 2.82z" fill="#000000" opacity="1" data-original="#000000"></path></g></svg></div>
+    <a href="https://hdmarketing.ae" class="logo"><img src="<?=wp_get_attachment_image_url(115,'full')?>"></a>
+    <?=wp_nav_menu(array("menu" => 7 , "menu_class" => "mainMenu"))?>
+</div>
