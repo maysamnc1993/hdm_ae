@@ -12,3 +12,4 @@ vendor
 /gitignore
 /.git
 .github
+.DS_Store
