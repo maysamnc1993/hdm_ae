@@ -103,7 +103,8 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_ScrollTrigger.js"
+      "_ScrollTrigger.js",
+      "_faq.js"
     ]
   },
   "src/js/pages/ppc.js": {
