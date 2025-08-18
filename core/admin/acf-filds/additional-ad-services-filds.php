@@ -35,6 +35,24 @@ if (function_exists('acf_add_local_field_group')) :
                 'maxlength' => '',
             ],
             [
+                'key' => 'field_additional_ad_services_text',
+                'label' => 'Additional Ad Services Text',
+                'name' => 'additional_ad_services_text',
+                'type' => 'textarea',
+                'instructions' => 'Enter the title for the Additional Ad Services section.',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => 'Additional ad Services',
+                'placeholder' => 'Case Study Subtitle',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ],
+            [
                 'key' => 'field_additional_ad_services_items',
                 'label' => 'Ad Service Items',
                 'name' => 'ad_service_items',
@@ -134,6 +152,13 @@ if (function_exists('acf_add_local_field_group')) :
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'page-app.php',
+                ],
+            ],
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-metaAds.php',
                 ],
             ],
             
