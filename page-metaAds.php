@@ -54,7 +54,7 @@ $fields = [
 ];
 
 
-
+echo 'tttttttttt';
 
 
 get_template_part('template-parts/meta-ads/section', 'hero', ['hero' => $fields["hero"]]);
