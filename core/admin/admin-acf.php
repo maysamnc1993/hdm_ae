@@ -28,7 +28,9 @@ if (function_exists('acf_add_local_field_group')) :
     require_once(THEME_URI . "/core/admin/acf-filds/seo-stats-section-field.php");
     require_once(THEME_URI . "/core/admin/acf-filds/seo-process-field.php");
     require_once(THEME_URI . "/core/admin/acf-filds/acf-teams-section-fild.php");
-
+    require_once(THEME_URI . "/core/admin/acf-filds/metaAds-fields.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/feature-benefit.php");
+    require_once(THEME_URI . "/core/admin/acf-filds/lists_item.php");
 
     // archive blog
     require_once(THEME_URI . "/core/admin/acf-filds/archvie-blog-fileds.php");

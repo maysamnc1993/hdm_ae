@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ACF Field Definitions: FAQ Section
+ * ACF Field Definitions: Lists Item
  * Description: Defines ACF fields for the FAQ section used in WordPress templates.
  */
 
@@ -14,15 +14,15 @@ if (!defined('ABSPATH')) {
 if (function_exists('acf_add_local_field_group')) :
 
     acf_add_local_field_group([
-        'key' => 'group_faq_section',
-        'title' => 'FAQ Section',
+        'key' => 'group_lists_item_section',
+        'title' => 'Feature Lists Item',
         'fields' => [
             [
-                'key' => 'field_faq_title',
-                'label' => 'FAQ Title',
-                'name' => 'faq_title',
+                'key' => 'field_lists_item_title',
+                'label' => 'Title',
+                'name' => 'lists_item_title',
                 'type' => 'text',
-                'instructions' => 'Enter the main title for the FAQ section.',
+                'instructions' => '',
                 'required' => 0,
                 'wrapper' => [
                     'width' => '',
@@ -30,15 +30,15 @@ if (function_exists('acf_add_local_field_group')) :
                     'id' => '',
                 ],
                 'default_value' => '',
-                'placeholder' => 'Frequently Asked Questions',
+                'placeholder' => '',
                 'prepend' => '',
                 'append' => '',
                 'maxlength' => '',
             ],
             [
-                'key' => 'field_faq_description',
-                'label' => 'FAQ Description',
-                'name' => 'faq_description',
+                'key' => 'field_lists_item_description',
+                'label' => 'Description',
+                'name' => 'lists_item_description',
                 'type' => 'textarea',
                 'instructions' => 'Enter a brief description for the FAQ section.',
                 'required' => 0,
@@ -54,52 +54,29 @@ if (function_exists('acf_add_local_field_group')) :
                 'new_lines' => 'wpautop',
             ],
             [
-                'key' => 'field_faq_image',
-                'label' => 'FAQ Image',
-                'name' => 'faq_image',
-                'type' => 'image',
-                'instructions' => 'Upload or select an image to display in the FAQ section.',
-                'required' => 0,
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
-                'return_format' => 'array',
-                'preview_size' => 'medium',
-                'library' => 'all',
-                'min_width' => '',
-                'min_height' => '',
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
-            ],
-            [
-                'key' => 'field_faq_list',
-                'label' => 'FAQ Items',
-                'name' => 'faq_list',
+                'key' => 'field_lists_item_list',
+                'label' => 'Items',
+                'name' => 'lists_item_list',
                 'type' => 'repeater',
-                'instructions' => 'Add FAQ items with questions and answers.',
+                'instructions' => 'Add feature items with questions and answers.',
                 'required' => 0,
                 'wrapper' => [
                     'width' => '',
                     'class' => '',
                     'id' => '',
                 ],
-                'collapsed' => 'field_faq_item_question',
+                'collapsed' => 'field_lists_item_item',
                 'min' => 1,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => 'Add FAQ Item',
+                'button_label' => 'Add Feature Item',
                 'sub_fields' => [
                     [
-                        'key' => 'field_faq_item_question',
-                        'label' => 'Question',
-                        'name' => 'question',
+                        'key' => 'field_lists_item_item_title',
+                        'label' => 'Title',
+                        'name' => 'title',
                         'type' => 'text',
-                        'instructions' => 'Enter the FAQ question.',
+                        'instructions' => 'Enter the title.',
                         'required' => 0,
                         'wrapper' => [
                             'width' => '',
@@ -107,17 +84,35 @@ if (function_exists('acf_add_local_field_group')) :
                             'id' => '',
                         ],
                         'default_value' => '',
-                        'placeholder' => 'Enter your question here',
+                        'placeholder' => 'Enter your title here',
                         'prepend' => '',
                         'append' => '',
                         'maxlength' => '',
                     ],
                     [
-                        'key' => 'field_faq_item_answer',
-                        'label' => 'Answer',
-                        'name' => 'answer',
+                        'key' => 'field_lists_item_item_description',
+                        'label' => 'Description',
+                        'name' => 'description',
                         'type' => 'wysiwyg',
-                        'instructions' => 'Enter the answer to the FAQ question.',
+                        'instructions' => 'Enter the Description',
+                        'required' => 0,
+                        'wrapper' => [
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ],
+                        'default_value' => '',
+                        'tabs' => 'all',
+                        'toolbar' => 'basic',
+                        'media_upload' => 0,
+                        'delay' => 1,
+                    ],
+                    [
+                        'key' => 'field_lists_item_item_image',
+                        'label' => 'Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'instructions' => '',
                         'required' => 0,
                         'wrapper' => [
                             'width' => '',
@@ -138,23 +133,9 @@ if (function_exists('acf_add_local_field_group')) :
                 [
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-app.php',
-                ],
-
-            ],
-            [
-                [
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'page-seo.php',
-                ],
-            ],
-            [
-                [
-                    'param' => 'page_template',
-                    'operator' => '==',
                     'value' => 'page-metaAds.php',
                 ],
+
             ],
 
         ],

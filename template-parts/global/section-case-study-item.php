@@ -73,7 +73,7 @@ if (empty($case_study_list) || !is_array($case_study_list)) {
 
                         <div class="Problem">
                             <?php if (!empty($item_description)) : ?>
-                                <p><?php echo esc_html($item_description); ?></p>
+                                <p><?php echo wp_strip_all_tags($item_description); ?></p>
                             <?php endif; ?>
                         </div>
 

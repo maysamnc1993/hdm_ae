@@ -11,6 +11,10 @@
     "file": "js/faq.js",
     "name": "faq"
   },
+  "_index.js": {
+    "file": "js/index.js",
+    "name": "index"
+  },
   "src/fonts/iconFont/pg-icons/pg.eot": {
     "file": "fonts/pg.eot",
     "src": "src/fonts/iconFont/pg-icons/pg.eot"
@@ -66,8 +70,9 @@
     "isEntry": true,
     "imports": [
       "_faq.js",
-      "_ScrollTrigger.js",
-      "_Draggable.js"
+      "_index.js",
+      "_Draggable.js",
+      "_ScrollTrigger.js"
     ]
   },
   "src/js/pages/blog.js": {
@@ -75,6 +80,15 @@
     "name": "pages/blog",
     "src": "src/js/pages/blog.js",
     "isEntry": true
+  },
+  "src/js/pages/googleAds.js": {
+    "file": "js/pages/googleAds.js",
+    "name": "pages/googleAds",
+    "src": "src/js/pages/googleAds.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ]
   },
   "src/js/pages/gsap.min.js": {
     "file": "js/pages/gsap.min.js",
@@ -88,7 +102,9 @@
     "src": "src/js/pages/metaAds.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js"
+      "_index.js",
+      "_ScrollTrigger.js",
+      "_faq.js"
     ]
   },
   "src/js/pages/ppc.js": {
@@ -103,6 +119,7 @@
     "src": "src/js/pages/seo.js",
     "isEntry": true,
     "imports": [
+      "_index.js",
       "_ScrollTrigger.js",
       "_faq.js",
       "_Draggable.js"
@@ -126,8 +143,9 @@
     "src": "src/js/pages/webdesign.js",
     "isEntry": true,
     "imports": [
-      "_ScrollTrigger.js",
-      "_Draggable.js"
+      "_index.js",
+      "_Draggable.js",
+      "_ScrollTrigger.js"
     ]
   },
   "src/scss/pages/admin.scss": {
@@ -143,6 +161,11 @@
   "src/scss/pages/blog.scss": {
     "file": "css/pages/blog.css.css",
     "src": "src/scss/pages/blog.scss",
+    "isEntry": true
+  },
+  "src/scss/pages/googleAds.scss": {
+    "file": "css/pages/googleAds.css.css",
+    "src": "src/scss/pages/googleAds.scss",
     "isEntry": true
   },
   "src/scss/pages/metaAds.scss": {

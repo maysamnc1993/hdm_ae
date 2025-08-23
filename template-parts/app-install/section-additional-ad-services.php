@@ -28,10 +28,11 @@ $grid_class = "grid grid-cols-{$grid_cols} gap-5 py-10";
 ?>
 
 <section class="additional-ad-services container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
-    <div class="flex justify-center items-center my-5 col-span-4 ">
+    <div class="flex justify-center items-center my-5 col-span-4 flex-column">
         <h2 class="text-white text-3xl">
             <?php echo get_field('additional_ad_services_title',get_the_ID()) ?>
         </h2>
+        <p class="description"><?php echo get_field('additional_ad_services_text',get_the_ID()) ?></p>
     </div>
     <?php
     $step = 1;
