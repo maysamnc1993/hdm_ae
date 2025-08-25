@@ -73,7 +73,7 @@ $services = $args['services'] ?? [
                         $index++;
                     }
                 } else {
-                    echo '<p>No services available.</p>';
+                    
                 }
                 ?>
             </div>
@@ -96,7 +96,7 @@ $services = $args['services'] ?? [
                     $index++;
                 }
             } else {
-                echo '<p>No services to display.</p>';
+               
             }
             ?>
         </div>
