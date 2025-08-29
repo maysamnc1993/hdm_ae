@@ -56,6 +56,7 @@ $fields = [
 
 
 
+
 get_template_part('template-parts/meta-ads/section', 'hero', ['hero' => $fields["hero"]]);
 get_template_part('template-parts/app-install/section', 'grow-app', ['services' => $fields['services']]);
 get_template_part('template-parts/app-install/section', 'additional-ad-services', ['ad_services' => $fields['ad_services']]);

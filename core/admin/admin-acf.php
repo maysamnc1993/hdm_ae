@@ -37,10 +37,6 @@ if (function_exists('acf_add_local_field_group')) :
     require_once(THEME_URI . "/core/admin/acf-filds/archvie-blog-fileds.php");
 
 
-    // google ads
-    require_once(THEME_URI . "/core/admin/acf-filds/acf-feature-benefit-fileds.php");
-    require_once(THEME_URI . "/core/admin/acf-filds/acf-hero-section-google-ads-filds.php");
-
 
 endif;
 
