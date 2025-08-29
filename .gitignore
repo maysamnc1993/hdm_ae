@@ -20,3 +20,6 @@ vendor
 .github
 >>>>>>> 1999c2a3 (feat: new brnach origin/develop-archive-blog)
 >>>>>>> 09e0a699 (feat: new brnach origin/develop-archive-blog)
+
+# macOS
+.DS_Store

@@ -117,7 +117,7 @@ if (function_exists('acf_add_local_field_group')) :
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'page-google-ads.php',
+                    'value' => 'page-homepage.php',
                 ),
             ),
         ),
