@@ -158,6 +158,13 @@ if (function_exists('acf_add_local_field_group')) :
                     'value' => 'page-app.php',
                 ],
             ],
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-homepage.php',
+                ],
+            ],
         ],
         'menu_order' => 0,
         'position' => 'normal',
