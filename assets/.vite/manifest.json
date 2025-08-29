@@ -57,6 +57,18 @@
     "src": "src/js/pages/Draggable.min.js",
     "isEntry": true
   },
+  "src/js/pages/HomePage.js": {
+    "file": "js/pages/HomePage.js",
+    "name": "pages/HomePage",
+    "src": "src/js/pages/HomePage.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_ScrollTrigger.js",
+      "_faq.js",
+      "_Draggable.js"
+    ]
+  },
   "src/js/pages/admin.js": {
     "file": "js/pages/admin.js",
     "name": "pages/admin",
@@ -147,6 +159,11 @@
       "_Draggable.js",
       "_ScrollTrigger.js"
     ]
+  },
+  "src/scss/pages/HomePage.scss": {
+    "file": "css/pages/HomePage.css.css",
+    "src": "src/scss/pages/HomePage.scss",
+    "isEntry": true
   },
   "src/scss/pages/admin.scss": {
     "file": "css/pages/admin.css.css",
