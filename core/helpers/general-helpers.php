@@ -862,14 +862,14 @@ function helepre_time_elapsed_string($datetime, $full = false)
 function helepre_post_date($echo = true)
 {
     $post_timestamp = get_post_time('U', false);
-    $jalali_date = jdate('Y/m/d', $post_timestamp, '', 'Asia/Tehran', 'fa'); // 'fa' for Persian
+    // $jalali_date = jdate('Y/m/d', $post_timestamp, '', 'Asia/Tehran', 'fa'); // 'fa' for Persian
     $elapsed_time = helepre_time_elapsed_string($post_timestamp);
-    $display_text = sprintf('%s (%s)', $jalali_date, $elapsed_time);
+    $display_text = sprintf('%s (%s)', $post_timestamp, $elapsed_time);
 
     $output = sprintf(
         '<time datetime="%s" title="%s">%s</time>',
         esc_attr(get_the_date('c')),
-        esc_attr($jalali_date),
+        esc_attr($post_timestamp),
         esc_html($display_text)
     );
 

@@ -10,17 +10,10 @@ vendor
 .git
 /gitignore
 /.git
-<<<<<<< HEAD
 .github
 .DS_Store
-=======
-<<<<<<< HEAD
 .github
-=======
-.github
->>>>>>> 1999c2a3 (feat: new brnach origin/develop-archive-blog)
->>>>>>> 09e0a699 (feat: new brnach origin/develop-archive-blog)
-
 # macOS
 .DS_Store
 *.zip
+.env
