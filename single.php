@@ -316,7 +316,7 @@ $modified_content = $toc_data['content'];
                                         <h3 class="text-2xl text-white leading-relaxed mb-4 line-link">
                                             <a class="link-stretched line-link-el text-white" aria-label="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                         </h3>
-                                        <ul class="flex flex-wrap items-center justify-center gap-3 gap-y-1 mb-6 uppercase text-sm text-brand-primary">
+                                        <ul class="flex flex-wrap items-center justify-center gap-3 gap-y-1 mb-6 uppercase text-sm text-gray-200/70">
                                             <li class="flex items-center">
                                                 <?php echo get_avatar(get_the_author_meta('ID'), 24, '', 'Author Avatar', ['class' => 'h-6 w-6 border border-[#ABABAB] rounded-full mr-2 bg-white/40']); ?>
                                                 <?php the_author(); ?>

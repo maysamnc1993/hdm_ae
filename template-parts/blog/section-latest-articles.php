@@ -40,7 +40,7 @@ $latest_posts_query = new WP_Query($args);
         <div class="row mt-16 sm:mt-24">
             <!-- Sticky Sidebar -->
             <div class="lg:col-4 mb-14 lg:mb-0">
-                <div class="sticky top-12 lg:pr-12 text-center lg:text-start text-white">
+                <div class="sticky top-36 lg:pr-12 text-center lg:text-start text-white">
                     <p class="text-base text-white uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mb-8 mx-auto md:mx-0">
                         <?php echo esc_html(get_field('latest_subtitle') ?: 'Latest Articles'); ?>
                     </p>
@@ -123,13 +123,13 @@ $latest_posts_query = new WP_Query($args);
                                             <?php echo get_the_date('M j, Y'); ?>
                                         </span>
                                         <!-- Post Title -->
-                                        <h3 class="text-2xl text-white leading-relaxed mb-4 line-link line-clamp-3 min-h-30">
+                                        <h3 class="text-2xl text-white leading-relaxed mb-4 line-link line-clamp-2 min-h-18">
                                             <a class="link-stretched line-link-el text-white" aria-label="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">
                                                 <?php the_title(); ?>
                                             </a>
                                         </h3>
                                         <!-- Post Meta -->
-                                        <ul class="flex flex-wrap items-center justify-center gap-3 gap-y-1 mb-6 uppercase text-sm text-brand-primary">
+                                        <ul class="flex flex-wrap items-center justify-center gap-3 gap-y-1 mb-6 uppercase text-sm text-gray-200/70">
                                             <li class="flex items-center">
                                                 <?php
                                                 $author_id = get_the_author_meta('ID');

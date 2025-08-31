@@ -11,7 +11,7 @@ get_template_part('template-parts/blog/section','category-list');
 get_template_part('template-parts/blog/section','latest-articles');
 get_template_part('template-parts/blog/section','popular-articles');
 get_template_part('template-parts/blog/section','trending-articles');
-get_template_part('template-parts/blog/section','post-of-the-week');
+//get_template_part('template-parts/blog/section','post-of-the-week');
 
 ?>
 

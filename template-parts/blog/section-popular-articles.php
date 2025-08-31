@@ -32,13 +32,13 @@ $args = [
 $popular_posts_query = new WP_Query($args);
 ?>
 
-<section class="py-16 sm:py-24 darkBg">
+<section class="py-16 sm:py-24 bg-secondary">
     <div class="container">
         <div class="row">
 
             <!-- Sticky Sidebar -->
             <div class="lg:col-5 mb-14 lg:mb-0">
-                <div class="sticky top-12 lg:pr-12 text-center md:text-start">
+                <div class="sticky top-36 lg:pr-12 text-center md:text-start">
                     <p class="text-white text-base uppercase font-secondary pl-4 relative after:absolute after:rounded-full -mt-1 after:content-[''] after:h-2 after:w-2 after:bg-primary after:left-0 after:top-2 w-fit mb-8 mx-auto md:mx-0">
                         <?php echo esc_html(get_field('popular_subtitle') ?: 'Popular Articles'); ?>
                     </p>
@@ -76,7 +76,7 @@ $popular_posts_query = new WP_Query($args);
                     <?php
                     $counter = 0;
                     while ($popular_posts_query->have_posts()) : $popular_posts_query->the_post();
-                        $margin_class = ($counter % 2 == 0) ? 'md:mr-20' : 'md:ml-20';
+                        $margin_class = ($counter % 2 == 0) ? 'right-sec' : 'left-sec';
                     ?>
                         <div class="mb-16 <?php echo esc_attr($margin_class); ?>">
                             <article class="post-card post-category-top group relative has-line-link-white">
