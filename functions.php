@@ -126,11 +126,11 @@ require_once THEME_URI . '/core/module/modules.php';
 
 // ======== ajax functions ======== //
 
-require_once THEME_URI. '/core/ajaxs/ajax.php';
+require_once THEME_URI . '/core/ajaxs/ajax.php';
 
 
 
 // ======== hooks functions ======== //
-require_once THEME_URI. '/core/hooks/rewrite-rule.php';
+require_once THEME_URI . '/core/hooks/rewrite-rule.php';
 
 
