@@ -17,7 +17,7 @@ if (post_password_required()) {
 <section id="comments" class="tt-comments-list mt-10">
     <?php if (have_comments()) : ?>
         <h2 class="text-3xl font-light mb-6"><?php printf(_n('%d Comment', '%d Comments', get_comments_number(), 'jthem'), number_format_i18n(get_comments_number())); ?></h2>
-        <ul class="list-none p-0 m-0">
+        <ul class="list-none p-0 m-0" id="comments-list">
             <?php
             wp_list_comments([
                 'style'       => 'ul',
@@ -26,9 +26,9 @@ if (post_password_required()) {
                 'callback'    => function ($comment, $args, $depth) {
             ?>
                 <li class="tt-comment bg-neutral-gray-500/10 p-5 rounded-[15px] mt-10 <?php echo $depth > 1 ? 'ml-10' : ''; ?>" id="comment-<?php comment_ID(); ?>">
-                    <div class="tt-comment-avatar float-left mr-5 w-[50px] h-[50px] rounded-full overflow-hidden">
+                    <!-- <div class="tt-comment-avatar float-left mr-5 w-[50px] h-[50px] rounded-full overflow-hidden">
                         <?php echo get_avatar($comment, $args['avatar_size'], '', '', ['class' => 'w-full h-full object-cover object-center']); ?>
-                    </div>
+                    </div> -->
                     <div class="tt-comment-body relative block">
                         <div class="tt-comment-meta pr-[60px] mb-5 pb-5 border-b border-neutral-gray-500/26">
                             <h4 class="tt-comment-heading text-lg text-light overflow-hidden whitespace-nowrap text-ellipsis m-0 mb-2">
@@ -86,9 +86,13 @@ if (post_password_required()) {
         'fields'            => [
             'author' => '<div class="tt-row flex flex-wrap -mx-2"><div class="tt-col-lg-6 w-full lg:w-1/2 px-2"><div class="tt-form-group mb-7"><label for="author" class="inline-block mb-2 text-lg font-medium">' . __('Name', 'jthem') . ' <span class="required text-brand-primary">*</span></label><input id="author" name="author" type="text" class="tt-form-control w-full bg-transparent p-3 h-14 text-lg text-light border border-brand-muted rounded-lg" required /></div></div>',
             'email'  => '<div class="tt-col-lg-6 w-full lg:w-1/2 px-2"><div class="tt-form-group mb-7"><label for="email" class="inline-block mb-2 text-lg font-medium">' . __('Email address', 'jthem') . ' <span class="text-sm text-neutral-gray-100">(Optional)</span></label><input id="email" name="email" type="email" class="tt-form-control w-full bg-transparent p-3 h-14 text-lg text-light border border-brand-muted rounded-lg" /></div></div></div>',
+            'cookies' => '<p class="comment-form-cookies-consent mb-7"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" /><label for="wp-comment-cookies-consent" class="text-sm text-neutral-gray-100">' . __('Save my name, email, and website in this browser for the next time I comment.', 'jthem') . '</label></p>',
+            'nonce' => '<input type="hidden" name="nonce" value="' . wp_create_nonce('comment_nonce') . '" />',
         ],
         'comment_notes_before' => '<small class="tt-form-text text-sm text-neutral-gray-100 block mb-7">' . __('Fields marked with an asterisk (*) are required!', 'jthem') . '</small>',
-        'submit_field'      => "<div class='mt-5'>".render_cta_button('Post Comment', 127, '#')."</div>",
+        'submit_field'      => '<div class="mt-5">%1$s %2$s</div>',
+        'class_submit'      => 'tt-btn inline-block',
+        'submit_button'     => render_cta_submit('Post Comment', 127),
     ]);
     ?>
 </section>

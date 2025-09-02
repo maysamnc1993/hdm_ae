@@ -1188,3 +1188,34 @@ function render_cta_button($text, $image_id = 127, $link = '#')
 <?php
     return ob_get_clean();
 }
+
+/**
+ * Renders a Call-to-Action button with an image background and SVG icon.
+ *
+ * @param string $text     The button text.
+ * @param int    $image_id The ID of the background image.
+ * @param string $link     The URL for the button link.
+ * @return string The HTML for the CTA button.
+ */
+function render_cta_submit($text, $image_id = 127, $link = '#')
+{
+    $image_url = esc_url(wp_get_attachment_image_url($image_id, 'full'));
+    ob_start();
+?>
+    <li class="list-none">
+        <button  class="CTA_Default inline-flex items-center gap-2 text-sm uppercase  rounded-full py-2 px-5 text-brand-primary hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all duration-300">
+            <div class="box_1 hidden"></div>
+            <div class="box_2 hidden"></div>
+            <span style="background-image: url('<?php echo $image_url; ?>')" class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-4 h-4 fill-white flex-shrink-0">
+                    <g>
+                        <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path>
+                    </g>
+                </svg>
+                <b class="font-bold"><?php echo esc_html($text); ?></b>
+            </span>
+        </button>
+    </li>
+<?php
+    return ob_get_clean();
+}
