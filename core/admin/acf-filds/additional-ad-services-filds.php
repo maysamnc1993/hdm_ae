@@ -66,7 +66,7 @@ if (function_exists('acf_add_local_field_group')) :
                 ],
                 'collapsed' => 'field_ad_service_item_title',
                 'min' => 1,
-                'max' => 6, // Limit to 6 items for design consistency
+                'max' => 8, // Limit to 6 items for design consistency
                 'layout' => 'block',
                 'button_label' => 'Add Ad Service Item',
                 'sub_fields' => [
@@ -159,6 +159,13 @@ if (function_exists('acf_add_local_field_group')) :
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'page-metaAds.php',
+                ],
+            ],
+            [
+                [
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-ppc.php',
                 ],
             ],
             

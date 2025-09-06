@@ -33,7 +33,7 @@ $top_case_study = $args['top_case_study'] ?? [];
                 <h2><?= $top_case_study["title"] ?? "" ?></h2>
                 <span class="title"><?= $top_case_study["text"] ?? "" ?></span>
                 <?php
-                    if($top_case_study["link_text"] == "" || count($top_case_study["link_text"]) == 0){}else{
+                    if($top_case_study["link_text"] == "" ){}else{
                         ?>
 
                             <a href="<?= $$top_case_study["link_anchor"] ?>" class="CTA_Default">

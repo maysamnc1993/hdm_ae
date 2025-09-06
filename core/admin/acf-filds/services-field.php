@@ -120,6 +120,13 @@ if (function_exists('acf_add_local_field_group')) :
                     'value' => 'page-homepage.php',
                 ),
             ),
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-ppc.php',
+                ),
+            ),
         ),
         'menu_order' => 0,
         'position' => 'normal',
