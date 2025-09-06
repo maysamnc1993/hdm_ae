@@ -4,121 +4,63 @@
 
 theme_scripts('ppc');
 get_header();
-?>
 
-<div class="section-creative" >
+$fields = [
+    'hero' => [
+        'video' => get_field('hero_video', get_the_ID()) ?: 'Maximize Results with Expert',
+        'title' => get_field('hero_title', get_the_ID()) ?: 'Meta',
+        'description' => (get_field('hero_description', get_the_ID())) ?: 'Management',
+        'hero_cta_text' => (get_field('hero_cta_text', get_the_ID())) ?: 'Ads',
+        'hero_cta_link' => (get_field('hero_cta_link', get_the_ID())),
+    ],
+    'case_study' => [
+        'sub_title' => get_field('case_study_sub_title', get_the_ID()) ?: '',
+        'title' => get_field('case_study_title', get_the_ID()) ?: '',
+        'case_study_list' => get_field('case_study_list', get_the_ID()) ?: [],
+    ],
+    'ad_services' => get_field('ad_service_items', get_the_ID()) ?: [],
+        'feature_benefit' => [
+        'title' => get_field('feature_benefit_title', get_the_ID()) ?: '',
+        'description' => get_field('feature_benefit_description', get_the_ID()) ?: '',
+        'list' => get_field('feature_benefit_list', get_the_ID()) ?: '',
+    ],
+    'ads_applications' => [
+        'background_image' => ($image = get_field('ads_background_image', get_the_ID())),
+        'about_me' => get_field('ads_about_me', get_the_ID()) ?: '',
+        'main_title' => get_field('ads_main_title', get_the_ID()) ?: '',
+        'main_description' => get_field('ads_main_description', get_the_ID()) ?: '',
+        'cards' => get_field('ads_cards', get_the_ID()) ?: [],
+    ],
+    'services' => [
+        'header_brand' => get_field('services_header_brand', get_the_ID()) ?: 'hdm marketing',
+        'header_title' => get_field('services_header_title', get_the_ID()) ?: 'services',
+        'text_color' => get_field('services_text_color', get_the_ID()) ?: '#1F2937',
+        'background_color' => get_field('services_background_color', get_the_ID()) ?: '#FFFFFF',
+        'hover_text_color' => get_field('services_hover_text_color', get_the_ID()) ?: '#1F2937',
+        'border_color' => get_field('services_border_color', get_the_ID()) ?: '#F9452D',
+        'items' => get_field('services', get_the_ID()) ?: [],
+    ],
+    'testimonial' => [
+        'title' => get_field('testimonial_title', get_the_ID()) ?: '',
+        'description' => get_field('testimonial_description', get_the_ID()) ?: '',
+        'testimonial_list' => get_field('testimonial_list', get_the_ID()) ?: '',
+        
+    ],
+    'faq' => [
+        'title' => get_field('faq_title', get_the_ID()) ?: '',
+        'description' => get_field('faq_description', get_the_ID()) ?: '',
+        'image' => ($image = get_field('faq_image', get_the_ID())) ? $image['url'] : '',
+        'faq_list' => get_field('faq_list', get_the_ID()) ?: [],
+    ],
+];
 
-    <div class="container">
-
-        <div class="box_of_circle_effect">
-            <div class="circle_effect_1"></div>
-            <!-- <div class="circle_effect_2"></div> -->
-        </div>
-
-        <div class="Video_effect">
-            <video src="http://localhost/HDM-AE/wp-content/uploads/2025/07/Cw9D8nOGuMDx0eVn02OhggPWXg1.mp4" autoplay muted loop playsinline></video>
-        </div>
-
-        <div class="box_Of_text">
-
-            <div class="content_section">
-                <h1>Get Seen. Get Clicked. Get <span><i>Customers</i><b>Customers</b></span></h1>
-                <p>Our PPC advertising puts your brand in front of high-intent customers. actively searching for your products or services. From Google to Meta and beyond, we build and optimize campaigns that convert, delivering real, measurable growth from every click.</p>        
-                <ul class="ListOfCTA">
-                                <li>
-                                    <a href="#" class="CTA_Default">
-                                        <div class="box_1"></div>
-                                        <div class="box_2"></div>
-                                        <span style="background-image:url(<?=wp_get_attachment_image_url(127,'full')?>)">
-                                            
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); color: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); flex-shrink: 0;" focusable="false" color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))"><g color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))" weight="regular"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></g></svg>
-                                            <b>Get Your Free PPC Consultation</b>
-                                        </span>
-                                    </a>
-                                </li>
-                        <?php
-                            // foreach($section_1["cta"] as $item){
-                            //     echo '
-                            //        <li>
-                            //         <a href="'.$item["link"].'" class="CTA_Default">
-                            //             <div class="box_1"></div>
-                            //             <div class="box_2"></div>
-                            //             <span style="background-image:url('.wp_get_attachment_image_url(127,'full').')">
-                                            
-                            //                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); color: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); flex-shrink: 0;" focusable="false" color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))"><g color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))" weight="regular"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></g></svg>
-                            //                 <b>'.$item["title"].'</b>
-                            //             </span>
-                            //         </a>
-                            //     </li>
-                            //     ';
-                            // }
-                        ?>
-                    </ul>
-            </div>
-
-        </div>
-
-        <div class="ListOfValue" style="background-image:url(http://localhost/HDM-AE/wp-content/uploads/2025/07/fabio-oyXis2kALVg-unsplash1.jpg)">
-        <ul class="list_of_values">
-
-            <li>
-                <h3>Drive Targeted Traffic</h3>
-                <p> Reach people actively searching for your products or services.</p>
-            </li>
-
-            <li>
-                <h3>Maximize Conversion</h3>
-                <p> Convert visitors into real customers by optimizing every click and landing page.</p>
-            </li>
-         
-            <li>
-                <h3>Achieve Better ROI</h3>
-                <p>Get faster results and pay only for clicks that bring real value.</p>
-            </li>
-   <li class="title_box_section">
-            <div class="value_section">
-
-                <div class="title_box">
-                        <h2 style="background-image:url(http://localhost/HDM-AE/wp-content/uploads/2025/05/cta3.jpg)" class="title">Turns Clicks Into Customers with PPC Advertising</h2>
-                        <p class="description">Convert visitors into real customers and boost your ROI with high-performance PPC advertising.</p>
-                        <a href="#" class="CTA_Default">
-                            <div class="box_1"></div>
-                            <div class="box_2"></div>
-                            <span style="background-image:url(<?=wp_get_attachment_image_url(127,'full')?>)">
-                                
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" style="user-select: none; width: 100%; height: 100%; display: inline-block; fill: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); color: var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255)); flex-shrink: 0;" focusable="false" color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))"><g color="var(--token-a85af9cb-7834-4006-a277-2dd1295ae376, rgb(255, 255, 255))" weight="regular"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></g></svg>
-                                <b>Convert Leads Into Customers
-                                </b>
-                            </span>
-                        </a>
-                </div>
-
-                </div>
-            </li>
-            <li>
-                <h3>Retarget and Recover Lost Leads</h3>
-                <p>Bring back visitors who didn’t convert the first time and turn interest into action.</p>
-            </li>
-            <li>
-                <h3>Gain Instant Visibility on Competitive Keywords</h3>
-                <p>Appear above competitors in search results without months of SEO work.</p>
-            </li>
-            <li>
-                <h3>Test and Scale Quickly</h3>
-                <p>Launch fast, validate ideas, and scale campaigns based on real-time performance data.</p>
-            </li>
-
-            </ul>   
-        </div>
-
-
-
-    </div>
-
-</div>
-
-
-
-<?php
+get_template_part('template-parts/ppc/section', 'intro', ['hero' => $fields['hero']]);
+get_template_part('template-parts/seo/section', 'seo-process');
+get_template_part('template-parts/global/section', 'case-study-item', ['case_study' => $fields['case_study']]);
+get_template_part('template-parts/app-install/section', 'additional-ad-services', ['ad_services' => $fields['ad_services']]);
+get_template_part('template-parts/app-install/section', 'ads-application', ['ads_applications' => $fields['ads_applications']]);
+get_template_part('template-parts/app-install/section', 'grow-app', ['services' => $fields['services']]);
+get_template_part('template-parts/global/section', 'testimonial', ['testimonial' => $fields['testimonial']]);
+get_template_part('template-parts/global/section', 'faq', ['faq' => $fields['faq']]);
 get_footer();
 ?>

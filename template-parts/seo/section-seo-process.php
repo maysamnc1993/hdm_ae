@@ -12,7 +12,7 @@ if (function_exists('have_rows') && have_rows('seo_process_cubes')):
         <h2 class="section-title text-6xl font-bold text-center text-white">
             <?php
             if (function_exists('get_field') && get_field('section_title')) {
-                echo esc_html(get_field('section_title'));
+                echo get_field('section_title');
             } else {
                 echo 'Our Process'; // Fallback title
             }
