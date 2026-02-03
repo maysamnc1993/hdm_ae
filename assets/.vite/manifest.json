@@ -123,7 +123,13 @@
     "file": "js/pages/ppc.js",
     "name": "pages/ppc",
     "src": "src/js/pages/ppc.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_faq.js",
+      "_index.js",
+      "_Draggable.js",
+      "_ScrollTrigger.js"
+    ]
   },
   "src/js/pages/seo.js": {
     "file": "js/pages/seo.js",
