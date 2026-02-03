@@ -30,7 +30,7 @@ $hero = [
     'google_image' => get_field('google_review_image') ?: '',
 ];
 
-$problem = [
+$problem = [ 
     'title' => get_field('problem_title') ?: 'What problem does this service solve?',
     'description' => get_field('problem_description') ?: 'It helps you clearly understand what is happening across your marketing system...',
 ];
