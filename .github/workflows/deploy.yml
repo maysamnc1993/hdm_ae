@@ -35,14 +35,11 @@ jobs:
           sudo apt-get install -y sshpass rsync
 
       # 5️⃣ Deploy build & theme files via rsync
-      - name: Deploy theme via rsync
-        run: |
-          sshpass -p "}JMpBC!qCtc," rsync -avz --progress \
-            --exclude=".git" \
-            --exclude="node_modules" \
-            --exclude="README.md" \
-            -e "ssh -p 6985 -o StrictHostKeyChecking=no" \
-            ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss/
+- name: Deploy theme via scp
+  run: |
+    sshpass -p "}JMpBC!qCtc," scp -r -P 6985 \
+      ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+
 
       # 6️⃣ Fix permissions on server
       - name: Set permissions on server
