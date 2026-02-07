@@ -34,12 +34,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass rsync
 
-      # 5️⃣ Deploy build & theme files via rsync
-- name: Deploy theme via scp
-  run: |
-    sshpass -p "}JMpBC!qCtc," scp -r -P 6985 \
-      ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-
+      # 5️⃣ Deploy build & theme files via scp
+      - name: Deploy theme via scp
+        env:
+          SSHPASS: "}JMpBC!qCtc,"
+        run: |
+          sshpass -e scp -P 6985 -o StrictHostKeyChecking=no -r \
+            --exclude='.git*' --exclude='node_modules' --exclude='.github' \
+            ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
       # 6️⃣ Fix permissions on server
       - name: Set permissions on server
