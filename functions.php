@@ -533,9 +533,9 @@ add_action('wp_enqueue_scripts', function () {
 
         wp_enqueue_style(
             'wa-style',
-            get_template_directory_uri() . '/assets/css/wa.css',
+            get_template_directory_uri() . '/assets/css/pages/wa.css',
             [],
-            filemtime(get_template_directory() . '/assets/css/wa.css')
+            filemtime(get_template_directory() . '/assets/css/pageswa.css')
         );
 
     }
