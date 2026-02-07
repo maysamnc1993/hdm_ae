@@ -25,7 +25,7 @@ jobs:
           npm run build
           composer install
 
-      - name: Sync Built Theme to cPanel Host via SSH
+      - name: Sync Built Theme via SCP
         env:
           SSHPASS: "}JMpBC!qCtc,"
         run: |
@@ -33,11 +33,12 @@ jobs:
           HOST="hdmarketingae@95.216.200.94"
           HOST_PATH="/home/hdmarketingae/public_html/new/wp-content/themes"
 
-          echo "🧹 حذف تم قبلی روی سرور"
-          sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "rm -rf $HOST_PATH/$THEME_DIR"
-
-          echo "🚚 در حال انتقال تم جدید"
-          sshpass -e rsync -az --delete -e 'ssh -p 6985 -o StrictHostKeyChecking=no' ./ $HOST:$HOST_PATH/$THEME_DIR --exclude '.git' --exclude 'node_modules' --exclude '.github'
+          echo "📦 انتقال تم با scp..."
+          sshpass -e scp -P 6985 -o StrictHostKeyChecking=no -r \
+            -o UserKnownHostsFile=/dev/null \
+            -o LogLevel=ERROR \
+            $(find . -maxdepth 1 ! -name '.git' ! -name 'node_modules' ! -name '.github' ! -name '.' ) \
+            $HOST:$HOST_PATH/$THEME_DIR
 
           echo "🔐 تنظیم دسترسی روی سرور"
           sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "chown -R hdmarketingae:hdmarketingae $HOST_PATH/$THEME_DIR && chmod -R 755 $HOST_PATH/$THEME_DIR"
