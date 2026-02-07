@@ -14,33 +14,32 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Deploy Theme from Public Repo
         run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass rsync
-      - name: Build Assets
-        run: |
-          npm install
-          npm run build
-          composer install
-      - name: Sync Built Theme via SCP
-        env:
-          SSHPASS: "}JMpBC!qCtc,"
-        run: |
-          THEME_DIR="hdm-theme-tailwindcss"
-          HOST="hdmarketingae@95.216.200.94"
-          HOST_PATH="/home/hdmarketingae/public_html/wp-content/themes"
-          echo "📦 انتقال تم با scp..."
-          sshpass -e scp -P 6985 -o StrictHostKeyChecking=no -r \
-            -o UserKnownHostsFile=/dev/null \
-            -o LogLevel=ERROR \
-            $(find . -maxdepth 1 ! -name '.git' ! -name 'node_modules' ! -name '.github' ! -name '.' ) \
-            $HOST:$HOST_PATH/$THEME_DIR
-          echo "🔐 تنظیم دسترسی روی سرور"
-          sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "chown -R hdmarketingae:hdmarketingae $HOST_PATH/$THEME_DIR && chmod -R 755 $HOST_PATH/$THEME_DIR"
-          echo "✅ Deployment کامل شد!"
-# نکات:
-#   - این نسخه همه فایل‌های ساخته‌شده و جدید را منتقل میکند
-#   - حذف clone و جایگزین با rsync برای انتقال پوشه کاری فعلی (فایل‌های ساخته‌شده)
-#   - پوشه‌های .git, node_modules, .github منتقل نمی‌شوند (exclude شده‌اند)
-#   - فقط تم فعلی را پاک می‌کند و جدید را منتقل می‌کند، احتیاط کنید که در مسیر لوکال دقیقا تم قرار داشته باشد!
+          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
+            hdmarketingae@95.216.200.94 << 'EOF'
+
+             echo "🔧 تنظیم مالکیت روی پوشه قدیمی"
+            chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss || true
+
+            echo "🧹 حذف پوشه قبلی"
+            rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+
+            echo "📥 کلون پروژه"
+            git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss
+
+            echo "📦 نصب پکیج‌ها"
+            cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+            npm install
+            npm run build
+            composer install
+
+            echo "🔐 تنظیم نهایی دسترسی‌ها"
+            chown -R hdmarketingae:hdmarketingae .
+            chmod -R 755 .
+
+            echo "✅ Deployment کامل شد!"
+          EOF
