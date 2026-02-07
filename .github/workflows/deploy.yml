@@ -18,33 +18,27 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass rsync
-
       - name: Build Assets
         run: |
           npm install
           npm run build
           composer install
-
       - name: Sync Built Theme via SCP
         env:
           SSHPASS: "}JMpBC!qCtc,"
         run: |
           THEME_DIR="hdm-theme-tailwindcss"
           HOST="hdmarketingae@95.216.200.94"
-          HOST_PATH="/home/hdmarketingae/public_html/new/wp-content/themes"
-
+          HOST_PATH="/home/hdmarketingae/public_html/wp-content/themes"
           echo "📦 انتقال تم با scp..."
           sshpass -e scp -P 6985 -o StrictHostKeyChecking=no -r \
             -o UserKnownHostsFile=/dev/null \
             -o LogLevel=ERROR \
             $(find . -maxdepth 1 ! -name '.git' ! -name 'node_modules' ! -name '.github' ! -name '.' ) \
             $HOST:$HOST_PATH/$THEME_DIR
-
           echo "🔐 تنظیم دسترسی روی سرور"
           sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "chown -R hdmarketingae:hdmarketingae $HOST_PATH/$THEME_DIR && chmod -R 755 $HOST_PATH/$THEME_DIR"
-
           echo "✅ Deployment کامل شد!"
-
 # نکات:
 #   - این نسخه همه فایل‌های ساخته‌شده و جدید را منتقل میکند
 #   - حذف clone و جایگزین با rsync برای انتقال پوشه کاری فعلی (فایل‌های ساخته‌شده)
