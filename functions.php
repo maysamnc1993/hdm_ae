@@ -538,6 +538,6 @@ add_action('wp_enqueue_scripts', function () {
             filemtime(get_template_directory() . '/assets/css/pageswa.css')
         );
 
-    }
+    } 
 
 });
