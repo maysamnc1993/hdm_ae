@@ -26,7 +26,7 @@ jobs:
             chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss || true
 
             echo "🧹 حذف پوشه قبلی"
-            rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+            rm -rf /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss
 
             echo "📥 کلون پروژه"
             git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss
