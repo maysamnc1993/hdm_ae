@@ -7,49 +7,45 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy Theme
+    name: Deploy Theme
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js 20 (برای سازگاری با همه پکیج‌ها)
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      # 3️⃣ Install dependencies and build assets
-      - name: Install dependencies & Build
-        run: |
-          npm ci
-          npm run svg-process || echo "SVG folder not found, skipping"
-          npm run build
-
-      # 4️⃣ Install sshpass & rsync
-      - name: Install sshpass & rsync
+      - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y sshpass rsync
 
-      # 5️⃣ Deploy build & theme files via scp
-      - name: Deploy theme via scp
+      - name: Build Assets
+        run: |
+          npm install
+          npm run build
+          composer install
+
+      - name: Sync Built Theme to cPanel Host via SSH
         env:
           SSHPASS: "}JMpBC!qCtc,"
         run: |
-          sshpass -e scp -P 6985 -o StrictHostKeyChecking=no -r \
-            --exclude='.git*' --exclude='node_modules' --exclude='.github' \
-            ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+          THEME_DIR="hdm-theme-tailwindcss"
+          HOST="hdmarketingae@95.216.200.94"
+          HOST_PATH="/home/hdmarketingae/public_html/new/wp-content/themes"
 
-      # 6️⃣ Fix permissions on server
-      - name: Set permissions on server
-        run: |
-          sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
-            hdmarketingae@95.216.200.94 << 'EOF'
-              chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-              find /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss -type d -exec chmod 755 {} \;
-              find /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss -type f -exec chmod 644 {} \;
-              echo "✅ Deployment completed successfully"
-            EOF
+          echo "🧹 حذف تم قبلی روی سرور"
+          sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "rm -rf $HOST_PATH/$THEME_DIR"
+
+          echo "🚚 در حال انتقال تم جدید"
+          sshpass -e rsync -az --delete -e 'ssh -p 6985 -o StrictHostKeyChecking=no' ./ $HOST:$HOST_PATH/$THEME_DIR --exclude '.git' --exclude 'node_modules' --exclude '.github'
+
+          echo "🔐 تنظیم دسترسی روی سرور"
+          sshpass -e ssh -p 6985 -o StrictHostKeyChecking=no $HOST "chown -R hdmarketingae:hdmarketingae $HOST_PATH/$THEME_DIR && chmod -R 755 $HOST_PATH/$THEME_DIR"
+
+          echo "✅ Deployment کامل شد!"
+
+# نکات:
+#   - این نسخه همه فایل‌های ساخته‌شده و جدید را منتقل میکند
+#   - حذف clone و جایگزین با rsync برای انتقال پوشه کاری فعلی (فایل‌های ساخته‌شده)
+#   - پوشه‌های .git, node_modules, .github منتقل نمی‌شوند (exclude شده‌اند)
+#   - فقط تم فعلی را پاک می‌کند و جدید را منتقل می‌کند، احتیاط کنید که در مسیر لوکال دقیقا تم قرار داشته باشد!
