@@ -7,39 +7,50 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Theme
+    name: Build & Deploy Theme
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      # 1. دریافت سورس
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 2. نصب Node برای build
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. نصب پکیج‌ها و build (روی GitHub، نه سرور)
+      - name: Install dependencies & build assets
+        run: |
+          npm install
+          npm run build
+
+      # 4. نصب sshpass
       - name: Install sshpass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy Theme from Public Repo
+      # 5. ارسال فایل‌های نهایی به سرور با rsync
+      - name: Upload theme to cPanel
+        run: |
+          sshpass -p "}JMpBC!qCtc," rsync -avz --delete \
+            --exclude=".git" \
+            --exclude=".github" \
+            --exclude="node_modules" \
+            -e "ssh -p 6985 -o StrictHostKeyChecking=no" \
+            ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+
+      # 6. تنظیم دسترسی‌ها (فقط روی theme)
+      - name: Fix permissions on server
         run: |
           sshpass -p "}JMpBC!qCtc," ssh -p 6985 -o StrictHostKeyChecking=no \
             hdmarketingae@95.216.200.94 << 'EOF'
+              chown -R hdmarketingae:hdmarketingae \
+              /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
-             echo "🔧 تنظیم مالکیت روی پوشه قدیمی"
-            chown -R hdmarketingae:hdmarketingae /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss || true
+              chmod -R 755 \
+              /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
-            echo "🧹 حذف پوشه قبلی"
-            rm -rf /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-
-            echo "📥 کلون پروژه"
-            git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-
-            echo "📦 نصب پکیج‌ها"
-            cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
-            npm install
-            npm run build
-            composer install
-
-            echo "🔐 تنظیم نهایی دسترسی‌ها"
-            chown -R hdmarketingae:hdmarketingae .
-            chmod -R 755 .
-
-            echo "✅ Deployment کامل شد!"
-          EOF
+              echo "✅ Deployment completed successfully"
+            EOF
