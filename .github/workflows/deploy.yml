@@ -32,7 +32,7 @@ jobs:
             git clone https://github.com/maysamnc1993/hdm_ae.git /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss
 
             echo "📦 نصب پکیج‌ها"
-            cd /home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
+            cd /home/hdmarketingae/public_html/wp-content/themes/hdm-theme-tailwindcss
             npm install
             npm run build
             composer install
