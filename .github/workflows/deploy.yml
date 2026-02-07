@@ -31,14 +31,10 @@
         - name: Install sshpass
           run: sudo apt-get update && sudo apt-get install -y sshpass
 
-        # 5. ارسال فایل‌های نهایی به سرور با rsync
-        - name: Upload theme to cPanel
+        # 5. Upload theme to cPanel using scp
+        - name: Upload theme to cPanel using scp
           run: |
-            sshpass -p "}JMpBC!qCtc," rsync -avz --delete \
-              --exclude=".git" \
-              --exclude=".github" \
-              --exclude="node_modules" \
-              -e "ssh -p 6985 -o StrictHostKeyChecking=no" \
+            sshpass -p "}JMpBC!qCtc," scp -r -P 6985 \
               ./ hdmarketingae@95.216.200.94:/home/hdmarketingae/public_html/new/wp-content/themes/hdm-theme-tailwindcss
 
         # 6. تنظیم دسترسی‌ها (فقط روی theme)
